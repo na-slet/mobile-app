@@ -1,5 +1,3 @@
-# See https://www.dartlang.org/guides/libraries/private-files
-
 # Files and directories created by pub
 .dart_tool/
 .packages
@@ -25,3 +23,12 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+/lib/generated/
+.vscode/launch.json
+/.idea/
+abc.iml

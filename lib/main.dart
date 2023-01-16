@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_simple_dependency_injection/injector.dart';
 
+import 'common_setup/ModuleContainer.dart';
 import 'generated/l10n.dart';
 
 void main() {
+  ModuleContainer.initialize(Injector());
   runApp(const MyApp());
 }
 

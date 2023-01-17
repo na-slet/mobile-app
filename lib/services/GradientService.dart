@@ -6,18 +6,16 @@ class GradinetPattern extends StatelessWidget {
   final colorService = Injector().get<ColorService>();
 
   final Widget child;
-  final Color gradientStartColor;
-  final Color gradientEndColor;
+  final TileMode tileMode;
   final BorderRadius borderRadius;
   final BlendMode blendMode;
 
   GradinetPattern({
     Key? key,
     required this.child,
-    required this.gradientStartColor,
-    required this.gradientEndColor,
     this.blendMode = BlendMode.color,
     this.borderRadius = const BorderRadius.all(Radius.circular(5)),
+    required this.tileMode,
   }) : super(key: key);
 
   @override
@@ -27,9 +25,7 @@ class GradinetPattern extends StatelessWidget {
       child: ShaderMask(
         blendMode: blendMode,
         shaderCallback: (Rect bounds) {
-          return LinearGradient(
-            colors: <Color>[gradientStartColor, gradientEndColor],
-          ).createShader(bounds);
+          return colorService.primaryGradient(tileMode).createShader(bounds);
         },
         child: child,
       ),

@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-
 class ColorService {
   Color primaryColor() {
-    // Сделать градиент!
     return const Color(0xFFF9B401);
   }
 
-  Color gradientStartColor() {
-    return const Color(0xFFFF9356);
-  }
-  Color gradientEndColor() {
-    return const Color(0xFFF9B401);
+  LinearGradient primaryGradient(TileMode tileMode) {
+    return LinearGradient(
+      tileMode: tileMode,
+      colors: const <Color>[
+        Color(0xFFFF9356),
+        Color(0xFFF9B401),
+      ],
+    );
   }
 
   Color secondaryGrey() {
     return const Color(0xFF707070);
+  }
+
+  Color desktopBackground() {
+    return const Color(0xFFF7F7F7);
   }
 
   Color signInScreenTitleColor() {

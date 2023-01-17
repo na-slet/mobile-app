@@ -1,3 +1,3 @@
 class FontService {
-  static const String Inter = 'Inter';
+  final String Inter = 'Inter';
 }

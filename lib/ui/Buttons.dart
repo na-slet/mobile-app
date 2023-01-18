@@ -12,14 +12,14 @@ class PrimaryButton extends StatelessWidget {
   final String title;
   final Color color;
   final TextStyle textStyle;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   PrimaryButton({
     Key? key,
     this.height = 45,
+    this.onTap,
     required this.title,
     required this.color,
-    required this.onTap,
     required this.textStyle,
   }) : super(key: key);
 

@@ -11,10 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d5b5c669-ba16-4f3b-ab74-da9ced88c087" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common_setup/ScreenSize.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common_setup/ScreenSize.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ru.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ru.arb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/auth/SignInScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/auth/SignInScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/GradientService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/GradientService.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/Buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/Buttons.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/Fields.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/Fields.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/auth/SignUpScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/auth/SignUpScreen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +58,7 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Flutter_projects/mobile-app&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Flutter_projects/mobile-app/lib/screens/auth&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -66,6 +66,11 @@
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Flutter_projects\mobile-app\lib\screens\auth" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

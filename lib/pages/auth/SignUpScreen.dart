@@ -9,13 +9,14 @@ import '../../services/ColorService.dart';
 import '../../services/GradientService.dart';
 import '../../ui/Fields.dart';
 
-class SignInPage extends StatelessWidget {
-  SignInPage({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({Key? key}) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
 
   final _textFormLoginController = TextEditingController();
   final _textFormPasswordController = TextEditingController();
+  final _textFormPasswordConfirmController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +27,12 @@ class SignInPage extends StatelessWidget {
           color: colorService.desktopBackground(),
           child: FractionallySizedBox(
             alignment: const Alignment(0, -0.8),
-            widthFactor: setSignInOptionWidth(context),
-            heightFactor: setSignInOptionHeight(context),
+            widthFactor: setSignUpOptionWidth(context),
+            heightFactor: setSignUpOptionHeight(context),
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius:
-                    (MediaQuery.of(context).size.width > FormFactor.tablet)
-                        ? BorderRadius.circular(10)
-                        : null,
+                borderRadius: BorderRadius.circular(10),
               ),
               child: FractionallySizedBox(
                 alignment: Alignment.center,
@@ -53,7 +51,8 @@ class SignInPage extends StatelessWidget {
                         height: 50,
                       ),
                       Text(
-                        S.current.signInScreenText,
+                        S.current.signUpScreenText,
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           color: colorService.signInScreenTitleColor(),
                           fontSize: 32,
@@ -61,7 +60,7 @@ class SignInPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 50,
                       ),
                       PrimaryTextField(
                         autofocus: true,
@@ -81,14 +80,24 @@ class SignInPage extends StatelessWidget {
                         controller: _textFormPasswordController,
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 30,
+                      ),
+                      PrimaryTextField(
+                        labelText: S.current.passwordConfirmFieldHintText,
+                        labelStyle:
+                            TextStyle(color: colorService.secondaryGrey()),
+                        obscureText: true,
+                        controller: _textFormPasswordConfirmController,
+                      ),
+                      const SizedBox(
+                        height: 30,
                       ),
                       SizedBox(
                         child: GradinetLeftToRight(
                           tileMode: TileMode.clamp,
                           child: PrimaryButton(
                             onTap: () {},
-                            title: S.current.signInButtonText,
+                            title: S.current.signUpButtonText,
                             color: Colors.transparent,
                             textStyle: const TextStyle(
                               fontSize: 18,
@@ -99,8 +108,9 @@ class SignInPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 10,
                       ),
+
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -151,14 +161,11 @@ class SignInPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            S.current.signInRegQuestionText,
+                            S.current.signUpEntryQuestionText,
                             style: TextStyle(
                               color: colorService.secondaryGrey(),
                               fontSize: 12,
@@ -170,7 +177,7 @@ class SignInPage extends StatelessWidget {
                             blendMode: BlendMode.srcIn,
                             child: PrimaryTextButton(
                               onTap: () {},
-                              text: S.current.signInRegButtonText,
+                              text: S.current.signUpEntryButtonText,
                               textStyle: TextStyle(
                                 fontSize: 12,
                                 color: colorService.primaryColor(),
@@ -181,8 +188,6 @@ class SignInPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Text(
-                      //     "${MediaQuery.of(context).size.width} x ${MediaQuery.of(context).size.height} ${setHeightFactor(context)}")
                     ],
                   ),
                 ),

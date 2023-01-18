@@ -16,7 +16,7 @@ extension ScreenSizeExtension on ScreenSize {
   double get widthFactor {
     switch (this) {
       case ScreenSize.desktop:
-        return 0.4;
+        return 0.55;
       case ScreenSize.tablet:
         return 0.5;
       case ScreenSize.mobile:
@@ -35,7 +35,7 @@ extension ScreenSizeExtension on ScreenSize {
   }
 }
 
-double setOptionWidth(BuildContext context) {
+double setSignInOptionWidth(BuildContext context) {
   if (setWidthFactor(context) == ScreenSize.desktop.widthFactor) {
     //desktop
     return  0.4;
@@ -50,10 +50,44 @@ double setOptionWidth(BuildContext context) {
   }
 }
 
-double setOptionHeight(BuildContext context) {
+double setSignInOptionHeight(BuildContext context) {
   if (setHeightFactor(context) == ScreenSize.desktop.heightFactor) {
     //desktop
+    return 0.71;
+  }
+  else if (setHeightFactor(context) == ScreenSize.tablet.heightFactor) {
+    //tablet
     return 0.8;
+  }
+  else {
+    //no scale in mobile mode
+    return 1;
+  }
+}
+
+double setSignUpOptionWidth(BuildContext context) {
+  if ((setWidthFactor(context) == ScreenSize.desktop.widthFactor) && (MediaQuery.of(context).size.width >= 1300)) {
+    //desktop
+    return  0.35;
+  }
+  else if ((setWidthFactor(context) == ScreenSize.desktop.widthFactor) && (MediaQuery.of(context).size.width < 1300)) {
+  //desktop
+  return  0.7;
+  }
+  else if (setWidthFactor(context) == ScreenSize.tablet.widthFactor) {
+    //tablet
+    return 0.6;
+  }
+  else {
+    //no scale in mobile mode
+    return 1;
+  }
+}
+
+double setSignUpOptionHeight(BuildContext context) {
+  if (setHeightFactor(context) == ScreenSize.desktop.heightFactor) {
+    //desktop
+    return 0.75;
   }
   else if (setHeightFactor(context) == ScreenSize.tablet.heightFactor) {
     //tablet
@@ -61,10 +95,10 @@ double setOptionHeight(BuildContext context) {
   }
   else {
     //no scale in mobile mode
-    print("1");
     return 1;
   }
 }
+
 double setWidthFactor(BuildContext context) {
   if (MediaQuery.of(context).size.width < FormFactor.tablet) {
     return ScreenSize.mobile.widthFactor;

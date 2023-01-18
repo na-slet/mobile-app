@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
 import '../../common_setup/Assets.dart';
+import '../../common_setup/Routes.dart';
 import '../../common_setup/ScreenSize.dart';
 import '../../generated/l10n.dart';
 import '../../services/ColorService.dart';
@@ -90,7 +91,7 @@ class SignUpPage extends StatelessWidget {
                         controller: _textFormPasswordConfirmController,
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 40,
                       ),
                       SizedBox(
                         child: GradinetLeftToRight(
@@ -108,7 +109,7 @@ class SignUpPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 30,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -160,6 +161,9 @@ class SignUpPage extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const SizedBox(
+                        height: 15,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -175,7 +179,13 @@ class SignUpPage extends StatelessWidget {
                             tileMode: TileMode.clamp,
                             blendMode: BlendMode.srcIn,
                             child: PrimaryTextButton(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.pushNamedAndRemoveUntil(
+                                  context,
+                                  Routes.signInPage,
+                                  (Route<dynamic> route) => false
+                                );
+                              },
                               text: S.current.signUpEntryButtonText,
                               textStyle: TextStyle(
                                 fontSize: 12,

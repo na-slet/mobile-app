@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
 import '../../common_setup/Assets.dart';
+import '../../common_setup/Routes.dart';
 import '../../common_setup/ScreenSize.dart';
 import '../../generated/l10n.dart';
 import '../../services/ColorService.dart';
@@ -152,7 +153,7 @@ class SignInPage extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 15,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -169,7 +170,13 @@ class SignInPage extends StatelessWidget {
                             tileMode: TileMode.clamp,
                             blendMode: BlendMode.srcIn,
                             child: PrimaryTextButton(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.pushNamedAndRemoveUntil(
+                                  context,
+                                  Routes.signUpPage,
+                                  (Route<dynamic> route) => false
+                                );
+                              },
                               text: S.current.signInRegButtonText,
                               textStyle: TextStyle(
                                 fontSize: 12,
@@ -181,8 +188,6 @@ class SignInPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Text(
-                      //     "${MediaQuery.of(context).size.width} x ${MediaQuery.of(context).size.height} ${setHeightFactor(context)}")
                     ],
                   ),
                 ),

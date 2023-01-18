@@ -188,7 +188,7 @@ class SignInPage extends StatelessWidget {
                                   ],
                                 ),
                                 const SizedBox(
-                                  height: 20,
+                                  height: 15,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -205,7 +205,12 @@ class SignInPage extends StatelessWidget {
                                       tileMode: TileMode.clamp,
                                       blendMode: BlendMode.srcIn,
                                       child: PrimaryTextButton(
-                                        onTap: () {},
+                                        onTap: () {
+                                          Navigator.pushNamedAndRemoveUntil(
+                                              context,
+                                              Routes.signUpPage,
+                                              (Route<dynamic> route) => false);
+                                        },
                                         text: S.current.signInRegButtonText,
                                         textStyle: TextStyle(
                                           fontSize: 12,
@@ -218,104 +223,12 @@ class SignInPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                // Text(
-                                //     "${MediaQuery.of(context).size.width} x ${MediaQuery.of(context).size.height} ${setHeightFactor(context)}")
                               ],
                             ),
                           ),
                         ),
                       ),
                     ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Expanded(
-                            child: Container(
-                              height: 1,
-                              color: colorService.signInDecorationLineColor(),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Text(
-                            S.current.altAuthText,
-                            style: TextStyle(
-                              color: colorService.secondaryGrey(),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Expanded(
-                            child: Container(
-                              height: 1,
-                              color: colorService.signInDecorationLineColor(),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          CircleButton(
-                            onTap: () {},
-                            imgPath: A.assetsAuthVkImg,
-                          ),
-                          const SizedBox(
-                            width: 25,
-                          ),
-                          CircleButton(
-                            onTap: () {},
-                            imgPath: A.assetsAuthGoogleImg,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            S.current.signInRegQuestionText,
-                            style: TextStyle(
-                              color: colorService.secondaryGrey(),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          GradinetLeftToRight(
-                            tileMode: TileMode.clamp,
-                            blendMode: BlendMode.srcIn,
-                            child: PrimaryTextButton(
-                              onTap: () {
-                                Navigator.pushNamedAndRemoveUntil(
-                                  context,
-                                  Routes.signUpPage,
-                                  (Route<dynamic> route) => false
-                                );
-                              },
-                              text: S.current.signInRegButtonText,
-                              textStyle: TextStyle(
-                                fontSize: 12,
-                                color: colorService.primaryColor(),
-                                decoration: TextDecoration.underline,
-                                decorationColor: colorService.primaryColor(),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
                   ),
                 ),
               ),

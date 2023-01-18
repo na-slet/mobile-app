@@ -9,8 +9,8 @@ import '../../services/ColorService.dart';
 import '../../services/GradientService.dart';
 import '../../ui/Fields.dart';
 
-class SignInScreen extends StatelessWidget {
-  SignInScreen({Key? key}) : super(key: key);
+class SignInPage extends StatelessWidget {
+  SignInPage({Key? key}) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
 
@@ -31,7 +31,10 @@ class SignInScreen extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius:
+                    (MediaQuery.of(context).size.width > FormFactor.tablet)
+                        ? BorderRadius.circular(10)
+                        : null,
               ),
               child: FractionallySizedBox(
                 alignment: Alignment.center,

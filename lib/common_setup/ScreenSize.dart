@@ -38,7 +38,7 @@ extension ScreenSizeExtension on ScreenSize {
 double setSignInOptionWidth(BuildContext context) {
   if (setWidthFactor(context) == ScreenSize.desktop.widthFactor) {
     //desktop
-    return  0.4;
+    return  0.35;
   }
   else if (setWidthFactor(context) == ScreenSize.tablet.widthFactor) {
     //tablet
@@ -87,7 +87,7 @@ double setSignUpOptionWidth(BuildContext context) {
 double setSignUpOptionHeight(BuildContext context) {
   if (setHeightFactor(context) == ScreenSize.desktop.heightFactor) {
     //desktop
-    return 0.75;
+    return 0.81;
   }
   else if (setHeightFactor(context) == ScreenSize.tablet.heightFactor) {
     //tablet

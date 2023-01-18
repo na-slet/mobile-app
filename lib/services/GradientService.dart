@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 import '../services/ColorService.dart';
 
-class GradinetPattern extends StatelessWidget {
+class GradinetLeftToRight extends StatelessWidget {
   final colorService = Injector().get<ColorService>();
 
   final Widget child;
@@ -10,7 +10,7 @@ class GradinetPattern extends StatelessWidget {
   final BorderRadius borderRadius;
   final BlendMode blendMode;
 
-  GradinetPattern({
+  GradinetLeftToRight({
     Key? key,
     required this.child,
     this.blendMode = BlendMode.color,

@@ -76,7 +76,7 @@ class PrimaryTextButton extends StatelessWidget {
   }
 }
 
-class PrimaryCircleButton extends StatelessWidget {
+class CircleButton extends StatelessWidget {
   final colorService = Injector().get<ColorService>();
 
   final double height;
@@ -84,7 +84,7 @@ class PrimaryCircleButton extends StatelessWidget {
   final String imgPath;
   final VoidCallback onTap;
 
-  PrimaryCircleButton({
+  CircleButton({
     Key? key,
     this.height = 40,
     this.width = 40,

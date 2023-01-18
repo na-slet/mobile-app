@@ -28,7 +28,7 @@ class SignUpScreen extends StatelessWidget {
           child: FractionallySizedBox(
             alignment: const Alignment(0, -0.8),
             widthFactor: setSignUpOptionWidth(context),
-            heightFactor: setOptionHeight(context),
+            heightFactor: setSignUpOptionHeight(context),
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -64,7 +64,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       PrimaryTextField(
                         autofocus: true,
-                        labelText: S.current.LoginFieldHintText,
+                        labelText: S.current.loginFieldHintText,
                         labelStyle:
                             TextStyle(color: colorService.secondaryGrey()),
                         controller: _textFormLoginController,
@@ -73,7 +73,7 @@ class SignUpScreen extends StatelessWidget {
                         height: 30,
                       ),
                       PrimaryTextField(
-                        labelText: S.current.PasswordFieldHintText,
+                        labelText: S.current.passwordFieldHintText,
                         labelStyle:
                             TextStyle(color: colorService.secondaryGrey()),
                         obscureText: true,
@@ -83,7 +83,7 @@ class SignUpScreen extends StatelessWidget {
                         height: 30,
                       ),
                       PrimaryTextField(
-                        labelText: S.current.PasswordConfirmFieldHintText,
+                        labelText: S.current.passwordConfirmFieldHintText,
                         labelStyle:
                             TextStyle(color: colorService.secondaryGrey()),
                         obscureText: true,
@@ -110,9 +110,60 @@ class SignUpScreen extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Expanded(
+                            child: Container(
+                              height: 1,
+                              color: colorService.signInDecorationLineColor(),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          Text(
+                            S.current.altAuthText,
+                            style: TextStyle(
+                              color: colorService.secondaryGrey(),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: 1,
+                              color: colorService.signInDecorationLineColor(),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: <Widget>[
+                          CircleButton(
+                            onTap: () {},
+                            imgPath: A.assetsAuthVkImg,
+                          ),
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          CircleButton(
+                            onTap: () {},
+                            imgPath: A.assetsAuthGoogleImg,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
                           Text(
                             S.current.signUpEntryQuestionText,
                             style: TextStyle(
@@ -134,56 +185,6 @@ class SignUpScreen extends StatelessWidget {
                                 decorationColor: colorService.primaryColor(),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Expanded(
-                            child: Container(
-                              height: 1,
-                              color: colorService.signInDecorationLineColor(),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Text(
-                            S.current.AltAuthText,
-                            style: TextStyle(
-                              color: colorService.secondaryGrey(),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Expanded(
-                            child: Container(
-                              height: 1,
-                              color: colorService.signInDecorationLineColor(),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          CircleButton(
-                            onTap: () {},
-                            imgPath: A.assetsAuthVkImg,
-                          ),
-                          const SizedBox(
-                            width: 25,
-                          ),
-                          CircleButton(
-                            onTap: () {},
-                            imgPath: A.assetsAuthGoogleImg,
                           ),
                         ],
                       ),

@@ -26,8 +26,8 @@ class SignInScreen extends StatelessWidget {
           color: colorService.desktopBackground(),
           child: FractionallySizedBox(
             alignment: const Alignment(0, -0.8),
-            widthFactor: setOptionWidth(context),
-            heightFactor: setOptionHeight(context),
+            widthFactor: setSignInOptionWidth(context),
+            heightFactor: setSignInOptionHeight(context),
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -58,11 +58,11 @@ class SignInScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 50,
+                        height: 40,
                       ),
                       PrimaryTextField(
                         autofocus: true,
-                        labelText: S.current.LoginFieldHintText,
+                        labelText: S.current.loginFieldHintText,
                         labelStyle:
                             TextStyle(color: colorService.secondaryGrey()),
                         controller: _textFormLoginController,
@@ -71,7 +71,7 @@ class SignInScreen extends StatelessWidget {
                         height: 30,
                       ),
                       PrimaryTextField(
-                        labelText: S.current.PasswordFieldHintText,
+                        labelText: S.current.passwordFieldHintText,
                         labelStyle:
                             TextStyle(color: colorService.secondaryGrey()),
                         obscureText: true,
@@ -111,7 +111,7 @@ class SignInScreen extends StatelessWidget {
                             width: 16,
                           ),
                           Text(
-                            S.current.AltAuthText,
+                            S.current.altAuthText,
                             style: TextStyle(
                               color: colorService.secondaryGrey(),
                               fontSize: 12,
@@ -151,27 +151,32 @@ class SignInScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      Text(
-                        S.current.signInRegQuestionText,
-                        style: TextStyle(
-                          color: colorService.secondaryGrey(),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      GradinetLeftToRight(
-                        tileMode: TileMode.clamp,
-                        blendMode: BlendMode.srcIn,
-                        child: PrimaryTextButton(
-                          onTap: () {},
-                          text: S.current.signInRegButtonText,
-                          textStyle: TextStyle(
-                            fontSize: 12,
-                            color: colorService.primaryColor(),
-                            decoration: TextDecoration.underline,
-                            decorationColor: colorService.primaryColor(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            S.current.signInRegQuestionText,
+                            style: TextStyle(
+                              color: colorService.secondaryGrey(),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
+                          GradinetLeftToRight(
+                            tileMode: TileMode.clamp,
+                            blendMode: BlendMode.srcIn,
+                            child: PrimaryTextButton(
+                              onTap: () {},
+                              text: S.current.signInRegButtonText,
+                              textStyle: TextStyle(
+                                fontSize: 12,
+                                color: colorService.primaryColor(),
+                                decoration: TextDecoration.underline,
+                                decorationColor: colorService.primaryColor(),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       // Text(
                       //     "${MediaQuery.of(context).size.width} x ${MediaQuery.of(context).size.height} ${setHeightFactor(context)}")

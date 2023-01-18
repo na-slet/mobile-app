@@ -7,16 +7,17 @@ import 'common_setup/Routes.dart';
 import 'generated/l10n.dart';
 import 'pages/auth/SignInPage.dart';
 import 'pages/auth/SignUpPage.dart';
+
 import 'services/FontService.dart';
 
 void main() {
   ModuleContainer.initialize(Injector());
-  runApp(MyApp());
+  runApp(NaSletApp());
 }
 
-class MyApp extends StatelessWidget {
+class NaSletApp extends StatelessWidget {
   final fontService = Injector().get<FontService>();
-  MyApp({super.key});
+  NaSletApp({super.key});
 
   @override
   Widget build(BuildContext context) {

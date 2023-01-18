@@ -10,11 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5b5c669-ba16-4f3b-ab74-da9ced88c087" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/common_setup/Routes.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/common_setup/ScreenSize.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common_setup/ScreenSize.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ru.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ru.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/auth/SignInScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/auth/SignInScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/auth/SignUpScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/auth/SignUpScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/auth/SignInPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/auth/SignInPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/auth/SignUpPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/auth/SignUpPage.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

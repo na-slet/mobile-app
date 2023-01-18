@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:naslet_mobile/ui/Buttons.dart';
 
 import '../../common_setup/Assets.dart';
 import '../../common_setup/ScreenSize.dart';
 import '../../generated/l10n.dart';
 import '../../services/ColorService.dart';
 import '../../services/GradientService.dart';
+import '../../ui/Buttons.dart';
 import '../../ui/Fields.dart';
 
 class SignInPage extends StatelessWidget {

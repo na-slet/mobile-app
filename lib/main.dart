@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:naslet_mobile/services/FontService.dart';
 
 import 'common_setup/ModuleContainer.dart';
 import 'generated/l10n.dart';
-import 'pages/auth/SignUpScreen.dart';
+import 'pages/auth/SignUpPage.dart';
+import 'services/FontService.dart';
 
 void main() {
   ModuleContainer.initialize(Injector());
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(fontFamily: fontService.Inter),
-      home: SignUpScreen(),
+      home: SignUpPage(),
     );
   }
 }

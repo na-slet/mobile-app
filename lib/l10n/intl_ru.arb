@@ -1,0 +1,10 @@
+{
+    "@@locale": "ru",
+    "signInScreenText": "Вход",
+    "signInLoginFieldHintText": "Почта",
+    "signInPasswordFieldHintText": "Пароль",
+    "signInButtonText": "Войти",
+    "signInAltAuthText": "или",
+    "signInRegQuestionText": "Нет профиля?",
+    "signInRegButtonText": "Создай!"
+}

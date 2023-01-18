@@ -9,13 +9,14 @@ import '../../services/ColorService.dart';
 import '../../services/GradientService.dart';
 import '../../ui/Fields.dart';
 
-class SignInScreen extends StatelessWidget {
-  SignInScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({Key? key}) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
 
   final _textFormLoginController = TextEditingController();
   final _textFormPasswordController = TextEditingController();
+  final _textFormPasswordConfirmController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class SignInScreen extends StatelessWidget {
           color: colorService.desktopBackground(),
           child: FractionallySizedBox(
             alignment: const Alignment(0, -0.8),
-            widthFactor: setOptionWidth(context),
+            widthFactor: setSignUpOptionWidth(context),
             heightFactor: setOptionHeight(context),
             child: Container(
               decoration: BoxDecoration(
@@ -50,7 +51,8 @@ class SignInScreen extends StatelessWidget {
                         height: 50,
                       ),
                       Text(
-                        S.current.signInScreenText,
+                        S.current.signUpScreenText,
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           color: colorService.signInScreenTitleColor(),
                           fontSize: 32,
@@ -78,14 +80,24 @@ class SignInScreen extends StatelessWidget {
                         controller: _textFormPasswordController,
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 30,
+                      ),
+                      PrimaryTextField(
+                        labelText: S.current.PasswordConfirmFieldHintText,
+                        labelStyle:
+                            TextStyle(color: colorService.secondaryGrey()),
+                        obscureText: true,
+                        controller: _textFormPasswordConfirmController,
+                      ),
+                      const SizedBox(
+                        height: 30,
                       ),
                       SizedBox(
                         child: GradinetLeftToRight(
                           tileMode: TileMode.clamp,
                           child: PrimaryButton(
                             onTap: () {},
-                            title: S.current.signInButtonText,
+                            title: S.current.signUpButtonText,
                             color: Colors.transparent,
                             textStyle: const TextStyle(
                               fontSize: 18,
@@ -96,7 +108,34 @@ class SignInScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            S.current.signUpEntryQuestionText,
+                            style: TextStyle(
+                              color: colorService.secondaryGrey(),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          GradinetLeftToRight(
+                            tileMode: TileMode.clamp,
+                            blendMode: BlendMode.srcIn,
+                            child: PrimaryTextButton(
+                              onTap: () {},
+                              text: S.current.signUpEntryButtonText,
+                              textStyle: TextStyle(
+                                fontSize: 12,
+                                color: colorService.primaryColor(),
+                                decoration: TextDecoration.underline,
+                                decorationColor: colorService.primaryColor(),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -130,7 +169,7 @@ class SignInScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 40,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -148,33 +187,6 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        S.current.signInRegQuestionText,
-                        style: TextStyle(
-                          color: colorService.secondaryGrey(),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      GradinetLeftToRight(
-                        tileMode: TileMode.clamp,
-                        blendMode: BlendMode.srcIn,
-                        child: PrimaryTextButton(
-                          onTap: () {},
-                          text: S.current.signInRegButtonText,
-                          textStyle: TextStyle(
-                            fontSize: 12,
-                            color: colorService.primaryColor(),
-                            decoration: TextDecoration.underline,
-                            decorationColor: colorService.primaryColor(),
-                          ),
-                        ),
-                      ),
-                      // Text(
-                      //     "${MediaQuery.of(context).size.width} x ${MediaQuery.of(context).size.height} ${setHeightFactor(context)}")
                     ],
                   ),
                 ),

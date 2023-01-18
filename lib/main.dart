@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:naslet_mobile/screens/auth/SignInScreen.dart';
+import 'package:naslet_mobile/screens/auth/SignUpScreen.dart';
 import 'package:naslet_mobile/services/FontService.dart';
 
 import 'common_setup/ModuleContainer.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(fontFamily: fontService.Inter),
-      home: SignInScreen(),
+      home: SignUpScreen(),
     );
   }
 }

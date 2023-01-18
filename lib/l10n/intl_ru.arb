@@ -1,10 +1,15 @@
 {
     "@@locale": "ru",
     "signInScreenText": "Вход",
-    "signInLoginFieldHintText": "Почта",
-    "signInPasswordFieldHintText": "Пароль",
+    "signUpScreenText": "Регистрация",
+    "LoginFieldHintText": "Почта",
+    "PasswordFieldHintText": "Пароль",
+    "PasswordConfirmFieldHintText": "Пароль ещё раз",
     "signInButtonText": "Войти",
-    "signInAltAuthText": "или",
+    "signUpButtonText": "Зарегистрироваться",
+    "AltAuthText": "или",
     "signInRegQuestionText": "Нет профиля?",
-    "signInRegButtonText": "Создай!"
+    "signInRegButtonText": "Создай!",
+    "signUpEntryQuestionText": "Есть профиль?",
+    "signUpEntryButtonText": "Войти"
 }

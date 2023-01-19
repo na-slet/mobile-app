@@ -1,11 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_login_vk/flutter_login_vk.dart';
 import 'package:meta/meta.dart';
 
 import '../../../generated/l10n.dart';
-import '../../../services/APIService.dart';
 import '../../../services/AuthService.dart';
 
 part 'sign_up_event.dart';
@@ -34,9 +31,9 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
 
       if (response.contains('Token: ')) {
         emit(SignUpSuccess(token: response));
+      } else {
+        emit(SignUpError(error: response));
       }
-
-      emit(SignUpError(error: response));
     });
   }
 }

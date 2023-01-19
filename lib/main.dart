@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
+import 'package:naslet_mobile/services/AuthService.dart';
 
 import 'utils/ModuleContainer.dart';
 import 'utils/Routes.dart';
@@ -18,6 +19,8 @@ void main() {
 
 class NaSletApp extends StatelessWidget {
   final fontService = Injector().get<FontService>();
+  final authService = Injector().get<AuthService>();
+
   NaSletApp({super.key});
 
   @override
@@ -33,7 +36,8 @@ class NaSletApp extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(fontFamily: fontService.Inter),
-      initialRoute: Routes.mainPage,
+      initialRoute:
+          (authService.token == '') ? Routes.signInPage : Routes.mainPage,
       routes: {
         Routes.signInPage: (context) => SignInPage(),
         Routes.signUpPage: (context) => SignUpPage(),

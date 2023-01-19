@@ -15,7 +15,6 @@ import '../../utils/Routes.dart';
 import '../../utils/ScreenSize.dart';
 import '../../generated/l10n.dart';
 import '../../services/ColorService.dart';
-import '../../services/GradientService.dart';
 import '../../ui/Buttons.dart';
 import '../../ui/Fields.dart';
 import 'blocs/sign_in_bloc.dart';
@@ -41,7 +40,8 @@ class SignInPage extends StatelessWidget {
             if (state is SignInError) {
               _showSnackBar(context: context, text: state.error);
             } else if (state is SignInSuccess) {
-              _showSnackBar(context: context, text: state.token);
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil(Routes.mainPage, (route) => false);
             }
           },
           builder: (context, state) {
@@ -247,8 +247,7 @@ class SignInPage extends StatelessWidget {
                                             Navigator.pushNamedAndRemoveUntil(
                                                 context,
                                                 Routes.signUpPage,
-                                                (Route<dynamic> route) =>
-                                                    false);
+                                                (route) => false);
                                           },
                                           text: S.current.signInRegButtonText,
                                           textStyle: TextStyle(

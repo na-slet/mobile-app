@@ -5,10 +5,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_vk/flutter_login_vk.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:naslet_mobile/services/APIService.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../generated/l10n.dart';
 
 class AuthService {
+  String _token = '';
+  late final SharedPreferences prefs;
+
+  get token => _token;
+
+  AuthService() {
+    _init();
+  }
+
+  _init() async {
+    prefs = await SharedPreferences.getInstance();
+    _token = prefs.getString('token') ?? '';
+  }
+
   Future<FirebaseApp> initializeFirebase(
       {required BuildContext context}) async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
@@ -22,7 +37,10 @@ class AuthService {
         request: 'user/login', data: {'email': email, 'password': password});
 
     try {
-      if (data != '') return 'Token: ${data['access_token']}';
+      if (data != '' && data['access_token'] != '') {
+        await prefs.setString('token', data['access_token']);
+        return 'Token: ${data['access_token']}';
+      }
     } catch (e) {
       return S.current.userNotExistError;
     }
@@ -36,7 +54,10 @@ class AuthService {
         request: 'user/auth', data: {'email': email, 'password': password});
 
     try {
-      if (data != '') return 'Token: ${data['access_token']}';
+      if (data != '' && data['access_token'] != '') {
+        await prefs.setString('token', data['access_token']);
+        return 'Token: ${data['access_token']}';
+      }
     } catch (e) {
       return S.current.userExistError;
     }

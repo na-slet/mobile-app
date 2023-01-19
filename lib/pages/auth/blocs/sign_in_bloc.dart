@@ -23,19 +23,19 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         emit(SignInLoading());
         response = await authService.loginUser(
             email: event.email, password: event.password);
-      } else if (event is SignUpRegVK) {
+      } else if (event is SignInAuthVK) {
         emit(SignInLoading());
         response = await authService.authVK();
-      } else if (event is SignUpRegGoogle) {
+      } else if (event is SignInAuthGoogle) {
         emit(SignInLoading());
         response = await authService.authGoogle();
       }
 
       if (response.contains('Token: ')) {
         emit(SignInSuccess(token: response));
+      } else {
+        emit(SignInError(error: response));
       }
-
-      emit(SignInError(error: response));
     });
   }
 }

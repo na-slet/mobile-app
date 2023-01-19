@@ -39,7 +39,8 @@ class SignUpPage extends StatelessWidget {
             if (state is SignUpError) {
               _showSnackBar(context: context, text: state.error);
             } else if (state is SignUpSuccess) {
-              _showSnackBar(context: context, text: state.token);
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil(Routes.signInPage, (route) => false);
             }
           },
           builder: (context, state) {
@@ -288,8 +289,7 @@ class SignUpPage extends StatelessWidget {
                                               Navigator.pushNamedAndRemoveUntil(
                                                   context,
                                                   Routes.signInPage,
-                                                  (Route<dynamic> route) =>
-                                                      false);
+                                                  (route) => false);
                                             },
                                             text:
                                                 S.current.signUpEntryButtonText,

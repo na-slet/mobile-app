@@ -23,6 +23,7 @@ dependencies:
   flutter_login_vk: ^2.2.2
   firebase_core: ^2.4.1
   firebase_auth: ^4.2.5
+  shared_preferences: ^2.0.16
 
 dev_dependencies:
   flutter_test:

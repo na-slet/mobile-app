@@ -11,7 +11,7 @@ import '../../services/ColorService.dart';
 import '../../services/GradientService.dart';
 import '../../ui/Buttons.dart';
 import '../../ui/Fields.dart';
-import 'blocs/signin_bloc.dart';
+import 'blocs/sign_in_bloc.dart';
 
 class SignInPage extends StatelessWidget {
   SignInPage({Key? key}) : super(key: key);

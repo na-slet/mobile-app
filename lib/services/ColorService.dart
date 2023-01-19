@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorService {
   Color primaryColor() {
-    return const Color(0xFFF9B401);
+    return const Color(0xFFF97801);
   }
 
   LinearGradient primaryGradient(TileMode tileMode) {

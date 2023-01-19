@@ -10,19 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5b5c669-ba16-4f3b-ab74-da9ced88c087" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/icons/nav_bar_icons/FeedTabIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/nav_bar_icons/MyRallyTabIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/nav_bar_icons/MyTourTabIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/nav_bar_icons/ProfileTabIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/main/MainPage.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/ui/NavigationBar.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/common_setup/Assets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common_setup/Assets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/common_setup/Routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common_setup/Routes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ru.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ru.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/main/MainPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/main/MainPage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/services/ColorService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/ColorService.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/NavigationBar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/NavigationBar.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

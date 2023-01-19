@@ -57,8 +57,9 @@ class _MobileMainPageState extends State<MobileMainPage> {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: MobileBottomNavigationWidget(
-          onItemTapped: _onItemTapped,
           selectedIndex: _selectedIndex,
+          onItemTapped: _onItemTapped,
+          height: 70,
         ),
         body: Container(),
       ),

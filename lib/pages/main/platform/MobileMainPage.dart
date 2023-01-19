@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../ui/navigation_bar/MobileNavigationBar.dart';
 
-
-
-
-
 class MobileMainPage extends StatefulWidget {
   const MobileMainPage({Key? key}) : super(key: key);
 
@@ -14,12 +10,11 @@ class MobileMainPage extends StatefulWidget {
 }
 
 class _MobileMainPageState extends State<MobileMainPage> {
-
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(
-          () {
+      () {
         _selectedIndex = index;
         switch (index) {
           case 0:

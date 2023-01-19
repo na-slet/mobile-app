@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:naslet_mobile/common_setup/ScreenSize.dart';
 
-import '../../common_setup/Routes.dart';
+import '../../utils/ScreenSize.dart';
 import 'platform/DesktopMainPage.dart';
 import 'platform/MobileMainPage.dart';
-
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -14,7 +12,7 @@ class MainPage extends StatelessWidget {
     return SafeArea(
       child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-        if (MediaQuery.of(context).size.width < FormFactor.tablet + 100) {
+        if (MediaQuery.of(context).size.width < WidthFormFactor.tablet + 100) {
           return MobileMainPage();
         } else {
           return DesktopMainPage();

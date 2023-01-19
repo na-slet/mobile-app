@@ -8,7 +8,7 @@ import 'generated/l10n.dart';
 import 'pages/auth/SignInPage.dart';
 import 'pages/auth/SignUpPage.dart';
 
-import 'screens/main/MainPage.dart';
+import 'pages/main/MainPage.dart';
 import 'services/FontService.dart';
 
 void main() {

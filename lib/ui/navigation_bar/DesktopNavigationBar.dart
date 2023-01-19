@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
-import '../../common_setup/Assets.dart';
+import '../../utils/Assets.dart';
 import '../../services/ColorService.dart';
-import 'MobileNavigationBar.dart';
 
 class DesktopNavigationBar extends StatefulWidget {
+  final int selectedIndex;
 
-  const DesktopNavigationBar({Key? key}) : super(key: key);
+  const DesktopNavigationBar({required this.selectedIndex, Key? key})
+      : super(key: key);
 
   @override
   State<DesktopNavigationBar> createState() => _DesktopNavigationBarState();
@@ -16,14 +17,12 @@ class DesktopNavigationBar extends StatefulWidget {
 class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
   static final colorService = Injector().get<ColorService>();
 
-  final _inactiveColor = colorService.bottomNavigationBarInactiveColor();
-
-  // final FunctionIntCallBack onItemTapped;
-  int selectedIndex ;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    selectedIndex = widget.selectedIndex;
+    return SizedBox(
       width: MediaQuery.of(context).size.width * 0.1,
       child: Row(
         children: [
@@ -42,7 +41,6 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
           IconButton(
             onPressed: () {
               selectedIndex = 1;
-
             },
             icon: ImageIcon(Image.asset(
               A.assetsBookmarkTabIcon,

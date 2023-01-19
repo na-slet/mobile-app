@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
-import '../../../common_setup/Assets.dart';
+import '../../../utils/Assets.dart';
 import '../../../services/ColorService.dart';
 import '../../../ui/navigation_bar/DesktopNavigationBar.dart';
 

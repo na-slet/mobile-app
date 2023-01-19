@@ -54,12 +54,12 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
           final String? email = await vk.getUserEmail();
           if (profile != null && email != null) {
             await apiService
-                .authUser(email: email, password: profile.userId.toString())
+                .regUser(email: email, password: profile.userId.toString())
                 .then((value) => {
                       if (value != '')
                         emit(SignInSuccess(token: value))
                       else
-                        SignInError(error: S.current.userNotExistError)
+                        SignInError(error: S.current.tryAgainError)
                     });
           } else {
             emit(SignInError(error: S.current.needEmailError));
@@ -87,7 +87,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
                 if (value != '')
                   emit(SignInSuccess(token: value))
                 else
-                  emit(SignInError(error: S.current.userNotExistError))
+                  emit(SignInError(error: S.current.tryAgainError))
               });
     } else {
       emit(SignInError(error: S.current.unexpectedError));

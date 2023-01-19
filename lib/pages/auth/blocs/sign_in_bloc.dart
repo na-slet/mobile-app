@@ -4,8 +4,8 @@ import 'package:meta/meta.dart';
 
 import 'package:naslet_mobile/services/APIService.dart';
 
-part 'signin_event.dart';
-part 'signin_state.dart';
+part 'sign_in_event.dart';
+part 'sign_in_state.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   final APIService apiService;

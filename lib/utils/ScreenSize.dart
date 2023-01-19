@@ -1,9 +1,15 @@
 import 'package:flutter/cupertino.dart';
 
-class FormFactor {
+class WidthFormFactor {
   static double mobile = 360;
   static double tablet = 850;
   static double desktop = 950;
+}
+
+class HeightFormFactor {
+  static double mobile = 360;
+  static double tablet = 920;
+  static double desktop = 1000;
 }
 
 enum ScreenSize {
@@ -51,16 +57,17 @@ double setSignInOptionWidth(BuildContext context) {
 }
 
 double setSignInOptionHeight(BuildContext context) {
-  if (setHeightFactor(context) == ScreenSize.desktop.heightFactor) {
+  if (MediaQuery.of(context).size.height >= HeightFormFactor.desktop) {
     //desktop
-    return 0.71;
+    print("0.65");
+    return 0.65;
   }
-  else if (setHeightFactor(context) == ScreenSize.tablet.heightFactor) {
+  else if (MediaQuery.of(context).size.height >= HeightFormFactor.tablet) {
     //tablet
-    return 0.8;
+    print("0.8");
+    return 0.7;
   }
   else {
-    //no scale in mobile mode
     return 1;
   }
 }
@@ -85,13 +92,13 @@ double setSignUpOptionWidth(BuildContext context) {
 }
 
 double setSignUpOptionHeight(BuildContext context) {
-  if (setHeightFactor(context) == ScreenSize.desktop.heightFactor) {
+  if (MediaQuery.of(context).size.height >= HeightFormFactor.desktop) {
     //desktop
-    return 0.81;
+    return 0.65;
   }
-  else if (setHeightFactor(context) == ScreenSize.tablet.heightFactor) {
+  else if (MediaQuery.of(context).size.height >= HeightFormFactor.tablet) {
     //tablet
-    return 0.9;
+    return 0.7;
   }
   else {
     //no scale in mobile mode
@@ -100,22 +107,21 @@ double setSignUpOptionHeight(BuildContext context) {
 }
 
 double setWidthFactor(BuildContext context) {
-  if (MediaQuery.of(context).size.width < FormFactor.tablet) {
+  if (MediaQuery.of(context).size.width < WidthFormFactor.tablet) {
     return ScreenSize.mobile.widthFactor;
   }
-  else if ((MediaQuery.of(context).size.width > FormFactor.mobile) &&
-      (MediaQuery.of(context).size.width < FormFactor.desktop)) {
+  else if ((MediaQuery.of(context).size.width > WidthFormFactor.mobile) &&
+      (MediaQuery.of(context).size.width < WidthFormFactor.desktop)) {
     return ScreenSize.tablet.widthFactor;
   }
   return ScreenSize.desktop.widthFactor;
 }
 
 double setHeightFactor(BuildContext context) {
-  if (MediaQuery.of(context).size.height < FormFactor.tablet) {
+  if (MediaQuery.of(context).size.height >= HeightFormFactor.desktop) {
     return ScreenSize.mobile.heightFactor;
   }
-  else if ((MediaQuery.of(context).size.height > FormFactor.tablet) &&
-      (MediaQuery.of(context).size.height < FormFactor.desktop)) {
+  else if (MediaQuery.of(context).size.height >= HeightFormFactor.tablet) {
     return ScreenSize.tablet.heightFactor;
   }
   return ScreenSize.desktop.heightFactor;

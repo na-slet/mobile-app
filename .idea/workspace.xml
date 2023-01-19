@@ -13,8 +13,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/auth/SignInPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/auth/SignInPage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/auth/SignUpPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/auth/SignUpPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/GradientService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/GradientService.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/Buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/Buttons.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/ScreenSize.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/ScreenSize.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

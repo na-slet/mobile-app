@@ -85,17 +85,14 @@ class SignInPage extends StatelessWidget {
                         height: 40,
                       ),
                       SizedBox(
-                        child: GradinetLeftToRight(
-                          tileMode: TileMode.clamp,
-                          child: PrimaryButton(
-                            onTap: () {},
-                            title: S.current.signInButtonText,
-                            color: Colors.transparent,
-                            textStyle: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                            ),
+                        child: PrimaryButton(
+                          onTap: () {},
+                          title: S.current.signInButtonText,
+                          color: Colors.transparent,
+                          textStyle: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -166,24 +163,20 @@ class SignInPage extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          GradinetLeftToRight(
-                            tileMode: TileMode.clamp,
-                            blendMode: BlendMode.srcIn,
-                            child: PrimaryTextButton(
-                              onTap: () {
-                                Navigator.pushNamedAndRemoveUntil(
-                                  context,
-                                  Routes.signUpPage,
-                                  (Route<dynamic> route) => false
-                                );
-                              },
-                              text: S.current.signInRegButtonText,
-                              textStyle: TextStyle(
-                                fontSize: 12,
-                                color: colorService.primaryColor(),
-                                decoration: TextDecoration.underline,
-                                decorationColor: colorService.primaryColor(),
-                              ),
+                          PrimaryTextButton(
+                            onTap: () {
+                              Navigator.pushNamedAndRemoveUntil(
+                                context,
+                                Routes.signUpPage,
+                                (Route<dynamic> route) => false
+                              );
+                            },
+                            text: S.current.signInRegButtonText,
+                            textStyle: TextStyle(
+                              fontSize: 12,
+                              color: colorService.primaryColor(),
+                              decoration: TextDecoration.underline,
+                              decorationColor: colorService.primaryColor(),
                             ),
                           ),
                         ],

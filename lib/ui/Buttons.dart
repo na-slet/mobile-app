@@ -4,6 +4,7 @@ import 'package:flutter_simple_dependency_injection/injector.dart';
 
 import '../common_setup/Assets.dart';
 import '../services/ColorService.dart';
+import '../services/GradientService.dart';
 
 class PrimaryButton extends StatelessWidget {
   final colorService = Injector().get<ColorService>();
@@ -25,20 +26,24 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onTap,
+    return GradinetLeftToRight(
+      blendMode: BlendMode.color,
+      tileMode: TileMode.clamp,
+      child: Container(
+        height: height,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: color,
           borderRadius: BorderRadius.circular(5),
-          child: Center(
-            child: Text(title, style: textStyle),
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: onTap,
+            borderRadius: BorderRadius.circular(5),
+            child: Center(
+              child: Text(title, style: textStyle),
+            ),
           ),
         ),
       ),
@@ -62,14 +67,18 @@ class PrimaryTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
-      child: CupertinoButton(
-        onPressed: onTap,
-        borderRadius: BorderRadius.circular(5),
-        child: Text(
-          text,
-          style: textStyle,
+    return GradinetLeftToRight(
+      tileMode: TileMode.clamp,
+      blendMode: BlendMode.srcIn,
+      child: SizedBox(
+        height: height,
+        child: CupertinoButton(
+          onPressed: onTap,
+          borderRadius: BorderRadius.circular(5),
+          child: Text(
+            text,
+            style: textStyle,
+          ),
         ),
       ),
     );

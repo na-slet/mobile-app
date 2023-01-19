@@ -94,17 +94,14 @@ class SignUpPage extends StatelessWidget {
                         height: 40,
                       ),
                       SizedBox(
-                        child: GradinetLeftToRight(
-                          tileMode: TileMode.clamp,
-                          child: PrimaryButton(
-                            onTap: () {},
-                            title: S.current.signUpButtonText,
-                            color: Colors.transparent,
-                            textStyle: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                            ),
+                        child: PrimaryButton(
+                          onTap: () {},
+                          title: S.current.signUpButtonText,
+                          color: Colors.transparent,
+                          textStyle: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white,
                           ),
                         ),
                       ),

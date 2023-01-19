@@ -13,9 +13,9 @@ class GradinetLeftToRight extends StatelessWidget {
   GradinetLeftToRight({
     Key? key,
     required this.child,
-    this.blendMode = BlendMode.color,
+    required this.blendMode,
     this.borderRadius = const BorderRadius.all(Radius.circular(5)),
-    required this.tileMode,
+    this.tileMode = TileMode.clamp,
   }) : super(key: key);
 
   @override

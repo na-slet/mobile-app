@@ -14,3 +14,11 @@ class SignUpReg extends SignUpEvent {
 }
 
 class SignUpRegVK extends SignUpEvent {}
+
+class SignUpRegGoogle extends SignUpEvent {
+  final BuildContext context;
+
+  SignUpRegGoogle({
+    required this.context,
+  });
+}

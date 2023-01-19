@@ -6,9 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:naslet_mobile/services/APIService.dart';
 
-import '../../common_setup/Assets.dart';
-import '../../common_setup/Routes.dart';
-import '../../common_setup/ScreenSize.dart';
+import '../../utils/Assets.dart';
+import '../../utils/Authentication.dart';
+import '../../utils/Routes.dart';
+import '../../utils/ScreenSize.dart';
 import '../../generated/l10n.dart';
 import '../../services/ColorService.dart';
 import '../../services/GradientService.dart';
@@ -29,6 +30,7 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Authentication.initializeFirebase(context: context);
     return BlocProvider(
       create: (context) => SignUpBloc(apiService: apiService),
       child: Scaffold(
@@ -241,7 +243,10 @@ class SignUpPage extends StatelessWidget {
                                           : 0,
                                     ),
                                     CircleButton(
-                                      onTap: () {},
+                                      onTap: () {
+                                        context.read<SignUpBloc>().add(
+                                            SignUpRegGoogle(context: context));
+                                      },
                                       imgPath: A.assetsAuthGoogleImg,
                                     ),
                                   ],

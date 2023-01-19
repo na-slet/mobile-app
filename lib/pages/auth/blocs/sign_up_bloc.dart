@@ -1,9 +1,12 @@
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_login_vk/flutter_login_vk.dart';
 import 'package:meta/meta.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../services/APIService.dart';
+import '../../../utils/Authentication.dart';
 
 part 'sign_up_event.dart';
 part 'sign_up_state.dart';
@@ -17,10 +20,14 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     on<SignUpEvent>((event, emit) async {
       if (event is SignUpReg) {
         emit(SignUpLoading());
-        _regUser(email: event.email, password: event.password, emit: emit);
+        await _regUser(
+            email: event.email, password: event.password, emit: emit);
       } else if (event is SignUpRegVK) {
         emit(SignUpLoading());
         await _regVKUser(emit: emit);
+      } else if (event is SignUpRegGoogle) {
+        emit(SignUpLoading());
+        await _regGoogleUser(context: event.context, emit: emit);
       }
     });
   }
@@ -65,13 +72,34 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     }
   }
 
+  _regGoogleUser(
+      {required BuildContext context,
+      required Emitter<SignUpState> emit}) async {
+    User? user = await Authentication.signInWithGoogle(context: context);
+
+    if (user != null && user.email != null) {
+      await apiService
+          .regUser(email: user.email!, password: user.uid)
+          .then((value) => {
+                if (value != '')
+                  emit(SignUpSuccess(token: value))
+                else
+                  emit(SignUpError(error: S.current.tryAgainError))
+              });
+    } else {
+      emit(SignUpError(error: S.current.unexpectedError));
+    }
+  }
+
   _regUser(
       {required String email,
       required String password,
       required Emitter<SignUpState> emit}) async {
-    apiService
-        .regUser(email: email, password: password)
-        .then((value) => {if (value != '') emit(SignUpSuccess(token: value))});
-    emit(SignUpError(error: S.current.tryAgainError));
+    await apiService.regUser(email: email, password: password).then((value) => {
+          if (value != '')
+            emit(SignUpSuccess(token: value))
+          else
+            emit(SignUpError(error: S.current.tryAgainError))
+        });
   }
 }

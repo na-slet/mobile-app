@@ -21,6 +21,8 @@ dependencies:
   dio: ^4.0.6
   google_sign_in: ^5.4.3
   flutter_login_vk: ^2.2.2
+  firebase_core: ^2.4.1
+  firebase_auth: ^4.2.5
 
 dev_dependencies:
   flutter_test:

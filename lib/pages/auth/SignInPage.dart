@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,9 +8,10 @@ import 'package:flutter_login_vk/flutter_login_vk.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:naslet_mobile/services/APIService.dart';
 
-import '../../common_setup/Assets.dart';
-import '../../common_setup/Routes.dart';
-import '../../common_setup/ScreenSize.dart';
+import '../../utils/Assets.dart';
+import '../../utils/Authentication.dart';
+import '../../utils/Routes.dart';
+import '../../utils/ScreenSize.dart';
 import '../../generated/l10n.dart';
 import '../../services/ColorService.dart';
 import '../../services/GradientService.dart';
@@ -29,6 +31,7 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Authentication.initializeFirebase(context: context);
     return BlocProvider(
       create: (context) => SignInBloc(apiService: apiService),
       child: Scaffold(
@@ -208,7 +211,10 @@ class SignInPage extends StatelessWidget {
                                           : 0,
                                     ),
                                     CircleButton(
-                                      onTap: () {},
+                                      onTap: () {
+                                        context.read<SignInBloc>().add(
+                                            SignInAuthGoogle(context: context));
+                                      },
                                       imgPath: A.assetsAuthGoogleImg,
                                     ),
                                   ],

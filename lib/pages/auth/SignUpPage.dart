@@ -7,7 +7,7 @@ import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:naslet_mobile/services/APIService.dart';
 
 import '../../utils/Assets.dart';
-import '../../utils/Authentication.dart';
+import '../../services/AuthService.dart';
 import '../../utils/Routes.dart';
 import '../../utils/ScreenSize.dart';
 import '../../generated/l10n.dart';
@@ -21,7 +21,7 @@ class SignUpPage extends StatelessWidget {
   SignUpPage({Key? key}) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
-  final apiService = Injector().get<APIService>();
+  final authService = Injector().get<AuthService>();
 
   final _textFormLoginController = TextEditingController();
   final _textFormPasswordController = TextEditingController();
@@ -30,9 +30,9 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Authentication.initializeFirebase(context: context);
+    authService.initializeFirebase(context: context);
     return BlocProvider(
-      create: (context) => SignUpBloc(apiService: apiService),
+      create: (context) => SignUpBloc(authService: authService),
       child: Scaffold(
         body: BlocConsumer<SignUpBloc, SignUpState>(
           listener: (context, state) {
@@ -70,7 +70,8 @@ class SignUpPage extends StatelessWidget {
                                 child: Form(
                                   key: _formKey,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: <Widget>[
                                       SizedBox(
                                         width: 134,
@@ -84,8 +85,8 @@ class SignUpPage extends StatelessWidget {
                                         S.current.signUpScreenText,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          color:
-                                              colorService.signInScreenTitleColor(),
+                                          color: colorService
+                                              .signInScreenTitleColor(),
                                           fontSize: 32,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -98,7 +99,8 @@ class SignUpPage extends StatelessWidget {
                                         readonly: (state is SignUpLoading),
                                         labelText: S.current.loginFieldHintText,
                                         labelStyle: TextStyle(
-                                            color: colorService.secondaryGrey()),
+                                            color:
+                                                colorService.secondaryGrey()),
                                         validator: (value) {
                                           if (value == null || value.isEmpty) {
                                             return S.current.emailError;
@@ -116,9 +118,11 @@ class SignUpPage extends StatelessWidget {
                                       ),
                                       PrimaryTextField(
                                         readonly: (state is SignUpLoading),
-                                        labelText: S.current.passwordFieldHintText,
+                                        labelText:
+                                            S.current.passwordFieldHintText,
                                         labelStyle: TextStyle(
-                                            color: colorService.secondaryGrey()),
+                                            color:
+                                                colorService.secondaryGrey()),
                                         obscureText: true,
                                         validator: (value) {
                                           if (value == null || value.isEmpty) {
@@ -132,7 +136,8 @@ class SignUpPage extends StatelessWidget {
                                           }
                                           return null;
                                         },
-                                        textInputType: TextInputType.visiblePassword,
+                                        textInputType:
+                                            TextInputType.visiblePassword,
                                         controller: _textFormPasswordController,
                                       ),
                                       const SizedBox(
@@ -140,10 +145,11 @@ class SignUpPage extends StatelessWidget {
                                       ),
                                       PrimaryTextField(
                                         readonly: (state is SignUpLoading),
-                                        labelText:
-                                            S.current.passwordConfirmFieldHintText,
+                                        labelText: S.current
+                                            .passwordConfirmFieldHintText,
                                         labelStyle: TextStyle(
-                                            color: colorService.secondaryGrey()),
+                                            color:
+                                                colorService.secondaryGrey()),
                                         obscureText: true,
                                         validator: (value) {
                                           if (value == null || value.isEmpty) {
@@ -155,7 +161,8 @@ class SignUpPage extends StatelessWidget {
                                           }
                                           return null;
                                         },
-                                        textInputType: TextInputType.visiblePassword,
+                                        textInputType:
+                                            TextInputType.visiblePassword,
                                         controller:
                                             _textFormPasswordConfirmController,
                                       ),
@@ -169,8 +176,9 @@ class SignUpPage extends StatelessWidget {
                                               : () {
                                                   if (_formKey.currentState!
                                                       .validate()) {
-                                                    context.read<SignUpBloc>().add(
-                                                        SignUpReg(
+                                                    context
+                                                        .read<SignUpBloc>()
+                                                        .add(SignUpReg(
                                                             email:
                                                                 _textFormLoginController
                                                                     .text,
@@ -208,7 +216,8 @@ class SignUpPage extends StatelessWidget {
                                           Text(
                                             S.current.altAuthText,
                                             style: TextStyle(
-                                              color: colorService.secondaryGrey(),
+                                              color:
+                                                  colorService.secondaryGrey(),
                                               fontSize: 12,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -229,7 +238,8 @@ class SignUpPage extends StatelessWidget {
                                         height: 30,
                                       ),
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: <Widget>[
                                           (!kIsWeb && Platform.isAndroid)
                                               ? CircleButton(
@@ -242,14 +252,16 @@ class SignUpPage extends StatelessWidget {
                                                 )
                                               : Container(),
                                           SizedBox(
-                                            width: (!kIsWeb && Platform.isAndroid)
-                                                ? 25
-                                                : 0,
+                                            width:
+                                                (!kIsWeb && Platform.isAndroid)
+                                                    ? 25
+                                                    : 0,
                                           ),
                                           CircleButton(
                                             onTap: () {
-                                              context.read<SignUpBloc>().add(
-                                                  SignUpRegGoogle(context: context));
+                                              context
+                                                  .read<SignUpBloc>()
+                                                  .add(SignUpRegGoogle());
                                             },
                                             imgPath: A.assetsAuthGoogleImg,
                                           ),
@@ -259,12 +271,14 @@ class SignUpPage extends StatelessWidget {
                                         height: 15,
                                       ),
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: <Widget>[
                                           Text(
                                             S.current.signUpEntryQuestionText,
                                             style: TextStyle(
-                                              color: colorService.secondaryGrey(),
+                                              color:
+                                                  colorService.secondaryGrey(),
                                               fontSize: 12,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -274,13 +288,17 @@ class SignUpPage extends StatelessWidget {
                                               Navigator.pushNamedAndRemoveUntil(
                                                   context,
                                                   Routes.signInPage,
-                                                  (Route<dynamic> route) => false);
+                                                  (Route<dynamic> route) =>
+                                                      false);
                                             },
-                                            text: S.current.signUpEntryButtonText,
+                                            text:
+                                                S.current.signUpEntryButtonText,
                                             textStyle: TextStyle(
                                               fontSize: 12,
-                                              color: colorService.primaryColor(),
-                                              decoration: TextDecoration.underline,
+                                              color:
+                                                  colorService.primaryColor(),
+                                              decoration:
+                                                  TextDecoration.underline,
                                               decorationColor:
                                                   colorService.primaryColor(),
                                             ),

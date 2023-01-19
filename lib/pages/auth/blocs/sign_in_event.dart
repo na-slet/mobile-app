@@ -16,10 +16,4 @@ class SignInAuth extends SignInEvent {
 
 class SignInAuthVK extends SignInEvent {}
 
-class SignInAuthGoogle extends SignInEvent {
-  final BuildContext context;
-
-  SignInAuthGoogle({
-    required this.context,
-  });
-}
+class SignInAuthGoogle extends SignInEvent {}

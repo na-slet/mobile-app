@@ -10,7 +10,7 @@ import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:naslet_mobile/services/APIService.dart';
 
 import '../../utils/Assets.dart';
-import '../../utils/Authentication.dart';
+import '../../services/AuthService.dart';
 import '../../utils/Routes.dart';
 import '../../utils/ScreenSize.dart';
 import '../../generated/l10n.dart';
@@ -24,7 +24,7 @@ class SignInPage extends StatelessWidget {
   SignInPage({Key? key}) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
-  final apiService = Injector().get<APIService>();
+  final authService = Injector().get<AuthService>();
 
   final _textFormLoginController = TextEditingController();
   final _textFormPasswordController = TextEditingController();
@@ -32,9 +32,9 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Authentication.initializeFirebase(context: context);
+    authService.initializeFirebase(context: context);
     return BlocProvider(
-      create: (context) => SignInBloc(apiService: apiService),
+      create: (context) => SignInBloc(authService: authService),
       child: Scaffold(
         body: BlocConsumer<SignInBloc, SignInState>(
           listener: (context, state) {
@@ -87,8 +87,8 @@ class SignInPage extends StatelessWidget {
                                     Text(
                                       S.current.signInScreenText,
                                       style: TextStyle(
-                                        color:
-                                            colorService.signInScreenTitleColor(),
+                                        color: colorService
+                                            .signInScreenTitleColor(),
                                         fontSize: 32,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -115,7 +115,8 @@ class SignInPage extends StatelessWidget {
                                     ),
                                     PrimaryTextField(
                                       readonly: (state is SignInLoading),
-                                      labelText: S.current.passwordFieldHintText,
+                                      labelText:
+                                          S.current.passwordFieldHintText,
                                       labelStyle: TextStyle(
                                           color: colorService.secondaryGrey()),
                                       obscureText: true,
@@ -137,8 +138,9 @@ class SignInPage extends StatelessWidget {
                                             : () {
                                                 if (_formKey.currentState!
                                                     .validate()) {
-                                                  context.read<SignInBloc>().add(
-                                                      SignInAuth(
+                                                  context
+                                                      .read<SignInBloc>()
+                                                      .add(SignInAuth(
                                                           email:
                                                               _textFormLoginController
                                                                   .text,
@@ -197,7 +199,8 @@ class SignInPage extends StatelessWidget {
                                       height: 30,
                                     ),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: <Widget>[
                                         (!kIsWeb && Platform.isAndroid)
                                             ? CircleButton(
@@ -216,9 +219,9 @@ class SignInPage extends StatelessWidget {
                                         ),
                                         CircleButton(
                                           onTap: () {
-                                            context.read<SignInBloc>().add(
-                                                SignInAuthGoogle(
-                                                    context: context));
+                                            context
+                                                .read<SignInBloc>()
+                                                .add(SignInAuthGoogle());
                                           },
                                           imgPath: A.assetsAuthGoogleImg,
                                         ),
@@ -228,7 +231,8 @@ class SignInPage extends StatelessWidget {
                                       height: 15,
                                     ),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: <Widget>[
                                         Text(
                                           S.current.signInRegQuestionText,
@@ -243,13 +247,15 @@ class SignInPage extends StatelessWidget {
                                             Navigator.pushNamedAndRemoveUntil(
                                                 context,
                                                 Routes.signUpPage,
-                                                (Route<dynamic> route) => false);
+                                                (Route<dynamic> route) =>
+                                                    false);
                                           },
                                           text: S.current.signInRegButtonText,
                                           textStyle: TextStyle(
                                             fontSize: 12,
                                             color: colorService.primaryColor(),
-                                            decoration: TextDecoration.underline,
+                                            decoration:
+                                                TextDecoration.underline,
                                             decorationColor:
                                                 colorService.primaryColor(),
                                           ),

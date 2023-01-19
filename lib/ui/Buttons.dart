@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
-import '../common_setup/Assets.dart';
+import '../utils/Assets.dart';
 import '../services/ColorService.dart';
 import '../services/GradientService.dart';
 

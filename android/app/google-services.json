@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "966965482453",
+    "project_id": "naslet-auth",
+    "storage_bucket": "naslet-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966965482453:android:ac8d840b4ed72ff87e235c",
+        "android_client_info": {
+          "package_name": "com.example.naslet_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966965482453-v6c9m5l15kdr3agk63rqabbud7723png.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.naslet_mobile",
+            "certificate_hash": "5c13524f17f3d9f58b392c221b329fdd90e49ecf"
+          }
+        },
+        {
+          "client_id": "966965482453-jn2lviak6fj8majc2d9e3sn0etnd0qva.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABIDv1FVyx5cg-AIJfE4P57HXwnaWYWvk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966965482453-jn2lviak6fj8majc2d9e3sn0etnd0qva.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

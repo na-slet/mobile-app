@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
-import 'common_setup/ModuleContainer.dart';
-import 'common_setup/Routes.dart';
+import 'utils/ModuleContainer.dart';
+import 'utils/Routes.dart';
 import 'generated/l10n.dart';
 import 'pages/auth/SignInPage.dart';
 import 'pages/auth/SignUpPage.dart';

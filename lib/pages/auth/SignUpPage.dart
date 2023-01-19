@@ -119,26 +119,25 @@ class SignUpPage extends StatelessWidget {
                                 ),
                                 SizedBox(
                                   child: PrimaryButton(
-                                      onTap: (state is SignUpLoading)
-                                          ? null
-                                          : () {
-                                              context.read<SignUpBloc>().add(
-                                                  SignUpReg(
-                                                      email:
-                                                          _textFormLoginController
-                                                              .text,
-                                                      password:
-                                                          _textFormPasswordController
-                                                              .text));
-                                            },
-                                      title: S.current.signUpButtonText,
-                                      color: Colors.transparent,
-                                      textStyle: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.white,
-                                      ),
-                                    
+                                    onTap: (state is SignUpLoading)
+                                        ? null
+                                        : () {
+                                            context.read<SignUpBloc>().add(
+                                                SignUpReg(
+                                                    email:
+                                                        _textFormLoginController
+                                                            .text,
+                                                    password:
+                                                        _textFormPasswordController
+                                                            .text));
+                                          },
+                                    title: S.current.signUpButtonText,
+                                    color: Colors.transparent,
+                                    textStyle: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(
@@ -211,31 +210,26 @@ class SignUpPage extends StatelessWidget {
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
-                                    GradinetLeftToRight(
-                                      tileMode: TileMode.clamp,
-                                      blendMode: BlendMode.srcIn,
-                                      child: PrimaryTextButton(
-                                        onTap: () {
-                                          Navigator.pushNamedAndRemoveUntil(
-                                              context,
-                                              Routes.signInPage,
-                                              (Route<dynamic> route) => false);
-                                        },
-                                        text: S.current.signUpEntryButtonText,
-                                        textStyle: TextStyle(
-                                          fontSize: 12,
-                                          color: colorService.primaryColor(),
-                                          decoration: TextDecoration.underline,
-                                          decorationColor:
-                                              colorService.primaryColor(),
-                                        ),
+                                    PrimaryTextButton(
+                                      onTap: () {
+                                        Navigator.pushNamedAndRemoveUntil(
+                                            context,
+                                            Routes.signInPage,
+                                            (Route<dynamic> route) => false);
+                                      },
+                                      text: S.current.signUpEntryButtonText,
+                                      textStyle: TextStyle(
+                                        fontSize: 12,
+                                        color: colorService.primaryColor(),
+                                        decoration: TextDecoration.underline,
+                                        decorationColor:
+                                            colorService.primaryColor(),
                                       ),
                                     ),
                                   ],
                                 ),
                               ],
                             ),
-
                           ),
                         ),
                       ),
@@ -249,7 +243,7 @@ class SignUpPage extends StatelessWidget {
       ),
     );
   }
-  
+
   _showSnackBar({required BuildContext context, required String text}) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(

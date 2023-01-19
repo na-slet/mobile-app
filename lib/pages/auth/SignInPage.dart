@@ -107,25 +107,24 @@ class SignInPage extends StatelessWidget {
                                 ),
                                 SizedBox(
                                   child: PrimaryButton(
-                                      onTap: (state is SignInLoading)
-                                          ? null
-                                          : () {
-                                              context.read<SignInBloc>().add(
-                                                  SignInAuth(
-                                                      email:
-                                                          _textFormLoginController
-                                                              .text,
-                                                      password:
-                                                          _textFormPasswordController
-                                                              .text));
-                                            },
-                                      title: S.current.signInButtonText,
-                                      color: Colors.transparent,
-                                      textStyle: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.white,
-                                      ),
+                                    onTap: (state is SignInLoading)
+                                        ? null
+                                        : () {
+                                            context.read<SignInBloc>().add(
+                                                SignInAuth(
+                                                    email:
+                                                        _textFormLoginController
+                                                            .text,
+                                                    password:
+                                                        _textFormPasswordController
+                                                            .text));
+                                          },
+                                    title: S.current.signInButtonText,
+                                    color: Colors.transparent,
+                                    textStyle: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
                                     ),
                                   ),
                                 ),
@@ -200,21 +199,21 @@ class SignInPage extends StatelessWidget {
                                       ),
                                     ),
                                     PrimaryTextButton(
-                                        onTap: () {
-                                          Navigator.pushNamedAndRemoveUntil(
-                                              context,
-                                              Routes.signUpPage,
-                                              (Route<dynamic> route) => false);
-                                        },
-                                        text: S.current.signInRegButtonText,
-                                        textStyle: TextStyle(
-                                          fontSize: 12,
-                                          color: colorService.primaryColor(),
-                                          decoration: TextDecoration.underline,
-                                          decorationColor:
-                                              colorService.primaryColor(),
-                                        ),
+                                      onTap: () {
+                                        Navigator.pushNamedAndRemoveUntil(
+                                            context,
+                                            Routes.signUpPage,
+                                            (Route<dynamic> route) => false);
+                                      },
+                                      text: S.current.signInRegButtonText,
+                                      textStyle: TextStyle(
+                                        fontSize: 12,
+                                        color: colorService.primaryColor(),
+                                        decoration: TextDecoration.underline,
+                                        decorationColor:
+                                            colorService.primaryColor(),
                                       ),
+                                    ),
                                   ],
                                 ),
                               ],

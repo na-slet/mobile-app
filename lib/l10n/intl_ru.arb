@@ -26,5 +26,9 @@
     "needEmailError": "Необходима электронная почта",
     "userNotExistError": "Такого пользователя не существует. Необходимо зарегистрироваться",
     "userExistError": "Вероятно, такой пользователь существует. Попробуйте войти в аккаунт",
-    "tryAgainError": "Ошибка! Попробуйте еще раз"
+    "tryAgainError": "Ошибка! Попробуйте еще раз",
+    
+    "navBarFeedTabTitleText": "Лента",
+    "navBarMyTourTabTitleText": "Мои слёты",
+    "navBarProfileTabTitleText": "Профиль"
 }

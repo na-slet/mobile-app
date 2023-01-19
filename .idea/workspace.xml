@@ -9,6 +9,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="d5b5c669-ba16-4f3b-ab74-da9ced88c087" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/icons/nav_bar_icons/BookmarkTabIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/logoDesktopClient.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/main/platform/DesktopMainPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/main/platform/MobileMainPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/navigation_bar/DesktopNavigationBar.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/navigation_bar/MobileNavigationBar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/nav_bar_icons/MyRallyTabIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common_setup/Assets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common_setup/Assets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/main/MainPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/main/MainPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/NavigationBar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+    </list>
     <list default="true" id="d5b5c669-ba16-4f3b-ab74-da9ced88c087" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

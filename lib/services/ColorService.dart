@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorService {
   Color primaryColor() {
-    return const Color(0xFFF9B401);
+    return const Color(0xFFF97801);
   }
 
   LinearGradient primaryGradient(TileMode tileMode) {
@@ -17,6 +17,10 @@ class ColorService {
 
   Color secondaryGrey() {
     return const Color(0xFF707070);
+  }
+
+  Color bottomNavigationBarInactiveColor() {
+    return Color(0xFF515151);
   }
 
   Color desktopBackground() {

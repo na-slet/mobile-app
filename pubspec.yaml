@@ -36,6 +36,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/icons/nav_bar_icons/
 
   fonts:
     - family: Inter

@@ -12,3 +12,5 @@ class SignUpReg extends SignUpEvent {
     required this.password,
   });
 }
+
+class SignUpRegVK extends SignUpEvent {}

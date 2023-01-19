@@ -32,3 +32,4 @@ doc/api/
 .vscode/launch.json
 /.idea/
 abc.iml
+android/.idea/

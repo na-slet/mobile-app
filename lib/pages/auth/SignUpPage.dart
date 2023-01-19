@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
@@ -222,12 +225,20 @@ class SignUpPage extends StatelessWidget {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                                    CircleButton(
-                                      onTap: () {},
-                                      imgPath: A.assetsAuthVkImg,
-                                    ),
-                                    const SizedBox(
-                                      width: 25,
+                                    (!kIsWeb && Platform.isAndroid)
+                                        ? CircleButton(
+                                            onTap: () {
+                                              context
+                                                  .read<SignUpBloc>()
+                                                  .add(SignUpRegVK());
+                                            },
+                                            imgPath: A.assetsAuthVkImg,
+                                          )
+                                        : Container(),
+                                    SizedBox(
+                                      width: (!kIsWeb && Platform.isAndroid)
+                                          ? 25
+                                          : 0,
                                     ),
                                     CircleButton(
                                       onTap: () {},

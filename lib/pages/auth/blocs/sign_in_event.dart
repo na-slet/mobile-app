@@ -13,3 +13,5 @@ class SignInAuth extends SignInEvent {
     required this.password,
   });
 }
+
+class SignInAuthVK extends SignInEvent {}

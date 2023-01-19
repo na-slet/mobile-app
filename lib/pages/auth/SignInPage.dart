@@ -106,9 +106,7 @@ class SignInPage extends StatelessWidget {
                                   height: 40,
                                 ),
                                 SizedBox(
-                                  child: GradinetLeftToRight(
-                                    tileMode: TileMode.clamp,
-                                    child: PrimaryButton(
+                                  child: PrimaryButton(
                                       onTap: (state is SignInLoading)
                                           ? null
                                           : () {
@@ -201,10 +199,7 @@ class SignInPage extends StatelessWidget {
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
-                                    GradinetLeftToRight(
-                                      tileMode: TileMode.clamp,
-                                      blendMode: BlendMode.srcIn,
-                                      child: PrimaryTextButton(
+                                    PrimaryTextButton(
                                         onTap: () {
                                           Navigator.pushNamedAndRemoveUntil(
                                               context,
@@ -220,7 +215,6 @@ class SignInPage extends StatelessWidget {
                                               colorService.primaryColor(),
                                         ),
                                       ),
-                                    ),
                                   ],
                                 ),
                               ],

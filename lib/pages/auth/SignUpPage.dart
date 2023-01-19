@@ -118,9 +118,7 @@ class SignUpPage extends StatelessWidget {
                                   height: 40,
                                 ),
                                 SizedBox(
-                                  child: GradinetLeftToRight(
-                                    tileMode: TileMode.clamp,
-                                    child: PrimaryButton(
+                                  child: PrimaryButton(
                                       onTap: (state is SignUpLoading)
                                           ? null
                                           : () {
@@ -140,7 +138,7 @@ class SignUpPage extends StatelessWidget {
                                         fontWeight: FontWeight.w700,
                                         color: Colors.white,
                                       ),
-                                    ),
+                                    
                                   ),
                                 ),
                                 const SizedBox(
@@ -237,6 +235,7 @@ class SignUpPage extends StatelessWidget {
                                 ),
                               ],
                             ),
+
                           ),
                         ),
                       ),
@@ -250,7 +249,7 @@ class SignUpPage extends StatelessWidget {
       ),
     );
   }
-
+  
   _showSnackBar({required BuildContext context, required String text}) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(

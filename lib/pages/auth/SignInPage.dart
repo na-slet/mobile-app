@@ -21,6 +21,7 @@ class SignInPage extends StatelessWidget {
 
   final _textFormLoginController = TextEditingController();
   final _textFormPasswordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +61,7 @@ class SignInPage extends StatelessWidget {
                         heightFactor: setHeightFactor(context),
                         child: SingleChildScrollView(
                           child: Form(
+                            key: _formKey,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
@@ -89,6 +91,12 @@ class SignInPage extends StatelessWidget {
                                   labelText: S.current.loginFieldHintText,
                                   labelStyle: TextStyle(
                                       color: colorService.secondaryGrey()),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return S.current.emailError;
+                                    }
+                                    return null;
+                                  },
                                   controller: _textFormLoginController,
                                 ),
                                 const SizedBox(
@@ -100,6 +108,12 @@ class SignInPage extends StatelessWidget {
                                   labelStyle: TextStyle(
                                       color: colorService.secondaryGrey()),
                                   obscureText: true,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return S.current.passwordError;
+                                    }
+                                    return null;
+                                  },
                                   controller: _textFormPasswordController,
                                 ),
                                 const SizedBox(
@@ -110,14 +124,17 @@ class SignInPage extends StatelessWidget {
                                     onTap: (state is SignInLoading)
                                         ? null
                                         : () {
-                                            context.read<SignInBloc>().add(
-                                                SignInAuth(
-                                                    email:
-                                                        _textFormLoginController
-                                                            .text,
-                                                    password:
-                                                        _textFormPasswordController
-                                                            .text));
+                                            if (_formKey.currentState!
+                                                .validate()) {
+                                              context.read<SignInBloc>().add(
+                                                  SignInAuth(
+                                                      email:
+                                                          _textFormLoginController
+                                                              .text,
+                                                      password:
+                                                          _textFormPasswordController
+                                                              .text));
+                                            }
                                           },
                                     title: S.current.signInButtonText,
                                     color: Colors.transparent,

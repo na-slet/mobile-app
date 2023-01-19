@@ -2,14 +2,22 @@
     "@@locale": "ru",
     "signInScreenText": "Вход",
     "signUpScreenText": "Регистрация",
-    "loginFieldHintText": "Почта",
+    "loginFieldHintText": "Электронная почта",
     "passwordFieldHintText": "Пароль",
-    "passwordConfirmFieldHintText": "Пароль ещё раз",
+    "passwordConfirmFieldHintText": "Повторите пароль",
     "signInButtonText": "Войти",
     "signUpButtonText": "Зарегистрироваться",
     "altAuthText": "или",
     "signInRegQuestionText": "Нет профиля?",
-    "signInRegButtonText": "Создай!",
+    "signInRegButtonText": "Создай",
     "signUpEntryQuestionText": "Есть профиль?",
-    "signUpEntryButtonText": "Войти"
+    "signUpEntryButtonText": "Войти",
+
+    "emailError": "Введите вашу почту",
+    "emailError2": "Почта введена некорректно",
+    "passwordError": "Введите ваш пароль",
+    "passwordError2": "Введите ваш пароль повторно",
+    "passwordError3": "Пароль должен содержать минимум 6 знаков",
+    "passwordError4": "Введены недопустимые символы",
+    "passwordError5": "Пароли не совпадают"
 }

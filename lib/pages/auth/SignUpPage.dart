@@ -22,6 +22,7 @@ class SignUpPage extends StatelessWidget {
   final _textFormLoginController = TextEditingController();
   final _textFormPasswordController = TextEditingController();
   final _textFormPasswordConfirmController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +59,7 @@ class SignUpPage extends StatelessWidget {
                         heightFactor: setHeightFactor(context),
                         child: SingleChildScrollView(
                           child: Form(
+                            key: _formKey,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
@@ -88,6 +90,16 @@ class SignUpPage extends StatelessWidget {
                                   labelText: S.current.loginFieldHintText,
                                   labelStyle: TextStyle(
                                       color: colorService.secondaryGrey()),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return S.current.emailError;
+                                    } else if (!RegExp(
+                                            r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                        .hasMatch(value)) {
+                                      return S.current.emailError2;
+                                    }
+                                    return null;
+                                  },
                                   controller: _textFormLoginController,
                                 ),
                                 const SizedBox(
@@ -99,6 +111,19 @@ class SignUpPage extends StatelessWidget {
                                   labelStyle: TextStyle(
                                       color: colorService.secondaryGrey()),
                                   obscureText: true,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return S.current.passwordError;
+                                    } else if (value.length < 6) {
+                                      return S.current.passwordError3;
+                                    } else if (RegExp(
+                                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\><*~]).{8,}/pre>')
+                                        .hasMatch(value)) {
+                                      return S.current.passwordError4;
+                                    }
+                                    return null;
+                                  },
+                                  textInputType: TextInputType.visiblePassword,
                                   controller: _textFormPasswordController,
                                 ),
                                 const SizedBox(
@@ -111,6 +136,17 @@ class SignUpPage extends StatelessWidget {
                                   labelStyle: TextStyle(
                                       color: colorService.secondaryGrey()),
                                   obscureText: true,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return S.current.passwordError2;
+                                    } else if (value !=
+                                        _textFormPasswordController
+                                            .value.text) {
+                                      return S.current.passwordError5;
+                                    }
+                                    return null;
+                                  },
+                                  textInputType: TextInputType.visiblePassword,
                                   controller:
                                       _textFormPasswordConfirmController,
                                 ),
@@ -122,14 +158,17 @@ class SignUpPage extends StatelessWidget {
                                     onTap: (state is SignUpLoading)
                                         ? null
                                         : () {
-                                            context.read<SignUpBloc>().add(
-                                                SignUpReg(
-                                                    email:
-                                                        _textFormLoginController
-                                                            .text,
-                                                    password:
-                                                        _textFormPasswordController
-                                                            .text));
+                                            if (_formKey.currentState!
+                                                .validate()) {
+                                              context.read<SignUpBloc>().add(
+                                                  SignUpReg(
+                                                      email:
+                                                          _textFormLoginController
+                                                              .text,
+                                                      password:
+                                                          _textFormPasswordController
+                                                              .text));
+                                            }
                                           },
                                     title: S.current.signUpButtonText,
                                     color: Colors.transparent,

@@ -7,6 +7,7 @@ import 'common_setup/Routes.dart';
 import 'generated/l10n.dart';
 import 'pages/auth/SignInPage.dart';
 import 'pages/auth/SignUpPage.dart';
+import 'screens/main/MainPage.dart';
 import 'services/FontService.dart';
 
 void main() {
@@ -31,10 +32,11 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(fontFamily: fontService.Inter),
-      initialRoute: Routes.signInPage,
+      initialRoute: Routes.mainPage,
       routes: {
         Routes.signInPage: (context) => SignInPage(),
-        Routes.signUpPage: (context) => SignUpPage()
+        Routes.signUpPage: (context) => SignUpPage(),
+        Routes.mainPage: (context) => MainPage(),
       },
     );
   }

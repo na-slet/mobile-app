@@ -11,5 +11,8 @@
     "signInRegQuestionText": "Нет профиля?",
     "signInRegButtonText": "Создай!",
     "signUpEntryQuestionText": "Есть профиль?",
-    "signUpEntryButtonText": "Войти"
+    "signUpEntryButtonText": "Войти",
+    "navBarFeedTabTitleText": "Лента",
+    "navBarMyTourTabTitleText": "Мои слёты",
+    "navBarProfileTabTitleText": "Профиль"
 }

@@ -19,6 +19,10 @@ class ColorService {
     return const Color(0xFF707070);
   }
 
+  Color bottomNavigationBarInactiveColor() {
+    return Color(0xFF515151);
+  }
+
   Color desktopBackground() {
     return const Color(0xFFF7F7F7);
   }

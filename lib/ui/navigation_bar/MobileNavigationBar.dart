@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
-import '../common_setup/Assets.dart';
-import '../generated/l10n.dart';
-import '../services/ColorService.dart';
+import '../../common_setup/Assets.dart';
+import '../../generated/l10n.dart';
+import '../../services/ColorService.dart';
+
 
 typedef FunctionIntCallBack = void Function(int index);
+
 
 class MobileBottomNavigationWidget extends StatelessWidget {
   static final colorService = Injector().get<ColorService>();
@@ -91,11 +93,3 @@ class MobileBottomNavigationWidget extends StatelessWidget {
   }
 }
 
-class DesktopNavigationBar extends StatelessWidget {
-  const DesktopNavigationBar({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}

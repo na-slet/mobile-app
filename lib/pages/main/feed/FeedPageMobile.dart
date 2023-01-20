@@ -1,0 +1,10 @@
+import 'package:flutter/material.dart';
+
+class FeedPageMobile extends StatelessWidget {
+  const FeedPageMobile({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(color: Colors.amberAccent);
+  }
+}

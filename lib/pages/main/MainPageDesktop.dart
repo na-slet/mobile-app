@@ -19,9 +19,10 @@ class _DesktopMainPageState extends State<DesktopMainPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: colorService.desktopBackground(),
         body: Column(
           children: <Widget>[
-            DesktopHeader(context),
+            desktopHeader(context),
           ],
         ),
       ),
@@ -29,8 +30,10 @@ class _DesktopMainPageState extends State<DesktopMainPage> {
   }
 }
 
-Widget DesktopHeader(BuildContext context) {
+Widget desktopHeader(BuildContext context) {
   final colorService = Injector().get<ColorService>();
+
+  double headerMargins = MediaQuery.of(context).size.width * 0.05;
 
   int _selectedIndex = 0;
 
@@ -38,18 +41,11 @@ Widget DesktopHeader(BuildContext context) {
     alignment: Alignment.center,
     width: MediaQuery.of(context).size.width,
     height: 92,
-    decoration: BoxDecoration(
-      border: Border(
-        bottom: BorderSide(
-          color: colorService.primaryColor(),
-          width: 2,
-        ),
-      ),
-    ),
+    decoration: BoxDecoration(color: Colors.white),
     child: Row(
-      children: [
+      children: <Widget>[
         SizedBox(
-          width: MediaQuery.of(context).size.width * 0.2,
+          width: headerMargins,
         ),
         SizedBox(
           width: 148,
@@ -61,7 +57,7 @@ Widget DesktopHeader(BuildContext context) {
           selectedIndex: _selectedIndex,
         ),
         SizedBox(
-          width: MediaQuery.of(context).size.width * 0.2,
+          width: headerMargins,
         ),
       ],
     ),

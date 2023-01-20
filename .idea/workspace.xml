@@ -10,15 +10,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5b5c669-ba16-4f3b-ab74-da9ced88c087" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/icons/profile_page/ProfilePageDoneMarkIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/icons/profile_page/ProfilePagePencileIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/MainPageDesktop.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/MainPageMobile.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/details/DetailsPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/details/DetailsPageDesktop.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/details/DetailsPageMobile.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/events/EventsPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/events/EventsPageDesktop.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/events/EventsPageMobile.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/feed/FeedPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/feed/FeedPageDesktop.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/feed/FeedPageMobile.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/profile/ProfilePage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/profile/ProfilePageDesktop.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/main/profile/ProfilePageMobile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ru.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ru.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/auth/SignInPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/auth/SignInPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/auth/SignUpPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/auth/SignUpPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/main/MainPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main/MainPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/main/platform/DesktopMainPage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/main/platform/MobileMainPage.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/services/ColorService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/ColorService.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/GradientService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/GradientService.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/Buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/Buttons.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/navigation_bar/MobileNavigationBar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/navigation_bar/MobileNavigationBar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/navigation_bar/DesktopNavigationBar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/navigation_bar/DesktopNavigationBar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/Assets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/Assets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

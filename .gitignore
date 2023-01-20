@@ -34,3 +34,4 @@ doc/api/
 abc.iml
 android/.idea/
 upload-keystore.jks
+.idea/workspace.xml

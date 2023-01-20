@@ -31,5 +31,9 @@
     
     "navBarFeedTabTitleText": "Лента",
     "navBarMyTourTabTitleText": "Мои слёты",
-    "navBarProfileTabTitleText": "Профиль"
+    "navBarProfileTabTitleText": "Профиль",
+
+    "profilePageTitle": "Профиль"
+
+
 }

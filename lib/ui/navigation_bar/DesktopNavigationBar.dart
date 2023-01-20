@@ -17,18 +17,17 @@ class DesktopNavigationBar extends StatefulWidget {
 class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
   static final colorService = Injector().get<ColorService>();
 
+  double widthBetweenButtons = 40;
+
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-          minWidth: 150,
-          maxWidth: MediaQuery.of(context).size.width * 0.09 < 150
-              ? 150
-              : MediaQuery.of(context).size.width * 0.09),
+    return Container(
+      width: 200,
       child: Row(
-        children: [
+        children: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+            },
             icon: ImageIcon(
               Image.asset(A.assetsFeedTabIcon).image,
               color: widget.selectedIndex == 0
@@ -36,19 +35,25 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
                   : colorService.bottomNavigationBarInactiveColor(),
             ),
           ),
-          const Spacer(),
+          SizedBox(
+            width: widthBetweenButtons,
+          ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+            },
             icon: ImageIcon(
-              Image.asset(A.assetsBookmarkTabIcon).image,
+              Image.asset(A.assetsMyTourTabIcon).image,
               color: widget.selectedIndex == 1
                   ? colorService.primaryColor()
                   : colorService.bottomNavigationBarInactiveColor(),
             ),
           ),
-          const Spacer(),
+          SizedBox(
+            width: widthBetweenButtons,
+          ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+            },
             icon: ImageIcon(
               Image.asset(A.assetsProfileTabIcon).image,
               color: widget.selectedIndex == 2

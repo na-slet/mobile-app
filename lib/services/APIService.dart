@@ -15,4 +15,31 @@ class APIService {
     }
     return '';
   }
+
+  static Future<dynamic> getRequest(
+      {required String request, Map<String, String> data = const {}}) async {
+    try {
+      var response = await Dio().get('$_url/$request', queryParameters: data);
+      if (response.statusCode == 200) {
+        print(response.data);
+        return response.data;
+      }
+    } catch (e) {
+      return '';
+    }
+    return '';
+  }
+
+  static Future<dynamic> putRequest(
+      {required String request, Map<String, String> data = const {}}) async {
+    try {
+      var response = await Dio().put('$_url/$request', queryParameters: data);
+      if (response.statusCode == 200) {
+        return response.data;
+      }
+    } catch (e) {
+      return '';
+    }
+    return '';
+  }
 }

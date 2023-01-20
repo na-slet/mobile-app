@@ -19,7 +19,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
 
       if (event is SignUpReg) {
         emit(SignUpLoading());
-        response = await authService.authUser(
+        response = await authService.regUser(
             email: event.email, password: event.password);
       } else if (event is SignUpRegVK) {
         emit(SignUpLoading());

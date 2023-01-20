@@ -1,22 +1,19 @@
 import 'dart:io';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_login_vk/flutter_login_vk.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:naslet_mobile/services/APIService.dart';
 
-import '../../utils/Assets.dart';
-import '../../services/AuthService.dart';
-import '../../utils/Routes.dart';
-import '../../utils/ScreenSize.dart';
 import '../../generated/l10n.dart';
+import '../../services/AuthService.dart';
 import '../../services/ColorService.dart';
 import '../../ui/Buttons.dart';
 import '../../ui/Fields.dart';
+import '../../utils/Assets.dart';
+import '../../utils/Routes.dart';
+import '../../utils/ScreenSize.dart';
 import 'blocs/sign_in_bloc.dart';
 
 class SignInPage extends StatelessWidget {
@@ -133,23 +130,22 @@ class SignInPage extends StatelessWidget {
                                     ),
                                     SizedBox(
                                       child: PrimaryButton(
-                                        enable: true,
-                                        onTap: (state is SignInLoading)
-                                            ? null
-                                            : () {
-                                                if (_formKey.currentState!
-                                                    .validate()) {
-                                                  context
-                                                      .read<SignInBloc>()
-                                                      .add(SignInAuth(
-                                                          email:
-                                                              _textFormLoginController
-                                                                  .text,
-                                                          password:
-                                                              _textFormPasswordController
-                                                                  .text));
-                                                }
-                                              },
+                                        enabled: (state is SignInLoading)
+                                            ? false
+                                            : true,
+                                        onTap: () {
+                                          if (_formKey.currentState!
+                                              .validate()) {
+                                            context.read<SignInBloc>().add(
+                                                SignInAuth(
+                                                    email:
+                                                        _textFormLoginController
+                                                            .text,
+                                                    password:
+                                                        _textFormPasswordController
+                                                            .text));
+                                          }
+                                        },
                                         title: S.current.signInButtonText,
                                         color: Colors.transparent,
                                         textStyle: const TextStyle(

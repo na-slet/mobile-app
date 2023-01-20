@@ -13,7 +13,7 @@ class PrimaryButton extends StatelessWidget {
   final Color color;
   final TextStyle textStyle;
   final VoidCallback? onTap;
-  final bool enable;
+  final bool enabled;
 
   PrimaryButton({
     Key? key,
@@ -22,27 +22,27 @@ class PrimaryButton extends StatelessWidget {
     required this.title,
     required this.color,
     required this.textStyle,
-    required this.enable,
+    required this.enabled,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GradinetLeftToRight(
       blendMode: BlendMode.color,
-      color: enable
+      color: enabled
           ? colorService.primaryGradient()
           : colorService.inactiveGradient(),
       child: Container(
         height: height,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: enable ? color : null,
+          color: enabled ? color : null,
           borderRadius: BorderRadius.circular(5),
         ),
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: enable ? onTap : null,
+            onTap: enabled ? onTap : null,
             borderRadius: BorderRadius.circular(5),
             child: Center(
               child: Text(

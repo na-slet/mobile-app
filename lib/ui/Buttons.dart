@@ -22,7 +22,7 @@ class PrimaryButton extends StatelessWidget {
     required this.title,
     required this.color,
     required this.textStyle,
-    required this.enabled,
+    this.enabled = true,
   }) : super(key: key);
 
   @override
@@ -133,3 +133,51 @@ class CircleButton extends StatelessWidget {
     );
   }
 }
+
+class LogOutButton extends StatelessWidget {
+  final colorService = Injector().get<ColorService>();
+
+  final double height;
+  final String title;
+  final Color color;
+  final TextStyle textStyle;
+  final VoidCallback? onTap;
+  final bool enabled;
+
+  LogOutButton({
+    Key? key,
+    this.height = 45,
+    this.onTap,
+    required this.title,
+    required this.color,
+    required this.textStyle,
+    this.enabled = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: enabled ? color : null,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: enabled ? onTap : null,
+          borderRadius: BorderRadius.circular(5),
+          child: Center(
+            child: Text(
+              title,
+              style: textStyle,
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+

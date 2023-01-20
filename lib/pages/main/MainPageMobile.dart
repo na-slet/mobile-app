@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:naslet_mobile/pages/main/profile/ProfilePageMobile.dart';
 
 import '../../../ui/navigation_bar/MobileNavigationBar.dart';
 
@@ -33,15 +34,13 @@ class _MobileMainPageState extends State<MobileMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        bottomNavigationBar: MobileBottomNavigationWidget(
-          selectedIndex: _selectedIndex,
-          onItemTapped: _onItemTapped,
-          height: 70,
-        ),
-        body: Container(),
+    return Scaffold(
+      bottomNavigationBar: MobileBottomNavigationWidget(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
+        height: 70,
       ),
+      body: ProfilePageMobile(),
     );
   }
 }

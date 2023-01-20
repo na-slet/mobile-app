@@ -31,7 +31,7 @@ class ColorService {
   }
 
   Color desktopBackground() {
-    return const Color(0xFFF7F7F7);
+    return const Color(0xFFF6F6F6);
   }
 
   Color signInScreenTitleColor() {

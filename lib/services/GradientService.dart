@@ -9,6 +9,7 @@ class GradinetLeftToRight extends StatelessWidget {
   final TileMode tileMode;
   final BorderRadius borderRadius;
   final BlendMode blendMode;
+  final LinearGradient color;
 
   GradinetLeftToRight({
     Key? key,
@@ -16,6 +17,7 @@ class GradinetLeftToRight extends StatelessWidget {
     required this.blendMode,
     this.borderRadius = const BorderRadius.all(Radius.circular(5)),
     this.tileMode = TileMode.clamp,
+    required this.color,
   }) : super(key: key);
 
   @override
@@ -25,7 +27,7 @@ class GradinetLeftToRight extends StatelessWidget {
       child: ShaderMask(
         blendMode: blendMode,
         shaderCallback: (Rect bounds) {
-          return colorService.primaryGradient(tileMode).createShader(bounds);
+          return color.createShader(bounds);
         },
         child: child,
       ),

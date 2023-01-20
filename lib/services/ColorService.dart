@@ -5,12 +5,19 @@ class ColorService {
     return const Color(0xFFF97801);
   }
 
-  LinearGradient primaryGradient(TileMode tileMode) {
+  LinearGradient primaryGradient() {
     return LinearGradient(
-      tileMode: tileMode,
       colors: const <Color>[
         Color(0xFFFF9356),
         Color(0xFFF9B401),
+      ],
+    );
+  }
+  LinearGradient inactiveGradient() {
+    return LinearGradient(
+      colors: <Color>[
+        Color(0xFF6A6A6A),
+        Color(0xFF969696),
       ],
     );
   }

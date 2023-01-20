@@ -4,17 +4,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:naslet_mobile/services/APIService.dart';
 
-import '../../utils/Assets.dart';
-import '../../services/AuthService.dart';
-import '../../utils/Routes.dart';
-import '../../utils/ScreenSize.dart';
 import '../../generated/l10n.dart';
+import '../../services/AuthService.dart';
 import '../../services/ColorService.dart';
-import '../../services/GradientService.dart';
 import '../../ui/Buttons.dart';
 import '../../ui/Fields.dart';
+import '../../utils/Assets.dart';
+import '../../utils/Routes.dart';
+import '../../utils/ScreenSize.dart';
 import 'blocs/sign_up_bloc.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -40,7 +38,7 @@ class SignUpPage extends StatelessWidget {
               _showSnackBar(context: context, text: state.error);
             } else if (state is SignUpSuccess) {
               Navigator.of(context)
-                  .pushNamedAndRemoveUntil(Routes.signInPage, (route) => false);
+                  .pushNamedAndRemoveUntil(Routes.mainPage, (route) => false);
             }
           },
           builder: (context, state) {
@@ -172,22 +170,22 @@ class SignUpPage extends StatelessWidget {
                                       ),
                                       SizedBox(
                                         child: PrimaryButton(
-                                          onTap: (state is SignUpLoading)
-                                              ? null
-                                              : () {
-                                                  if (_formKey.currentState!
-                                                      .validate()) {
-                                                    context
-                                                        .read<SignUpBloc>()
-                                                        .add(SignUpReg(
-                                                            email:
-                                                                _textFormLoginController
-                                                                    .text,
-                                                            password:
-                                                                _textFormPasswordController
-                                                                    .text));
-                                                  }
-                                                },
+                                          enabled: (state is SignUpLoading)
+                                              ? false
+                                              : true,
+                                          onTap: () {
+                                            if (_formKey.currentState!
+                                                .validate()) {
+                                              context.read<SignUpBloc>().add(
+                                                  SignUpReg(
+                                                      email:
+                                                          _textFormLoginController
+                                                              .text,
+                                                      password:
+                                                          _textFormPasswordController
+                                                              .text));
+                                            }
+                                          },
                                           title: S.current.signUpButtonText,
                                           color: Colors.transparent,
                                           textStyle: const TextStyle(

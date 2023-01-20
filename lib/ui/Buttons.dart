@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
-import '../utils/Assets.dart';
 import '../services/ColorService.dart';
 import '../services/GradientService.dart';
 
@@ -14,6 +13,7 @@ class PrimaryButton extends StatelessWidget {
   final Color color;
   final TextStyle textStyle;
   final VoidCallback? onTap;
+  final bool enabled;
 
   PrimaryButton({
     Key? key,
@@ -22,27 +22,34 @@ class PrimaryButton extends StatelessWidget {
     required this.title,
     required this.color,
     required this.textStyle,
+    required this.enabled,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GradinetLeftToRight(
       blendMode: BlendMode.color,
-      tileMode: TileMode.clamp,
+      color: enabled
+          ? colorService.primaryGradient()
+          : colorService.inactiveGradient(),
       child: Container(
         height: height,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: color,
+          color: enabled ? color : null,
           borderRadius: BorderRadius.circular(5),
         ),
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: onTap,
+            onTap: enabled ? onTap : null,
             borderRadius: BorderRadius.circular(5),
             child: Center(
-              child: Text(title, style: textStyle),
+              child: Text(
+                title,
+                style: textStyle,
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
         ),
@@ -52,12 +59,14 @@ class PrimaryButton extends StatelessWidget {
 }
 
 class PrimaryTextButton extends StatelessWidget {
+  final colorService = Injector().get<ColorService>();
+
   final double height;
   final String text;
   final TextStyle textStyle;
   final VoidCallback onTap;
 
-  const PrimaryTextButton({
+  PrimaryTextButton({
     Key? key,
     this.height = 50,
     required this.onTap,
@@ -70,6 +79,7 @@ class PrimaryTextButton extends StatelessWidget {
     return GradinetLeftToRight(
       tileMode: TileMode.clamp,
       blendMode: BlendMode.srcIn,
+      color: colorService.primaryGradient(),
       child: SizedBox(
         height: height,
         child: CupertinoButton(

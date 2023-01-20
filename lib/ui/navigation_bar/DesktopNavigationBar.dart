@@ -17,49 +17,44 @@ class DesktopNavigationBar extends StatefulWidget {
 class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
   static final colorService = Injector().get<ColorService>();
 
-  int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    selectedIndex = widget.selectedIndex;
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.1,
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+          minWidth: 150,
+          maxWidth: MediaQuery.of(context).size.width * 0.09 < 150
+              ? 150
+              : MediaQuery.of(context).size.width * 0.09),
       child: Row(
         children: [
           IconButton(
-            onPressed: () {
-              selectedIndex = 0;
-            },
-            icon: ImageIcon(Image.asset(
-              A.assetsFeedTabIcon,
-              color: selectedIndex == 0
+            onPressed: () {},
+            icon: ImageIcon(
+              Image.asset(A.assetsFeedTabIcon).image,
+              color: widget.selectedIndex == 0
                   ? colorService.primaryColor()
                   : colorService.bottomNavigationBarInactiveColor(),
-            ).image),
+            ),
           ),
           const Spacer(),
           IconButton(
-            onPressed: () {
-              selectedIndex = 1;
-            },
-            icon: ImageIcon(Image.asset(
-              A.assetsBookmarkTabIcon,
-              color: selectedIndex == 1
+            onPressed: () {},
+            icon: ImageIcon(
+              Image.asset(A.assetsBookmarkTabIcon).image,
+              color: widget.selectedIndex == 1
                   ? colorService.primaryColor()
                   : colorService.bottomNavigationBarInactiveColor(),
-            ).image),
+            ),
           ),
           const Spacer(),
           IconButton(
-            onPressed: () {
-              selectedIndex = 2;
-            },
-            icon: ImageIcon(Image.asset(
-              A.assetsProfileTabIcon,
-              color: selectedIndex == 2
+            onPressed: () {},
+            icon: ImageIcon(
+              Image.asset(A.assetsProfileTabIcon).image,
+              color: widget.selectedIndex == 2
                   ? colorService.primaryColor()
                   : colorService.bottomNavigationBarInactiveColor(),
-            ).image),
+            ),
           ),
         ],
       ),

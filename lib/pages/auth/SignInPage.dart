@@ -147,7 +147,8 @@ class SignInPage extends StatelessWidget {
                                           }
                                         },
                                         title: S.current.signInButtonText,
-                                        color: Colors.transparent,
+                                        gradient:
+                                            colorService.primaryGradient(),
                                         textStyle: const TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w700,

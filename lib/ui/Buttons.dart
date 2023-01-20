@@ -10,7 +10,7 @@ class PrimaryButton extends StatelessWidget {
 
   final double height;
   final String title;
-  final Color color;
+  final LinearGradient gradient;
   final TextStyle textStyle;
   final VoidCallback? onTap;
   final bool enabled;
@@ -20,7 +20,7 @@ class PrimaryButton extends StatelessWidget {
     this.height = 45,
     this.onTap,
     required this.title,
-    required this.color,
+    required this.gradient,
     required this.textStyle,
     required this.enabled,
   }) : super(key: key);
@@ -29,14 +29,11 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GradinetLeftToRight(
       blendMode: BlendMode.color,
-      color: enabled
-          ? colorService.primaryGradient()
-          : colorService.inactiveGradient(),
+      color: enabled ? gradient : colorService.inactiveGradient(),
       child: Container(
         height: height,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: enabled ? color : null,
           borderRadius: BorderRadius.circular(5),
         ),
         child: Material(

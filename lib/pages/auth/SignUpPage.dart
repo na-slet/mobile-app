@@ -187,7 +187,8 @@ class SignUpPage extends StatelessWidget {
                                             }
                                           },
                                           title: S.current.signUpButtonText,
-                                          color: Colors.transparent,
+                                          gradient:
+                                              colorService.primaryGradient(),
                                           textStyle: const TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w700,

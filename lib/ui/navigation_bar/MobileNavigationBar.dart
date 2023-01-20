@@ -12,13 +12,11 @@ class MobileBottomNavigationWidget extends StatelessWidget {
 
   final FunctionIntCallBack onItemTapped;
   final int selectedIndex;
-  final double height;
 
   const MobileBottomNavigationWidget({
     Key? key,
     required this.onItemTapped,
     required this.selectedIndex,
-    required this.height,
   }) : super(key: key);
 
   static final TextStyle _lableStyle = TextStyle(
@@ -30,7 +28,7 @@ class MobileBottomNavigationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height,
+      height: 70,
       decoration: BoxDecoration(
         gradient: colorService.primaryGradient(),
         border: const Border(

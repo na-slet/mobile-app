@@ -4,17 +4,24 @@ import 'package:flutter_simple_dependency_injection/injector.dart';
 import '../../utils/Assets.dart';
 import '../../services/ColorService.dart';
 
-class DesktopNavigationBar extends StatefulWidget {
-  final int selectedIndex;
+typedef FunctionIntCallBack = void Function(int index);
 
-  const DesktopNavigationBar({required this.selectedIndex, Key? key})
+class DesktopNavigationBar extends StatelessWidget
+    implements PreferredSizeWidget {
+  final FunctionIntCallBack onItemTapped;
+  final int selectedIndex;
+  final double headerMargins;
+
+  DesktopNavigationBar(
+      {Key? key,
+      required this.onItemTapped,
+      required this.selectedIndex,
+      required this.headerMargins})
       : super(key: key);
 
   @override
-  State<DesktopNavigationBar> createState() => _DesktopNavigationBarState();
-}
+  Size get preferredSize => const Size.fromHeight(92);
 
-class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
   static final colorService = Injector().get<ColorService>();
 
   double widthBetweenButtons = 40;
@@ -22,44 +29,78 @@ class _DesktopNavigationBarState extends State<DesktopNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
+      alignment: Alignment.center,
+      width: MediaQuery.of(context).size.width,
+      height: 92,
+      decoration: const BoxDecoration(color: Colors.white),
       child: Row(
         children: <Widget>[
-          IconButton(
-            onPressed: () {
-            },
-            icon: ImageIcon(
-              Image.asset(A.assetsFeedTabIcon).image,
-              color: widget.selectedIndex == 0
-                  ? colorService.primaryColor()
-                  : colorService.bottomNavigationBarInactiveColor(),
+          SizedBox(
+            width: headerMargins,
+          ),
+          SizedBox(
+            width: 148,
+            height: 50,
+            child: Image.asset(A.assetsLogoDesktopClient),
+          ),
+          const Spacer(),
+          SizedBox(
+            width: 200,
+            child: Row(
+              children: <Widget>[
+                Material(
+                  color: Colors.transparent,
+                  shape: const CircleBorder(),
+                  clipBehavior: Clip.hardEdge,
+                  child: IconButton(
+                    onPressed: () => onItemTapped(0),
+                    icon: ImageIcon(
+                      Image.asset(A.assetsFeedTabIcon).image,
+                      color: selectedIndex == 0
+                          ? colorService.primaryColor()
+                          : colorService.bottomNavigationBarInactiveColor(),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: widthBetweenButtons,
+                ),
+                Material(
+                  color: Colors.transparent,
+                  shape: const CircleBorder(),
+                  clipBehavior: Clip.hardEdge,
+                  child: IconButton(
+                    onPressed: () => onItemTapped(1),
+                    icon: ImageIcon(
+                      Image.asset(A.assetsMyTourTabIcon).image,
+                      color: selectedIndex == 1
+                          ? colorService.primaryColor()
+                          : colorService.bottomNavigationBarInactiveColor(),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: widthBetweenButtons,
+                ),
+                Material(
+                  color: Colors.transparent,
+                  shape: const CircleBorder(),
+                  clipBehavior: Clip.hardEdge,
+                  child: IconButton(
+                    onPressed: () => onItemTapped(2),
+                    icon: ImageIcon(
+                      Image.asset(A.assetsProfileTabIcon).image,
+                      color: selectedIndex == 2
+                          ? colorService.primaryColor()
+                          : colorService.bottomNavigationBarInactiveColor(),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           SizedBox(
-            width: widthBetweenButtons,
-          ),
-          IconButton(
-            onPressed: () {
-            },
-            icon: ImageIcon(
-              Image.asset(A.assetsMyTourTabIcon).image,
-              color: widget.selectedIndex == 1
-                  ? colorService.primaryColor()
-                  : colorService.bottomNavigationBarInactiveColor(),
-            ),
-          ),
-          SizedBox(
-            width: widthBetweenButtons,
-          ),
-          IconButton(
-            onPressed: () {
-            },
-            icon: ImageIcon(
-              Image.asset(A.assetsProfileTabIcon).image,
-              color: widget.selectedIndex == 2
-                  ? colorService.primaryColor()
-                  : colorService.bottomNavigationBarInactiveColor(),
-            ),
+            width: headerMargins,
           ),
         ],
       ),

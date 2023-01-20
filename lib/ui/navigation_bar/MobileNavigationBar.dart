@@ -32,7 +32,7 @@ class MobileBottomNavigationWidget extends StatelessWidget {
     return Container(
       height: height,
       decoration: BoxDecoration(
-        gradient: colorService.primaryGradient(TileMode.clamp),
+        gradient: colorService.primaryGradient(),
         border: const Border(
           top: BorderSide(
             color: Colors.transparent,

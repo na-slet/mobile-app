@@ -133,6 +133,7 @@ class SignInPage extends StatelessWidget {
                                     ),
                                     SizedBox(
                                       child: PrimaryButton(
+                                        enable: true,
                                         onTap: (state is SignInLoading)
                                             ? null
                                             : () {

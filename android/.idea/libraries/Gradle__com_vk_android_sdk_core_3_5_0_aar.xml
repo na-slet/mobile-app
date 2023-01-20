@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.vk:android-sdk-core:3.5.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/363ce6aabeecb5365894eaa062587741/transformed/jetified-android-sdk-core-3.5.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/363ce6aabeecb5365894eaa062587741/transformed/jetified-android-sdk-core-3.5.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/363ce6aabeecb5365894eaa062587741/transformed/jetified-android-sdk-core-3.5.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5df379fc65e81c1d845e9fffcb24d462/transformed/jetified-android-sdk-core-3.5.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5df379fc65e81c1d845e9fffcb24d462/transformed/jetified-android-sdk-core-3.5.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5df379fc65e81c1d845e9fffcb24d462/transformed/jetified-android-sdk-core-3.5.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vk/android-sdk-core/3.5.0/4936bb2a354311246f24bb4fee2dc8c7a82de631/android-sdk-core-3.5.0-javadoc.jar!/" />

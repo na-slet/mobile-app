@@ -7,14 +7,26 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2080872842/android.flutter_login_vk.iml" filepath="$PROJECT_DIR$/.idea/modules/2080872842/android.flutter_login_vk.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2080872842/android.flutter_login_vk.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/2080872842/android.flutter_login_vk.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2080872842/android.flutter_login_vk.main.iml" filepath="$PROJECT_DIR$/.idea/modules/2080872842/android.flutter_login_vk.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2080872842/android.flutter_login_vk.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/2080872842/android.flutter_login_vk.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/772521298/android.google_sign_in_android.iml" filepath="$PROJECT_DIR$/.idea/modules/772521298/android.google_sign_in_android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/772521298/android.google_sign_in_android.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/772521298/android.google_sign_in_android.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/772521298/android.google_sign_in_android.main.iml" filepath="$PROJECT_DIR$/.idea/modules/772521298/android.google_sign_in_android.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/772521298/android.google_sign_in_android.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/772521298/android.google_sign_in_android.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1771487480/android.firebase_auth.iml" filepath="$PROJECT_DIR$/.idea/modules/-1771487480/android.firebase_auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1771487480/android.firebase_auth.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1771487480/android.firebase_auth.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1771487480/android.firebase_auth.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-1771487480/android.firebase_auth.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1771487480/android.firebase_auth.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1771487480/android.firebase_auth.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1720545595/android.firebase_core.iml" filepath="$PROJECT_DIR$/.idea/modules/1720545595/android.firebase_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1720545595/android.firebase_core.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/1720545595/android.firebase_core.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1720545595/android.firebase_core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/1720545595/android.firebase_core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1720545595/android.firebase_core.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/1720545595/android.firebase_core.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2009371442/android.shared_preferences_android.iml" filepath="$PROJECT_DIR$/.idea/modules/2009371442/android.shared_preferences_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2009371442/android.shared_preferences_android.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/2009371442/android.shared_preferences_android.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2009371442/android.shared_preferences_android.main.iml" filepath="$PROJECT_DIR$/.idea/modules/2009371442/android.shared_preferences_android.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2009371442/android.shared_preferences_android.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/2009371442/android.shared_preferences_android.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1030369459/io.flutter.plugins.googlesignin.android.google_sign_in_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-1030369459/io.flutter.plugins.googlesignin.android.google_sign_in_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1030369459/io.flutter.plugins.googlesignin.android.google_sign_in_android.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1030369459/io.flutter.plugins.googlesignin.android.google_sign_in_android.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1030369459/io.flutter.plugins.googlesignin.android.google_sign_in_android.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-1030369459/io.flutter.plugins.googlesignin.android.google_sign_in_android.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1030369459/io.flutter.plugins.googlesignin.android.google_sign_in_android.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1030369459/io.flutter.plugins.googlesignin.android.google_sign_in_android.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-31882299/ru.innim.flutter_login_vk.android.flutter_login_vk.iml" filepath="$PROJECT_DIR$/.idea/modules/-31882299/ru.innim.flutter_login_vk.android.flutter_login_vk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-31882299/ru.innim.flutter_login_vk.android.flutter_login_vk.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-31882299/ru.innim.flutter_login_vk.android.flutter_login_vk.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-31882299/ru.innim.flutter_login_vk.android.flutter_login_vk.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-31882299/ru.innim.flutter_login_vk.android.flutter_login_vk.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-31882299/ru.innim.flutter_login_vk.android.flutter_login_vk.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-31882299/ru.innim.flutter_login_vk.android.flutter_login_vk.unitTest.iml" />
     </modules>
   </component>
 </project>

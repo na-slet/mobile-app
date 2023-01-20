@@ -165,17 +165,8 @@ class AuthService {
     }
   }
 
-  Future<bool> signOut({required BuildContext context}) async {
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-
-    try {
-      if (!kIsWeb) {
-        await googleSignIn.signOut();
-      }
-      await FirebaseAuth.instance.signOut();
-      return true;
-    } catch (e) {
-      return false;
-    }
+  signOut() async {
+    _token = '';
+    await prefs.setString('token', _token);
   }
 }

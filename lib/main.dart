@@ -13,6 +13,7 @@ import 'pages/main/MainPage.dart';
 import 'services/FontService.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   ModuleContainer.initialize(Injector());
   runApp(NaSletApp());
 }

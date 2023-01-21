@@ -6,6 +6,6 @@ abstract class A {
   static const String assetsMyTourTabIcon = "assets/icons/nav_bar_icons/MyTourTabIcon.png";
   static const String assetsProfileTabIcon = "assets/icons/nav_bar_icons/ProfileTabIcon.png";
   static const String assetsLogoDesktopClient = "assets/images/logoDesktopClient.png";
-  static const String assetsProfilePageDoneMarkIcon = "assets/icons/profile_page/ProfilePageDoneMark.png";
+  static const String assetsProfilePageDoneMarkIcon = "assets/icons/profile_page/ProfilePageDoneMarkIcon.png";
   static const String assetsProfilePagePencileIcon = "assets/icons/profile_page/ProfilePagePencileIcon.png";
 }

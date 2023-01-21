@@ -4,6 +4,7 @@ import 'package:naslet_mobile/ui/Buttons.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../services/ColorService.dart';
+import '../../../services/GradientService.dart';
 import '../../../ui/Fields.dart';
 import '../../../utils/Assets.dart';
 
@@ -21,21 +22,65 @@ class ProfilePageMobile extends StatelessWidget {
   final _textFormParentsContactController = TextEditingController();
   final _textFormCityController = TextEditingController();
 
+  List<String> dateList = List<String>.generate(31, (i) => (i + 1).toString());
+  List<String> monthList = [
+    S.current.January,
+    S.current.February,
+    S.current.March,
+    S.current.April,
+    S.current.May,
+    S.current.June,
+    S.current.July,
+    S.current.August,
+    S.current.September,
+    S.current.October,
+    S.current.November,
+    S.current.December,
+  ];
+  List<String> yearList = List<String>.generate(
+      (DateTime.now().year - 1900) + 1,
+      (index) => (DateTime.now().year - index).toString());
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 28, vertical: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(S.current.profilePageTitleText),
-                Spacer(),
-                CircleButton(width: 40, height: 40, onTap: () {}, imgPath: A.assetsProfilePageDoneMarkIcon)
-              ],
+            SizedBox(
+              child: Stack(
+                alignment: Alignment.center,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.center,
+                    child: GradinetLeftToRight(
+                      blendMode: BlendMode.srcIn,
+                      color: colorService.primaryGradient(),
+                      child: Text(
+                        S.current.profilePageTitleText,
+                        style: TextStyle(
+                          color: colorService.primaryColor(),
+                          fontSize: 25,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: CircleButton(
+                      onTap: () {},
+                      width: 40,
+                      height: 40,
+                      widthImg: 18,
+                      heightImg: 12,
+                      imgPath: A.assetsProfilePageDoneMarkIcon,
+                    ),
+                  )
+                ],
+              ),
             ),
             const SizedBox(
               height: 16,
@@ -45,38 +90,31 @@ class ProfilePageMobile extends StatelessWidget {
               height: 208,
               child: Stack(
                 children: <Widget>[
-                  Align(
-                    alignment: Alignment.center,
-                    child: Container(
-                      width: 195,
-                      height: 195,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0xFF8187BD).withOpacity(0.15),
-                            spreadRadius: 0,
-                            blurRadius: 25,
-                            offset: Offset(0, 8), // changes position of shadow
-                          ),
-                        ],
-                      ),
+                  Container(
+                    width: 195,
+                    height: 195,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: colorService.profilePageAvatarBoxShadowColor(),
+                          spreadRadius: 0,
+                          blurRadius: 25,
+                          offset: const Offset(0, 8), // changes position of shadow
+                        ),
+                      ],
                     ),
                   ),
                   Align(
-                    alignment: Alignment(1, 1),
-                    child: Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
+                    alignment: const Alignment(1, 1),
+                    child: EditButton(
+                      onTap: () {
+
+                      },
                         color: colorService.primaryColor(),
-                      ),
-                      child: Container(
-                          width: 19,
-                          height: 19,
-                          child: Image.asset(A.assetsProfilePagePencileIcon)),
-                    ),
+                        imgPath: A.assetsProfilePagePencileIcon
+                    )
                   )
                 ],
               ),
@@ -121,12 +159,41 @@ class ProfilePageMobile extends StatelessWidget {
               lableText: S.current.profilePageEmailFieldLabelText,
               hintText: S.current.profilePageEmailFieldHintText,
             ),
+            const SizedBox(
+              height: 5,
+            ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(S.current.profilePageBirthDateFieldLabelText),
+                Text(
+                  S.current.profilePageBirthDateFieldLabelText,
+                  style: TextStyle(
+                    color: colorService.profilePageTexFieldHintColor(),
+                    fontSize: 10,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
                 Row(
-                  children: [
-                    DropdownDateField()
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    DropdownField(
+                      buttonWidth: 68,
+                      buttonHeight: 35,
+                      items: dateList,
+                    ),
+                    DropdownField(
+                      buttonWidth: 136,
+                      buttonHeight: 35,
+                      items: monthList,
+                    ),
+                    DropdownField(
+                      buttonWidth: 136,
+                      buttonHeight: 35,
+                      items: yearList,
+                    ),
                   ],
                 )
               ],

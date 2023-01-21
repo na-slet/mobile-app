@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 import '../generated/l10n.dart';
 import '../services/ColorService.dart';
@@ -132,80 +133,79 @@ class ProfilePageTextField extends StatelessWidget {
   }
 }
 
-final List<int> Dates = List<int>.generate(31, (i) => i+1);
-class DropdownDateField extends StatefulWidget {
-  DropdownDateField({super.key});
+class DropdownField extends StatefulWidget {
+  final double buttonWidth;
+  final double buttonHeight;
+  final List<String> items;
+
+  DropdownField({
+    super.key,
+    required this.buttonWidth,
+    required this.buttonHeight,
+    required this.items,
+  });
 
   @override
-  State<DropdownDateField> createState() => _DropdownDateFieldState();
+  State<DropdownField> createState() => _DropdownFieldState();
 }
 
-class _DropdownDateFieldState extends State<DropdownDateField> {
+class _DropdownFieldState extends State<DropdownField> {
+  final colorService = Injector().get<ColorService>();
 
-  String dropdownValue = Dates[0].toString();
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? value) {
-        // This is called when the user selects an item.
-        setState(() {
-          dropdownValue = value!;
-        });
-      },
-      items: Dates.map<DropdownMenuItem<String>>((int value) {
-        return DropdownMenuItem<String>(
-          value: value.toString(),
-          child: Text(value.toString()),
-        );
-      }).toList(),
-    );
-  }
-}
-final List<int> Months = List<int>.generate(31, (i) => i+1);
-class DropdownMonthField extends StatefulWidget {
-  DropdownMonthField({super.key});
-
-  @override
-  State<DropdownMonthField> createState() => _DropdownMonthFieldState();
-}
-
-class _DropdownMonthFieldState extends State<DropdownMonthField> {
-
-  String dropdownValue = Dates[0].toString();
+  String? selectedValue;
+  late List<String> items = widget.items;
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(width: 1.5, color: colorService.primaryColor()),
+        borderRadius: BorderRadius.circular(5),
       ),
-      onChanged: (String? value) {
-        // This is called when the user selects an item.
-        setState(() {
-          dropdownValue = value!;
-        });
-      },
-      items: Dates.map<DropdownMenuItem<String>>((int value) {
-        return DropdownMenuItem<String>(
-          value: value.toString(),
-          child: Text(value.toString()),
-        );
-      }).toList(),
+      child: DropdownButton2(
+        isExpanded: true,
+        buttonHeight: widget.buttonHeight,
+        buttonWidth: widget.buttonWidth,
+        underline: Container(color: Colors.transparent),
+        hint: Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            child: Text(
+              items[0],
+              style: TextStyle(
+                fontSize: 12,
+                color: colorService.signInScreenTitleColor(),
+              ),
+            ),
+          ),
+        ),
+        items: (items
+            .map(
+              (item) => DropdownMenuItem<String>(
+                value: item,
+                child: Center(
+                  child: Text(
+                    item,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: colorService.signInScreenTitleColor(),
+                    ),
+                  ),
+                ),
+              ),
+            )
+            .toList()),
+        value: selectedValue,
+        onChanged: (value) {
+          setState(() {
+            selectedValue = value as String;
+          });
+        },
+      ),
     );
   }
 }
 
+//
+// final List<int> Months = List<int>.generate(31, (i) => i + 1);

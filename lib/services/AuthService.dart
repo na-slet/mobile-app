@@ -34,7 +34,7 @@ class AuthService {
   Future<String> loginUser(
       {required String email, required String password}) async {
     dynamic data = await APIService.postRequest(
-        request: 'user/login', data: {'email': email, 'password': password});
+        request: 'user/login', data: {'identity': email, 'password': password});
 
     try {
       if (data != '' && data['access_token'] != '') {
@@ -46,6 +46,23 @@ class AuthService {
     }
 
     return S.current.userNotExistError;
+  }
+
+  Future<String> regUser(
+      {required String email, required String password}) async {
+    dynamic data = await APIService.postRequest(
+        request: 'user/register', data: {'email': email, 'password': password});
+
+    try {
+      if (data != '' && data['access_token'] != '') {
+        await prefs.setString('token', data['access_token']);
+        return 'Token: ${data['access_token']}';
+      }
+    } catch (e) {
+      return S.current.userExistError;
+    }
+
+    return S.current.userExistError;
   }
 
   Future<String> authUser(
@@ -148,17 +165,8 @@ class AuthService {
     }
   }
 
-  Future<bool> signOut({required BuildContext context}) async {
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-
-    try {
-      if (!kIsWeb) {
-        await googleSignIn.signOut();
-      }
-      await FirebaseAuth.instance.signOut();
-      return true;
-    } catch (e) {
-      return false;
-    }
+  signOut() async {
+    _token = '';
+    await prefs.setString('token', _token);
   }
 }

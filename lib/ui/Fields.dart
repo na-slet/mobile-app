@@ -167,15 +167,13 @@ class _DropdownFieldState extends State<DropdownField> {
         buttonHeight: widget.buttonHeight,
         buttonWidth: widget.buttonWidth,
         underline: Container(color: Colors.transparent),
-        hint: Expanded(
-          child: Container(
-            alignment: Alignment.center,
-            child: Text(
-              items[0],
-              style: TextStyle(
-                fontSize: 12,
-                color: colorService.signInScreenTitleColor(),
-              ),
+        hint: Container(
+          alignment: Alignment.center,
+          child: Text(
+            items[0],
+            style: TextStyle(
+              fontSize: 12,
+              color: colorService.signInScreenTitleColor(),
             ),
           ),
         ),

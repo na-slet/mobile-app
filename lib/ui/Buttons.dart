@@ -99,10 +99,50 @@ class CircleButton extends StatelessWidget {
   final double width;
   final String imgPath;
   final VoidCallback onTap;
+
+  CircleButton({
+    Key? key,
+    this.height = 40,
+    this.width = 40,
+    required this.imgPath,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: width,
+      height: height,
+      child: Stack(
+        children: <Widget>[
+          Image.asset(imgPath),
+          Positioned.fill(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                customBorder: const CircleBorder(),
+                onTap: onTap,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+class ImgCircleButton extends StatelessWidget {
+  final colorService = Injector().get<ColorService>();
+
+  final double height;
+  final double width;
+  final String imgPath;
+  final VoidCallback onTap;
   final double widthImg;
   final double heightImg;
 
-  CircleButton({
+  ImgCircleButton({
     Key? key,
     this.height = 40,
     this.width = 40,

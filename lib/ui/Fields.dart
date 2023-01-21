@@ -137,12 +137,16 @@ class DropdownField extends StatefulWidget {
   final double buttonWidth;
   final double buttonHeight;
   final List<String> items;
+  final AlignmentGeometry hintAlignment;
+  final EdgeInsetsGeometry hintPadding;
 
   DropdownField({
     super.key,
     required this.buttonWidth,
     required this.buttonHeight,
     required this.items,
+    this.hintAlignment = Alignment.center,
+    this.hintPadding = EdgeInsets.zero,
   });
 
   @override
@@ -168,7 +172,8 @@ class _DropdownFieldState extends State<DropdownField> {
         buttonWidth: widget.buttonWidth,
         underline: Container(color: Colors.transparent),
         hint: Container(
-          alignment: Alignment.center,
+          padding: widget.hintPadding,
+          alignment: widget.hintAlignment,
           child: Text(
             items[0],
             style: TextStyle(
@@ -181,13 +186,17 @@ class _DropdownFieldState extends State<DropdownField> {
             .map(
               (item) => DropdownMenuItem<String>(
                 value: item,
-                child: Center(
-                  child: Text(
-                    item,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      color: colorService.signInScreenTitleColor(),
+                child: Container(
+                  alignment: widget.hintAlignment,
+                  child: Padding(
+                    padding: widget.hintPadding,
+                    child: Text(
+                      item,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        color: colorService.signInScreenTitleColor(),
+                      ),
                     ),
                   ),
                 ),
@@ -204,6 +213,3 @@ class _DropdownFieldState extends State<DropdownField> {
     );
   }
 }
-
-//
-// final List<int> Months = List<int>.generate(31, (i) => i + 1);

@@ -22,6 +22,16 @@ class ColorService {
     );
   }
 
+  LinearGradient logOutGradient() {
+    return LinearGradient(
+      colors: const <Color>[
+        Color(0xFFB50D0D
+        ),
+        Color(0xFFE31717),
+      ],
+    );
+  }
+
   Color secondaryGrey() {
     return const Color(0xFF707070);
   }
@@ -52,6 +62,4 @@ class ColorService {
   Color logOutBottomColor() {
     return const Color(0xFFB50D0D);
   }
-
-
 }

@@ -56,6 +56,8 @@ class MobileBottomNavigationWidget extends StatelessWidget {
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Container(
+                width: 23,
+                height: 20,
                 padding: const EdgeInsets.only(
                   top: 2,
                   bottom: 4,
@@ -66,6 +68,8 @@ class MobileBottomNavigationWidget extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: Container(
+                  width: 24,
+                  height: 18,
                   padding: const EdgeInsets.only(
                     top: 2,
                     bottom: 4,
@@ -75,6 +79,8 @@ class MobileBottomNavigationWidget extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: Container(
+                  width: 18,
+                  height: 20,
                   padding: const EdgeInsets.only(
                     top: 2,
                     bottom: 4,

@@ -40,7 +40,7 @@ class NaSletApp extends StatelessWidget {
       initialRoute:
           (authService.token == '') ? Routes.signInPage : Routes.mainPage,
       routes: {
-        Routes.signInPage: (context) => SignInPage(),
+        Routes.signInPage: (context) => MainPage(),
         Routes.signUpPage: (context) => SignUpPage(),
         Routes.mainPage: (context) => MainPage(),
       },

@@ -41,4 +41,17 @@ class ColorService {
   Color signInDecorationLineColor() {
     return const Color(0xFFD3D3D3);
   }
+
+  Color profilePageTexFieldHintColor() {
+    return const Color(0xFF909090);
+  }
+  Color profilePageAvatarBoxShadowColor() {
+    return const Color(0xFF8187BD).withOpacity(0.15);
+  }
+
+  Color logOutBottomColor() {
+    return const Color(0xFFB50D0D);
+  }
+
+
 }

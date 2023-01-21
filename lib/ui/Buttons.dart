@@ -22,7 +22,7 @@ class PrimaryButton extends StatelessWidget {
     required this.title,
     required this.gradient,
     required this.textStyle,
-    required this.enabled,
+    this.enabled = true,
   }) : super(key: key);
 
   @override
@@ -99,6 +99,8 @@ class CircleButton extends StatelessWidget {
   final double width;
   final String imgPath;
   final VoidCallback onTap;
+  final double widthImg;
+  final double heightImg;
 
   CircleButton({
     Key? key,
@@ -106,6 +108,8 @@ class CircleButton extends StatelessWidget {
     this.width = 40,
     required this.imgPath,
     required this.onTap,
+    this.widthImg = 20,
+    this.heightImg = 20,
   }) : super(key: key);
 
   @override
@@ -114,8 +118,13 @@ class CircleButton extends StatelessWidget {
       width: width,
       height: height,
       child: Stack(
+        alignment: Alignment.center,
         children: <Widget>[
-          Image.asset(imgPath),
+          Container(
+            width: widthImg,
+            height: heightImg,
+            child: Image.asset(imgPath),
+          ),
           Positioned.fill(
             child: Material(
               color: Colors.transparent,
@@ -126,6 +135,100 @@ class CircleButton extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class LogOutButton extends StatelessWidget {
+  final colorService = Injector().get<ColorService>();
+
+  final double height;
+  final String title;
+  final Color color;
+  final TextStyle textStyle;
+  final VoidCallback? onTap;
+  final bool enabled;
+
+  LogOutButton({
+    Key? key,
+    this.height = 45,
+    this.onTap,
+    required this.title,
+    required this.color,
+    required this.textStyle,
+    this.enabled = true,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: enabled ? color : null,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: enabled ? onTap : null,
+          borderRadius: BorderRadius.circular(5),
+          child: Center(
+            child: Text(
+              title,
+              style: textStyle,
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class EditButton extends StatelessWidget {
+  final colorService = Injector().get<ColorService>();
+
+  final double height;
+  final double width;
+  final Color color;
+  final VoidCallback? onTap;
+  final String imgPath;
+
+  EditButton({
+    Key? key,
+    this.height = 40,
+    this.width = 40,
+    required this.onTap,
+    required this.color,
+    required this.imgPath,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GradinetLeftToRight(
+      blendMode: BlendMode.color,
+      color: colorService.primaryGradient(),
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        height: height,
+        width: width,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: onTap,
+            borderRadius: BorderRadius.circular(10),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Image.asset(imgPath),
+            ),
+          ),
+        ),
       ),
     );
   }

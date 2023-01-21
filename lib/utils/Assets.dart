@@ -9,4 +9,5 @@ abstract class A {
   static const String assetsProfilePageDoneMarkIcon = "assets/icons/profile_page/ProfilePageDoneMarkIcon.png";
   static const String assetsProfilePagePencileIcon = "assets/icons/profile_page/ProfilePagePencileIcon.png";
   static const String assetsBackgroundFeed = "images/background.png";
+  static const String assetsProfilePageAvatarImage = "assets/images/profile_page/profilePageAvatarImage.png";
 }

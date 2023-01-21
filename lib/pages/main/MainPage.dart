@@ -4,7 +4,6 @@ import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:naslet_mobile/pages/main/events/EventsPage.dart';
 import 'package:naslet_mobile/pages/main/feed/FeedPage.dart';
 import 'package:naslet_mobile/pages/main/profile/ProfilePage.dart';
-import 'package:naslet_mobile/pages/main/profile/ProfilePageMobile.dart';
 import 'package:naslet_mobile/ui/navigation_bar/DesktopNavigationBar.dart';
 import 'package:naslet_mobile/utils/Routes.dart';
 

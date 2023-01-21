@@ -92,27 +92,28 @@ class ProfilePageMobile extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              SizedBox(
+              Container(
                 width: 208,
                 height: 208,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: colorService.profilePageAvatarBoxShadowColor(),
+                      spreadRadius: 0,
+                      blurRadius: 25,
+                      offset: const Offset(0, 8), // changes position of shadow
+                    ),
+                  ],
+                ),
                 child: Stack(
                   children: <Widget>[
                     Container(
-                      width: 195,
-                      height: 195,
                       decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color:
-                                colorService.profilePageAvatarBoxShadowColor(),
-                            spreadRadius: 0,
-                            blurRadius: 25,
-                            offset: const Offset(
-                                0, 8), // changes position of shadow
-                          ),
-                        ],
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Image.asset(
+                        A.assetsProfilePageAvatarImage,
+                        fit: BoxFit.fill,
                       ),
                     ),
                     Align(
@@ -227,7 +228,6 @@ class ProfilePageMobile extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

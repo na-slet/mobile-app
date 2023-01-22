@@ -46,9 +46,9 @@ class ProfilePageMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width - 2 * 28;
-    double dateFieldWidth = 68; //deviceWidth * 0.25;
-    double monthFieldWidth = 136; //deviceWidth * 0.5;
-    double yearFieldWidth = 68; //deviceWidth * 0.25;
+    double dateFieldWidth = (deviceWidth - 16) * 0.25 - 3;
+    double monthFieldWidth = (deviceWidth - 16) * 0.5 - 3;
+    double yearFieldWidth = (deviceWidth - 16) * 0.25 - 3;
 
     return SingleChildScrollView(
       child: Container(
@@ -230,28 +230,26 @@ class ProfilePageMobile extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    S.current.profilePageUnificationFieldLabelText,
-                    style: TextStyle(
-                      color: colorService.profilePageTexFieldHintColor(),
-                      fontSize: 10,
-                      fontWeight: FontWeight.w500,
-                    ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  S.current.profilePageUnificationFieldLabelText,
+                  style: TextStyle(
+                    color: colorService.profilePageTexFieldHintColor(),
+                    fontSize: 10,
+                    fontWeight: FontWeight.w500,
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  DropdownField(
-                    hintAlignment: Alignment.centerLeft,
-                    hintPadding: EdgeInsets.only(left: 10),
-                    buttonWidth: deviceWidth,
-                    buttonHeight: 35,
-                    items: unification,
-                  ),
-                ],
+                ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              DropdownField(
+                hintAlignment: Alignment.centerLeft,
+                hintPadding: EdgeInsets.only(left: 10),
+                buttonWidth: deviceWidth,
+                buttonHeight: 35,
+                items: unification,
               ),
               const SizedBox(
                 height: 5,

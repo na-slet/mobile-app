@@ -12,15 +12,15 @@ class FeedPageDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     double widthBetweenCards = MediaQuery.of(context).size.width * 0.04;
     return Padding(
-      padding: const EdgeInsets.only(top: 25),
+      padding: const EdgeInsets.symmetric(vertical: 25),
       child: FractionallySizedBox(
         widthFactor: widthFactorFeedPageDesktop(context),
-        child: SingleChildScrollView(
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-            ),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white,
+          ),
+          child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: MediaQuery.of(context).size.width * 0.05,
@@ -69,7 +69,7 @@ class FeedPageDesktop extends StatelessWidget {
                               ageLimit: 'от 15 до 18 лет',
                               location: 'Москва, ЦО',
                               description:
-                              'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
+                                  'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
                             ),
                           ),
                         ],
@@ -88,7 +88,7 @@ class FeedPageDesktop extends StatelessWidget {
                               ageLimit: 'от 15 до 18 лет',
                               location: 'Москва, ЦО',
                               description:
-                              'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
+                                  'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
                             ),
                           ),
                           SizedBox(
@@ -103,7 +103,7 @@ class FeedPageDesktop extends StatelessWidget {
                               ageLimit: 'от 15 до 18 лет',
                               location: 'Москва, ЦО',
                               description:
-                              'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
+                                  'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
                             ),
                           ),
                         ],
@@ -122,7 +122,7 @@ class FeedPageDesktop extends StatelessWidget {
                               ageLimit: 'от 15 до 18 лет',
                               location: 'Москва, ЦО',
                               description:
-                              'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
+                                  'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
                             ),
                           ),
                           SizedBox(
@@ -137,7 +137,7 @@ class FeedPageDesktop extends StatelessWidget {
                               ageLimit: 'от 15 до 18 лет',
                               location: 'Москва, ЦО',
                               description:
-                              'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
+                                  'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
                             ),
                           ),
                         ],

@@ -29,6 +29,7 @@ extension ScreenSizeExtension on ScreenSize {
         return 0.6;
     }
   }
+
   double get heightFactor {
     switch (this) {
       case ScreenSize.desktop:
@@ -44,13 +45,11 @@ extension ScreenSizeExtension on ScreenSize {
 double setSignInOptionWidth(BuildContext context) {
   if (setWidthFactor(context) == ScreenSize.desktop.widthFactor) {
     //desktop
-    return  0.35;
-  }
-  else if (setWidthFactor(context) == ScreenSize.tablet.widthFactor) {
+    return 0.35;
+  } else if (setWidthFactor(context) == ScreenSize.tablet.widthFactor) {
     //tablet
     return 0.6;
-  }
-  else {
+  } else {
     //no scale in mobile mode
     return 1;
   }
@@ -60,30 +59,27 @@ double setSignInOptionHeight(BuildContext context) {
   if (MediaQuery.of(context).size.height >= HeightFormFactor.desktop) {
     //desktop
     return 0.65;
-  }
-  else if (MediaQuery.of(context).size.height >= HeightFormFactor.tablet) {
+  } else if (MediaQuery.of(context).size.height >= HeightFormFactor.tablet) {
     //tablet
     return 0.7;
-  }
-  else {
+  } else {
     return 1;
   }
 }
 
 double setSignUpOptionWidth(BuildContext context) {
-  if ((setWidthFactor(context) == ScreenSize.desktop.widthFactor) && (MediaQuery.of(context).size.width >= 1300)) {
+  if ((setWidthFactor(context) == ScreenSize.desktop.widthFactor) &&
+      (MediaQuery.of(context).size.width >= 1300)) {
     //desktop
-    return  0.35;
-  }
-  else if ((setWidthFactor(context) == ScreenSize.desktop.widthFactor) && (MediaQuery.of(context).size.width < 1300)) {
-  //desktop
-  return  0.7;
-  }
-  else if (setWidthFactor(context) == ScreenSize.tablet.widthFactor) {
+    return 0.35;
+  } else if ((setWidthFactor(context) == ScreenSize.desktop.widthFactor) &&
+      (MediaQuery.of(context).size.width < 1300)) {
+    //desktop
+    return 0.7;
+  } else if (setWidthFactor(context) == ScreenSize.tablet.widthFactor) {
     //tablet
     return 0.6;
-  }
-  else {
+  } else {
     //no scale in mobile mode
     return 1;
   }
@@ -93,12 +89,10 @@ double setSignUpOptionHeight(BuildContext context) {
   if (MediaQuery.of(context).size.height >= HeightFormFactor.desktop) {
     //desktop
     return 0.65;
-  }
-  else if (MediaQuery.of(context).size.height >= HeightFormFactor.tablet) {
+  } else if (MediaQuery.of(context).size.height >= HeightFormFactor.tablet) {
     //tablet
     return 0.7;
-  }
-  else {
+  } else {
     //no scale in mobile mode
     return 1;
   }
@@ -107,8 +101,7 @@ double setSignUpOptionHeight(BuildContext context) {
 double setWidthFactor(BuildContext context) {
   if (MediaQuery.of(context).size.width < WidthFormFactor.tablet) {
     return ScreenSize.mobile.widthFactor;
-  }
-  else if ((MediaQuery.of(context).size.width > WidthFormFactor.mobile) &&
+  } else if ((MediaQuery.of(context).size.width > WidthFormFactor.mobile) &&
       (MediaQuery.of(context).size.width < WidthFormFactor.desktop)) {
     return ScreenSize.tablet.widthFactor;
   }
@@ -118,67 +111,50 @@ double setWidthFactor(BuildContext context) {
 double setHeightFactor(BuildContext context) {
   if (MediaQuery.of(context).size.height >= HeightFormFactor.desktop) {
     return ScreenSize.mobile.heightFactor;
-  }
-  else if (MediaQuery.of(context).size.height >= HeightFormFactor.tablet) {
+  } else if (MediaQuery.of(context).size.height >= HeightFormFactor.tablet) {
     return ScreenSize.tablet.heightFactor;
   }
   return ScreenSize.desktop.heightFactor;
 }
 
-
 double widthFactorProfilePageDesktop(BuildContext context) {
   if (MediaQuery.of(context).size.width >= 1200) {
     return 0.5;
-  }
-  else if (MediaQuery.of(context).size.width >= 1024) {
+  } else if (MediaQuery.of(context).size.width >= 1024) {
     return 0.67;
   }
   return 0.9;
 }
+
 double heightFactorProfilePageDesktop(BuildContext context) {
   if (MediaQuery.of(context).size.height >= HeightFormFactor.desktop) {
     return 0.45;
-  }
-  else if (MediaQuery.of(context).size.height >= HeightFormFactor.tablet) {
+  } else if (MediaQuery.of(context).size.height >= HeightFormFactor.tablet) {
     return 0.68;
-  }
-  else if (MediaQuery.of(context).size.height >= 800) {
+  } else if (MediaQuery.of(context).size.height >= 800) {
     return 0.75;
-  }
-  else if (MediaQuery.of(context).size.height >= 600) {
+  } else if (MediaQuery.of(context).size.height >= 600) {
     return 0.94;
   }
   return 0.9;
 }
+
 double? setColumnWidthProfilePageDesktop(BuildContext context) {
   double deviceWidth = MediaQuery.of(context).size.width;
   if (widthFactorProfilePageDesktop(context) == 0.5) {
-   return deviceWidth * 0.22;
-  }
-  else if (widthFactorProfilePageDesktop(context) == 0.67) {
+    return deviceWidth * 0.22;
+  } else if (widthFactorProfilePageDesktop(context) == 0.67) {
     return deviceWidth * 0.28;
   }
   return deviceWidth * 0.4;
-}
-double setDateDropDownWidthProfilePageDesktop(BuildContext context) {
-  double deviceWidth = MediaQuery.of(context).size.width;
-  if (widthFactorProfilePageDesktop(context) == 0.5) {
-    return deviceWidth * 0.059;
-  }
-  else if (widthFactorProfilePageDesktop(context) == 0.67) {
-    return deviceWidth * 0.07;
-  }
-  return deviceWidth * 0.1;
 }
 
 double widthFactorFeedPageDesktop(BuildContext context) {
   if (MediaQuery.of(context).size.width >= 1322) {
     return 0.5;
-  }
-  else if (MediaQuery.of(context).size.width >= 1220) {
+  } else if (MediaQuery.of(context).size.width >= 1220) {
     return 0.65;
-  }
-  else if (MediaQuery.of(context).size.width >= 1024) {
+  } else if (MediaQuery.of(context).size.width >= 1024) {
     return 0.7;
   }
   return 0.8;

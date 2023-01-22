@@ -109,7 +109,7 @@ class ProfilePageMobile extends StatelessWidget {
                 child: Stack(
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.asset(

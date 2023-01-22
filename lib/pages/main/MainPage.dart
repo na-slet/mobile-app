@@ -69,8 +69,7 @@ class _MainPageState extends State<MainPage> {
                 builder = (BuildContext context) => FeedPage();
                 break;
             }
-            return CupertinoDialogRoute(
-              context: context,
+            return MaterialPageRoute(
               builder: builder,
               settings: settings,
             );

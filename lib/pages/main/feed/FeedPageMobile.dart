@@ -50,12 +50,26 @@ class FeedPageMobile extends StatelessWidget {
                 ),
                 PrimaryCard(
                   onTap: () {},
-                  imgPath: A.assetsPrimaryCardRightArrowIcon,
-                  title: '123',
-                  date: '123',
-                  ageLimit: '123',
-                  location: '123',
-                  description: '123',
+                  imgPath: A.assetsPrimaryCardImgExample,
+                  title: 'Слет «Файер»',
+                  date: '14-17 февраля 2023',
+                  ageLimit: 'от 15 до 18 лет',
+                  location: 'Москва, ЦО',
+                  description:
+                  'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                PrimaryCard(
+                  onTap: () {},
+                  imgPath: A.assetsPrimaryCardImgExample,
+                  title: 'Слет «Файер»',
+                  date: '14-17 февраля 2023',
+                  ageLimit: 'от 15 до 18 лет',
+                  location: 'Москва, ЦО',
+                  description:
+                  'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
                 ),
               ],
             ),

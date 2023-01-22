@@ -14,4 +14,5 @@ abstract class A {
   static const String assetsPrimaryCardDateIcon = "assets/icons/primary_card/DatePrimaryCardIcon.png";
   static const String assetsPrimaryCardLocationIcon = "assets/icons/primary_card/LocationPrimaryCardIcon.png";
   static const String assetsPrimaryCardRightArrowIcon = "assets/icons/primary_card/RightArrowPrimaryCardIcon.png";
+  static const String assetsPrimaryCardImgExample = "assets/icons/primary_card/cardImgExample.png";
 }

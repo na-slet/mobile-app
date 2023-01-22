@@ -7,8 +7,10 @@ import '../../../utils/Assets.dart';
 
 class FeedPageDesktop extends StatelessWidget {
   const FeedPageDesktop({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    double widthBetweenCards = MediaQuery.of(context).size.width * 0.04;
     return Padding(
       padding: const EdgeInsets.only(top: 25),
       child: FractionallySizedBox(
@@ -20,7 +22,9 @@ class FeedPageDesktop extends StatelessWidget {
               color: Colors.white,
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.05, vertical: 25),
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.05,
+                  vertical: 25),
               child: Column(
                 children: [
                   Row(
@@ -37,57 +41,106 @@ class FeedPageDesktop extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Column(
                     children: [
-                      SizedBox(
-                        child: Column(
-                          children: [
-                            PrimaryCard(
+                      Row(
+                        children: [
+                          Flexible(
+                            child: PrimaryCard(
                               onTap: () {},
-                              imgPath: A.assetsPrimaryCardRightArrowIcon,
-                              title: '123',
-                              date: '123',
-                              ageLimit: '123',
-                              location: '123',
-                              description: '123',
+                              imgPath: A.assetsPrimaryCardImgExample,
+                              title: 'Слет «Файер»',
+                              date: '14-17 февраля 2023',
+                              ageLimit: 'от 15 до 18 лет',
+                              location: 'Москва, ЦО',
+                              description:
+                                  'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
                             ),
-                            PrimaryCard(
+                          ),
+                          SizedBox(
+                            width: widthBetweenCards,
+                          ),
+                          Flexible(
+                            child: PrimaryCard(
                               onTap: () {},
-                              imgPath: A.assetsPrimaryCardRightArrowIcon,
-                              title: '123',
-                              date: '123',
-                              ageLimit: '123',
-                              location: '123',
-                              description: '123',
+                              imgPath: A.assetsPrimaryCardImgExample,
+                              title: 'Слет «Файер»',
+                              date: '14-17 февраля 2023',
+                              ageLimit: 'от 15 до 18 лет',
+                              location: 'Москва, ЦО',
+                              description:
+                              'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
                             ),
-                            PrimaryCard(
-                              onTap: () {},
-                              imgPath: A.assetsPrimaryCardRightArrowIcon,
-                              title: '123',
-                              date: '123',
-                              ageLimit: '123',
-                              location: '123',
-                              description: '123',
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                       SizedBox(
-                        child: Column(
-                          children: [
-                            PrimaryCard(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Flexible(
+                            child: PrimaryCard(
                               onTap: () {},
-                              imgPath: A.assetsPrimaryCardRightArrowIcon,
-                              title: '123',
-                              date: '123',
-                              ageLimit: '123',
-                              location: '123',
-                              description: '123',
+                              imgPath: A.assetsPrimaryCardImgExample,
+                              title: 'Слет «Файер»',
+                              date: '14-17 февраля 2023',
+                              ageLimit: 'от 15 до 18 лет',
+                              location: 'Москва, ЦО',
+                              description:
+                              'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
                             ),
-                          ],
-                        ),
+                          ),
+                          SizedBox(
+                            width: widthBetweenCards,
+                          ),
+                          Flexible(
+                            child: PrimaryCard(
+                              onTap: () {},
+                              imgPath: A.assetsPrimaryCardImgExample,
+                              title: 'Слет «Файер»',
+                              date: '14-17 февраля 2023',
+                              ageLimit: 'от 15 до 18 лет',
+                              location: 'Москва, ЦО',
+                              description:
+                              'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Flexible(
+                            child: PrimaryCard(
+                              onTap: () {},
+                              imgPath: A.assetsPrimaryCardImgExample,
+                              title: 'Слет «Файер»',
+                              date: '14-17 февраля 2023',
+                              ageLimit: 'от 15 до 18 лет',
+                              location: 'Москва, ЦО',
+                              description:
+                              'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
+                            ),
+                          ),
+                          SizedBox(
+                            width: widthBetweenCards,
+                          ),
+                          Flexible(
+                            child: PrimaryCard(
+                              onTap: () {},
+                              imgPath: A.assetsPrimaryCardImgExample,
+                              title: 'Слет «Файер»',
+                              date: '14-17 февраля 2023',
+                              ageLimit: 'от 15 до 18 лет',
+                              location: 'Москва, ЦО',
+                              description:
+                              'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   )

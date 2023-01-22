@@ -62,9 +62,8 @@ class PrimaryCard extends StatelessWidget {
         ),
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
         child: Column(
-
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Text(
               title,
@@ -122,7 +121,7 @@ class PrimaryCard extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
+            SizedBox(
               height: 180,
               child: Image.asset(imgPath),
             ),
@@ -130,13 +129,16 @@ class PrimaryCard extends StatelessWidget {
               description,
               style: descriptionTextStyle,
             ),
-            ImgCircleButton(
-              onTap: onTap,
-              height: 40,
-              width: 40,
-              widthImg: 16,
-              heightImg: 12,
-              imgPath: A.assetsPrimaryCardRightArrowIcon,
+            Align(
+              alignment: Alignment.centerRight,
+              child: ImgCircleButton(
+                onTap: onTap,
+                height: 40,
+                width: 40,
+                widthImg: 16,
+                heightImg: 12,
+                imgPath: A.assetsPrimaryCardRightArrowIcon,
+              ),
             )
           ],
         ),

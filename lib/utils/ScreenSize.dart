@@ -170,3 +170,16 @@ double setDateDropDownWidthProfilePageDesktop(BuildContext context) {
   }
   return deviceWidth * 0.1;
 }
+
+double widthFactorFeedPageDesktop(BuildContext context) {
+  if (MediaQuery.of(context).size.width >= 1322) {
+    return 0.5;
+  }
+  else if (MediaQuery.of(context).size.width >= 1220) {
+    return 0.65;
+  }
+  else if (MediaQuery.of(context).size.width >= 1024) {
+    return 0.7;
+  }
+  return 0.8;
+}

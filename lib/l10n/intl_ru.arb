@@ -66,5 +66,7 @@
     "September": "Сентябрь",
     "October": "Октябрь",
     "November": "Ноябрь",
-    "December": "Декабрь"
+    "December": "Декабрь",
+
+    "feedPageTittleText": "Лента"
 }

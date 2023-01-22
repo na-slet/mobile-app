@@ -20,6 +20,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final colorService = Injector().get<ColorService>();
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   int _selectedIndex = 0;
 
@@ -29,13 +30,13 @@ class _MainPageState extends State<MainPage> {
         _selectedIndex = index;
         switch (index) {
           case 0:
-            Routes.navigatorKey.currentState?.pushNamed(Routes.feedPage);
+            navigatorKey.currentState?.pushNamed(Routes.feedPage);
             break;
           case 1:
-            Routes.navigatorKey.currentState?.pushNamed(Routes.eventsPage);
+            navigatorKey.currentState?.pushNamed(Routes.eventsPage);
             break;
           case 2:
-            Routes.navigatorKey.currentState?.pushNamed(Routes.profilePage);
+            navigatorKey.currentState?.pushNamed(Routes.profilePage);
             break;
         }
       },
@@ -53,7 +54,7 @@ class _MainPageState extends State<MainPage> {
                 selectedIndex: _selectedIndex,
                 headerMargins: MediaQuery.of(context).size.width * 0.05),
         body: Navigator(
-          key: Routes.navigatorKey,
+          key: navigatorKey,
           initialRoute: Routes.feedPage,
           onGenerateRoute: (RouteSettings settings) {
             WidgetBuilder builder;
@@ -62,7 +63,7 @@ class _MainPageState extends State<MainPage> {
                 builder = (BuildContext context) => EventsPage();
                 break;
               case Routes.profilePage:
-                builder = (BuildContext context) => ProfilePage();
+                builder = (BuildContext context) => EventsPage();
                 break;
               default:
                 builder = (BuildContext context) => FeedPage();

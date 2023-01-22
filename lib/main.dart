@@ -37,8 +37,9 @@ class NaSletApp extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(fontFamily: fontService.Inter),
-      initialRoute:
-          (authService.token == '') ? Routes.signInPage : Routes.mainPage,
+      initialRoute: Routes.mainPage,
+      // initialRoute:
+      //     (authService.token == '') ? Routes.signInPage : Routes.mainPage,
       routes: {
         Routes.signInPage: (context) => SignInPage(),
         Routes.signUpPage: (context) => SignUpPage(),

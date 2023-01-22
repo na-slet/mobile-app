@@ -108,12 +108,14 @@ class ProfilePageMobile extends StatelessWidget {
                 ),
                 child: Stack(
                   children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Image.asset(
-                        A.assetsProfilePageAvatarImage,
-                        fit: BoxFit.fill,
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          A.assetsProfilePageAvatarImage,
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                     Align(
@@ -138,8 +140,8 @@ class ProfilePageMobile extends StatelessWidget {
               ),
               ProfilePageTextField(
                 controller: _textFormNameController,
-                lableText: S.current.profilePageNameFieldHintText,
-                hintText: S.current.profilePageNameFieldLabelText,
+                lableText: S.current.profilePageNameFieldLabelText,
+                hintText: S.current.profilePageNameFieldHintText,
               ),
               const SizedBox(
                 height: 5,

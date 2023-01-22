@@ -62,6 +62,7 @@ class PrimaryCard extends StatelessWidget {
         ),
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
         child: Column(
+
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -129,16 +130,13 @@ class PrimaryCard extends StatelessWidget {
               description,
               style: descriptionTextStyle,
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: ImgCircleButton(
-                onTap: onTap,
-                height: 40,
-                width: 40,
-                widthImg: 16,
-                heightImg: 12,
-                imgPath: A.assetsPrimaryCardRightArrowIcon,
-              ),
+            ImgCircleButton(
+              onTap: onTap,
+              height: 40,
+              width: 40,
+              widthImg: 16,
+              heightImg: 12,
+              imgPath: A.assetsPrimaryCardRightArrowIcon,
             )
           ],
         ),

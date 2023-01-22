@@ -131,7 +131,6 @@ class CircleButton extends StatelessWidget {
   }
 }
 
-
 class ImgCircleButton extends StatelessWidget {
   final colorService = Injector().get<ColorService>();
 
@@ -180,45 +179,42 @@ class ImgCircleButton extends StatelessWidget {
   }
 }
 
-class LogOutButton extends StatelessWidget {
+class SecondaryButton extends StatelessWidget {
   final colorService = Injector().get<ColorService>();
 
   final double height;
-  final String title;
-  final Color color;
-  final TextStyle textStyle;
+  final LinearGradient gradient;
+  final Widget child;
   final VoidCallback? onTap;
   final bool enabled;
 
-  LogOutButton({
+  SecondaryButton({
     Key? key,
     this.height = 45,
     this.onTap,
-    required this.title,
-    required this.color,
-    required this.textStyle,
+    required this.gradient,
     this.enabled = true,
+    required this.child,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: enabled ? color : null,
-        borderRadius: BorderRadius.circular(5),
-      ),
+    return GradinetLeftToRight(
+      blendMode: BlendMode.color,
+      color: enabled ? gradient : colorService.inactiveGradient(),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
           onTap: enabled ? onTap : null,
           borderRadius: BorderRadius.circular(5),
-          child: Center(
-            child: Text(
-              title,
-              style: textStyle,
-              textAlign: TextAlign.center,
+          child: Container(
+            height: height,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Center(
+              child: child
             ),
           ),
         ),

@@ -43,7 +43,8 @@ flutter:
     - assets/images/profile_page/
     - assets/icons/nav_bar_icons/
     - assets/icons/profile_page/
-    - assets/icons/primary_card/
+    - assets/icons/card_icon/
+    - assets/icons/details_page/
 
   fonts:
     - family: Inter

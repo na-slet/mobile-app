@@ -50,7 +50,7 @@ class FeedPageMobile extends StatelessWidget {
                 ),
                 PrimaryCard(
                   onTap: () {},
-                  imgPath: A.assetsPrimaryCardImgExample,
+                  imgPath: A.assetsCardImgExample,
                   title: 'Слет «Файер»',
                   date: '14-17 февраля 2023',
                   ageLimit: 'от 15 до 18 лет',
@@ -63,7 +63,7 @@ class FeedPageMobile extends StatelessWidget {
                 ),
                 PrimaryCard(
                   onTap: () {},
-                  imgPath: A.assetsPrimaryCardImgExample,
+                  imgPath: A.assetsCardImgExample,
                   title: 'Слет «Файер»',
                   date: '14-17 февраля 2023',
                   ageLimit: 'от 15 до 18 лет',

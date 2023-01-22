@@ -13,6 +13,7 @@ class ColorService {
       ],
     );
   }
+
   LinearGradient inactiveGradient() {
     return LinearGradient(
       colors: <Color>[
@@ -25,9 +26,26 @@ class ColorService {
   LinearGradient logOutGradient() {
     return LinearGradient(
       colors: const <Color>[
-        Color(0xFFB50D0D
-        ),
+        Color(0xFFB50D0D),
         Color(0xFFE31717),
+      ],
+    );
+  }
+
+  LinearGradient bookedGradient() {
+    return LinearGradient(
+      colors: const <Color>[
+        Color(0xFF2B9910),
+        Color(0xFF41C613),
+      ],
+    );
+  }
+
+  LinearGradient inProgressGradient() {
+    return LinearGradient(
+      colors: const <Color>[
+        Color(0xFFEBB21E),
+        Color(0xFFE8D31A),
       ],
     );
   }
@@ -55,6 +73,7 @@ class ColorService {
   Color profilePageTexFieldHintColor() {
     return const Color(0xFF909090);
   }
+
   Color profilePageAvatarBoxShadowColor() {
     return const Color(0xFF8187BD).withOpacity(0.15);
   }

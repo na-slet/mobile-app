@@ -68,5 +68,11 @@
     "November": "Ноябрь",
     "December": "Декабрь",
 
-    "feedPageTittleText": "Лента"
+    "feedPageTittleText": "Лента",
+    "detailPageTittleText": "Подробно",
+
+    "detailButtonStateParticipate": "Участвовать",
+    "detailButtonStateShareScreen": "Прикрепите скрин",
+    "detailButtonStateInProgress": "В обработке",
+    "detailButtonStateBooked": "Забронировано"
 }

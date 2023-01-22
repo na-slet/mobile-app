@@ -26,6 +26,7 @@ dependencies:
   shared_preferences: ^2.0.16
   dropdown_button2: ^1.9.2
   flutter_native_splash: ^2.2.17
+  gradient_borders: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +43,7 @@ flutter:
     - assets/images/profile_page/
     - assets/icons/nav_bar_icons/
     - assets/icons/profile_page/
+    - assets/icons/primary_card/
 
   fonts:
     - family: Inter

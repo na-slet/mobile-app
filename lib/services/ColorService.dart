@@ -62,4 +62,12 @@ class ColorService {
   Color logOutBottomColor() {
     return const Color(0xFFB50D0D);
   }
+
+  Color cardInfoTextColor() {
+    return const Color(0xFF606060);
+  }
+
+  Color cardTitleTextColor() {
+    return const Color(0xFF343434);
+  }
 }

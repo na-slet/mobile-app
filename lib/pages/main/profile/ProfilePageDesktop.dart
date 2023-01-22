@@ -207,6 +207,8 @@ class ProfilePageDesktop extends StatelessWidget {
                                   buttonWidth: dateFieldWidth,
                                   buttonHeight: 35,
                                   items: dateList,
+                                  textColor:
+                                      colorService.signInScreenTitleColor(),
                                 ),
                                 const SizedBox(
                                   width: 8,
@@ -217,6 +219,8 @@ class ProfilePageDesktop extends StatelessWidget {
                                   items: monthList,
                                   hintAlignment: Alignment.center,
                                   // hintPadding: const EdgeInsets.only(left: 5),
+                                  textColor:
+                                      colorService.signInScreenTitleColor(),
                                 ),
                                 const SizedBox(
                                   width: 8,
@@ -225,6 +229,8 @@ class ProfilePageDesktop extends StatelessWidget {
                                   buttonWidth: yearFieldWidth,
                                   buttonHeight: 35,
                                   items: yearList,
+                                  textColor:
+                                      colorService.signInScreenTitleColor(),
                                 ),
                               ],
                             )

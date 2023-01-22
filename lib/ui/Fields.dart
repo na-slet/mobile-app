@@ -98,7 +98,7 @@ class ProfilePageTextField extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        Container(
+        SizedBox(
           height: height,
           child: TextFormField(
             keyboardType: textInputType,
@@ -139,15 +139,16 @@ class DropdownField extends StatefulWidget {
   final List<String> items;
   final AlignmentGeometry hintAlignment;
   final EdgeInsetsGeometry hintPadding;
+  final Color textColor;
 
-  DropdownField({
-    super.key,
-    required this.buttonWidth,
-    required this.buttonHeight,
-    required this.items,
-    this.hintAlignment = Alignment.center,
-    this.hintPadding = EdgeInsets.zero,
-  });
+  const DropdownField(
+      {super.key,
+      required this.buttonWidth,
+      required this.buttonHeight,
+      required this.items,
+      this.hintAlignment = Alignment.centerLeft,
+      this.hintPadding = EdgeInsets.zero,
+      required this.textColor});
 
   @override
   State<DropdownField> createState() => _DropdownFieldState();
@@ -177,9 +178,9 @@ class _DropdownFieldState extends State<DropdownField> {
           child: Text(
             items[0],
             style: TextStyle(
-              fontSize: 12,
-              color: colorService.signInScreenTitleColor(),
-            ),
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+                color: widget.textColor),
           ),
         ),
         items: (items

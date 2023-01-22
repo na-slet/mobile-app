@@ -190,6 +190,8 @@ class ProfilePageMobile extends StatelessWidget {
                         buttonWidth: dateFieldWidth,
                         buttonHeight: 35,
                         items: dateList,
+                        hintPadding: const EdgeInsets.only(left: 12),
+                        textColor: colorService.signInScreenTitleColor(),
                       ),
                       const SizedBox(
                         width: 8,
@@ -198,6 +200,8 @@ class ProfilePageMobile extends StatelessWidget {
                         buttonWidth: monthFieldWidth,
                         buttonHeight: 35,
                         items: monthList,
+                        hintPadding: const EdgeInsets.only(left: 12),
+                        textColor: colorService.signInScreenTitleColor(),
                       ),
                       const SizedBox(
                         width: 8,
@@ -206,6 +210,8 @@ class ProfilePageMobile extends StatelessWidget {
                         buttonWidth: yearFieldWidth,
                         buttonHeight: 35,
                         items: yearList,
+                        hintPadding: const EdgeInsets.only(left: 12),
+                        textColor: colorService.signInScreenTitleColor(),
                       ),
                     ],
                   )
@@ -246,10 +252,11 @@ class ProfilePageMobile extends StatelessWidget {
               ),
               DropdownField(
                 hintAlignment: Alignment.centerLeft,
-                hintPadding: EdgeInsets.only(left: 10),
+                hintPadding: const EdgeInsets.only(left: 10),
                 buttonWidth: deviceWidth,
                 buttonHeight: 35,
                 items: unification,
+                textColor: colorService.profilePageTexFieldHintColor(),
               ),
               const SizedBox(
                 height: 5,

@@ -14,7 +14,7 @@ class DetailsPageMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle detailButtonTextStyle = TextStyle(
+    const TextStyle detailButtonTextStyle = TextStyle(
         color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600);
 
     final List<Widget> detailButtonStates = [

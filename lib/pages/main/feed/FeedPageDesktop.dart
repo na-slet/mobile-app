@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../ui/Cards.dart';
+import '../../../utils/Routes.dart';
 import '../../../utils/ScreenSize.dart';
 import '../../../utils/Assets.dart';
 
@@ -45,7 +46,10 @@ class FeedPageDesktop extends StatelessWidget {
                         children: [
                           Flexible(
                             child: PrimaryCard(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.of(context)
+                                    .pushNamed(Routes.detailsPage);
+                              },
                               imgPath: A.assetsCardImgExample,
                               title: 'Слет «Файер»',
                               date: '14-17 февраля 2023',

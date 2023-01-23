@@ -336,7 +336,7 @@ class DetailCard extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Text(
-              'Конец регистрации: ${endRegistration}',
+              'Конец регистрации: $endRegistration',
               style: descriptionTextStyle.copyWith(
                 fontStyle: FontStyle.italic,
               ),
@@ -388,14 +388,12 @@ class DetailCardDesktop extends StatelessWidget {
 
     final TextStyle descriptionTextStyle = TextStyle(
         fontSize: 14,
-        fontStyle: FontStyle.italic,
         fontWeight: FontWeight.w400,
         color: colorService.cardTitleTextColor());
 
     final columnWidth = widthColumnDetailPageDesktop(context);
     const double widthInfoIcon = 14;
     const double heightInfoIcon = 14;
-    final double registrationTextWith = MediaQuery.of(context).size.width * 0.2;
 
     return Container(
       decoration: BoxDecoration(
@@ -415,25 +413,17 @@ class DetailCardDesktop extends StatelessWidget {
             SizedBox(
               width: columnWidth,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        title,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                          color: colorService.cardTitleTextColor(),
-                        ),
-                      ),
-                      Container(
-                        width: 20,
-                        height: 20,
-                        color: Colors.greenAccent,
-                      )
-                    ],
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w900,
+                      color: colorService.cardTitleTextColor(),
+                    ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
@@ -451,7 +441,7 @@ class DetailCardDesktop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Row(
@@ -469,7 +459,7 @@ class DetailCardDesktop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Row(
@@ -487,7 +477,7 @@ class DetailCardDesktop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   SizedBox(
@@ -499,7 +489,7 @@ class DetailCardDesktop extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             SizedBox(
@@ -511,7 +501,7 @@ class DetailCardDesktop extends StatelessWidget {
                     height: 185,
                     color: Colors.greenAccent,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -529,7 +519,7 @@ class DetailCardDesktop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Row(
@@ -548,22 +538,22 @@ class DetailCardDesktop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       detailButtonChild,
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
-                      SizedBox(
-                        width: registrationTextWith,
-                        child: Text(
-                          'Конец регистрации: ${endRegistration}',
-                          style: descriptionTextStyle,
+                      Text(
+                        'Конец регистрации: $endRegistration',
+                        style: descriptionTextStyle.copyWith(
+                          fontStyle: FontStyle.italic,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   )

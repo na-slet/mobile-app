@@ -15,12 +15,11 @@ class DetailsPageDesktop extends StatelessWidget {
 
   final colorService = Injector().get<ColorService>();
 
-  final TextStyle detailButtonTextStyle = TextStyle(
-      color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600);
+  final TextStyle detailButtonTextStyle =
+      TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600);
 
   @override
   Widget build(BuildContext context) {
-
     final List<Widget> detailButtonStates = [
       //участвовать
       SecondaryButton(
@@ -113,9 +112,6 @@ class DetailsPageDesktop extends StatelessWidget {
       ),
     ];
     double? columnWidth = widthFactorFeedPageDesktop(context);
-    final double horizontalPadding = horizontalPaddingDetailPage(context);
-
-
 
     return Padding(
       padding: const EdgeInsets.only(top: 25),
@@ -128,9 +124,7 @@ class DetailsPageDesktop extends StatelessWidget {
               color: Colors.white,
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: horizontalPadding,
-                  vertical: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
               child: Column(
                 children: [
                   SizedBox(
@@ -139,7 +133,9 @@ class DetailsPageDesktop extends StatelessWidget {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: ImgCircleButton(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            },
                             height: 30,
                             width: 30,
                             widthImg: 16,
@@ -159,7 +155,7 @@ class DetailsPageDesktop extends StatelessWidget {
                                 style: TextStyle(
                                   color: colorService.primaryColor(),
                                   fontSize: 24,
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w900,
                                 ),
                               ),
                             ),
@@ -181,10 +177,11 @@ class DetailsPageDesktop extends StatelessWidget {
                     location: 'Рождественский бул., 20, Москва',
                     imgPath: '',
                     description:
-                    'Туристский слёт самое любимое, интересное и массовое внеклассное мероприятие, которое пользуется большой популярностью у детей и взрослых.',
+                        'Туристский слёт самое любимое, интересное и массовое внеклассное мероприятие, которое пользуется большой популярностью у детей и взрослых.',
                     endRegistration: '12 февраля 2023',
                     detailButtonChild: detailButtonStates[0],
-                  ),                ],
+                  ),
+                ],
               ),
             ),
           ),

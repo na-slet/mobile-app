@@ -9,20 +9,22 @@ class PrimaryButton extends StatelessWidget {
   final colorService = Injector().get<ColorService>();
 
   final double height;
-  final String title;
+  final String? title;
   final LinearGradient gradient;
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
   final VoidCallback? onTap;
   final bool enabled;
+  final Widget? child;
 
   PrimaryButton({
     Key? key,
     this.height = 45,
     this.onTap,
-    required this.title,
+    this.title,
     required this.gradient,
-    required this.textStyle,
+    this.textStyle,
     this.enabled = true,
+    this.child,
   }) : super(key: key);
 
   @override
@@ -30,22 +32,24 @@ class PrimaryButton extends StatelessWidget {
     return GradinetLeftToRight(
       blendMode: BlendMode.color,
       color: enabled ? gradient : colorService.inactiveGradient(),
-      child: Container(
-        height: height,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-        ),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: enabled ? onTap : null,
+      child: Center(
+        child: Container(
+          height: height,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            child: Center(
-              child: Text(
-                title,
-                style: textStyle,
-                textAlign: TextAlign.center,
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: enabled ? onTap : null,
+              borderRadius: BorderRadius.circular(5),
+              child: Center(
+                child: child ?? Text(
+                  title!,
+                  style: textStyle,
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),
@@ -174,50 +178,6 @@ class ImgCircleButton extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class SecondaryButton extends StatelessWidget {
-  final colorService = Injector().get<ColorService>();
-
-  final double height;
-  final LinearGradient gradient;
-  final Widget child;
-  final VoidCallback? onTap;
-  final bool enabled;
-
-  SecondaryButton({
-    Key? key,
-    this.height = 45,
-    this.onTap,
-    required this.gradient,
-    this.enabled = true,
-    required this.child,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GradinetLeftToRight(
-      blendMode: BlendMode.color,
-      color: enabled ? gradient : colorService.inactiveGradient(),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: enabled ? onTap : null,
-          borderRadius: BorderRadius.circular(5),
-          child: Container(
-            height: height,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Center(
-              child: child
-            ),
-          ),
-        ),
       ),
     );
   }

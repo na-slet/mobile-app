@@ -8,7 +8,7 @@ abstract class A {
   static const String assetsLogoDesktopClient = "assets/images/logoDesktopClient.png";
   static const String assetsProfilePageDoneMarkIcon = "assets/icons/profile_page/ProfilePageDoneMarkIcon.png";
   static const String assetsProfilePagePencileIcon = "assets/icons/profile_page/ProfilePagePencileIcon.png";
-  static const String assetsBackgroundFeed = "images/background.png";
+  static const String assetsBackgroundFeed = "assets/images/background.png";
   static const String assetsProfilePageAvatarImage = "assets/images/profile_page/profilePageAvatarImage.png";
 
   static const String assetsCardAvatarIcon = "assets/icons/card_icon/AvatarCardIcon.png";
@@ -25,4 +25,12 @@ abstract class A {
   static const String assetsInProgressDetailButtonState = "assets/icons/details_page/inProgressDetailButtonState.png";
   static const String assetsParticipateDetailButtonState = "assets/icons/details_page/participateDetailButtonState.png";
   static const String assetsScanShareDetailButtonState = "assets/icons/details_page/scanShareDetailButtonState.png";
+
+  static const String assetsDoneEventCardStateIcon = "assets/icons/events_page/DoneEventCardStateIcon.png";
+  static const String assetsInProgressEventCardStateIcon = "assets/icons/events_page/InProgressEventCardStateIcon.png";
+  static const String assetsLockedEventCardStateIcon = "assets/icons/events_page/LockedEventCardStateIcon.png";
+  static const String assetsWaitPaymentEventCardStateIcon = "assets/icons/events_page/WaitPaymentEventCardStateIcon.png";
+
+  static const String assetsMapExampleImg = "assets/images/map/MapExample.png";
+
 }

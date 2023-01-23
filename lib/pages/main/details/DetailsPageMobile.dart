@@ -14,152 +14,61 @@ class DetailsPageMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const TextStyle detailButtonTextStyle = TextStyle(
-        color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600);
-
-    final List<Widget> detailButtonStates = [
-      //участвовать
-      SecondaryButton(
-        gradient: colorService.primaryGradient(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              child: Image.asset(A.assetsParticipateDetailButtonState),
-              width: 17,
-              height: 17,
+    return SingleChildScrollView(
+      child: Stack(
+        children: <Widget>[
+          SizedBox(
+            width: double.infinity,
+            child: Image.asset(
+              A.assetsBackgroundFeed,
+              fit: BoxFit.fitWidth,
             ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              S.current.detailButtonStateParticipate,
-              style: detailButtonTextStyle,
-            ),
-          ],
-        ),
-      ),
-
-      //прикрепить скрин
-      SecondaryButton(
-        gradient: colorService.logOutGradient(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              child: Image.asset(A.assetsScanShareDetailButtonState),
-              width: 17,
-              height: 17,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              S.current.detailButtonStateShareScreen,
-              style: detailButtonTextStyle,
-            ),
-          ],
-        ),
-      ),
-
-      //в обработке
-      SecondaryButton(
-        gradient: colorService.inProgressGradient(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              child: Image.asset(A.assetsInProgressDetailButtonState),
-              width: 17,
-              height: 17,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              S.current.detailButtonStateInProgress,
-              style: detailButtonTextStyle,
-            ),
-          ],
-        ),
-      ),
-
-      //збронировано
-      SecondaryButton(
-        gradient: colorService.bookedGradient(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              child: Image.asset(A.assetsBookedDetailButtonState),
-              width: 17,
-              height: 17,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              S.current.detailButtonStateBooked,
-              style: detailButtonTextStyle,
-            ),
-          ],
-        ),
-      ),
-    ];
-
-    return Stack(
-      children: <Widget>[
-        SizedBox(
-          width: double.infinity,
-          child: Image.asset(
-            A.assetsBackgroundFeed,
-            fit: BoxFit.fitWidth,
           ),
-        ),
-        SingleChildScrollView(
-          child: Padding(
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 30),
             child: Column(
               children: <Widget>[
-                Stack(
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: ImgCircleButton(
-                        onTap: () {
-                          Navigator.of(context).pop();
-                        },
-                        height: 30,
-                        width: 30,
-                        widthImg: 16,
-                        heightImg: 12,
-                        imgPath: A.assetsDetailsPageArrowBackIcon,
+                SizedBox(
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: ImgCircleButton(
+                          onTap: () {},
+                          height: 30,
+                          width: 30,
+                          widthImg: 16,
+                          heightImg: 12,
+                          imgPath: A.assetsDetailsPageArrowBackIcon,
+                        ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: SizedBox(
-                        height: 40,
-                        child: GradinetLeftToRight(
-                          blendMode: BlendMode.srcIn,
-                          color: colorService.primaryGradient(),
-                          child: Text(
-                            S.current.detailPageTittleText,
-                            style: TextStyle(
-                              color: colorService.primaryColor(),
-                              fontSize: 24,
-                              fontWeight: FontWeight.w800,
+                      Align(
+                        alignment: Alignment.center,
+                        child: SizedBox(
+                          height: 40,
+                          child: GradinetLeftToRight(
+                            blendMode: BlendMode.srcIn,
+                            color: colorService.primaryGradient(),
+                            child: Text(
+                              S.current.detailPageTittleText,
+                              style: TextStyle(
+                                color: colorService.primaryColor(),
+                                fontSize: 24,
+                                fontWeight: FontWeight.w800,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
                 DetailCard(
+                  onTap: () {},
+                  state: 0,
                   title: 'Слёт «Файер»',
                   date: '14-17 февраля 2023',
                   ageLimit: 'от 15 до 18 лет',
@@ -168,15 +77,14 @@ class DetailsPageMobile extends StatelessWidget {
                   location: 'Рождественский бул., 20, Москва',
                   imgPath: '',
                   description:
-                      'Туристский слёт самое любимое, интересное и массовое внеклассное мероприятие, которое пользуется большой популярностью у детей и взрослых.',
+                  'Туристский слёт самое любимое, интересное и массовое внеклассное мероприятие, которое пользуется большой популярностью у детей и взрослых.',
                   endRegistration: '12 февраля 2023',
-                  detailButtonChild: detailButtonStates[0],
                 ),
               ],
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

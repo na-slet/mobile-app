@@ -385,14 +385,10 @@ class DetailCardDesktop extends StatelessWidget {
         fontWeight: FontWeight.w400,
         color: colorService.cardTitleTextColor());
 
-    final columnWidth = MediaQuery.of(context).size.width * 0.25;
+    final columnWidth = widthColumnDetailPageDesktop(context);
     const double widthInfoIcon = 14;
     const double heightInfoIcon = 14;
-    final double mapWidth = MediaQuery.of(context).size.width * 0.2;
-    final double detailBottonWidth = MediaQuery.of(context).size.width * 0.2;
     final double registrationTextWith = MediaQuery.of(context).size.width * 0.2;
-
-
 
     return Container(
       decoration: BoxDecoration(
@@ -404,7 +400,7 @@ class DetailCardDesktop extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 35),
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 35),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -496,14 +492,15 @@ class DetailCardDesktop extends StatelessWidget {
                 ],
               ),
             ),
-            Spacer(),
+            SizedBox(
+              width: 10,
+            ),
             SizedBox(
               width: columnWidth,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    width: mapWidth,
                     height: 185,
                     color: Colors.greenAccent,
                   ),
@@ -549,7 +546,7 @@ class DetailCardDesktop extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(width: detailBottonWidth,child: detailButtonChild),
+                      detailButtonChild,
                       SizedBox(
                         height: 5,
                       ),

@@ -20,7 +20,6 @@ class DetailsPageDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double? columnWidth = setColumnWidthProfilePageDesktop(context);
 
     final List<Widget> detailButtonStates = [
       //участвовать
@@ -113,12 +112,15 @@ class DetailsPageDesktop extends StatelessWidget {
         ),
       ),
     ];
+    double? columnWidth = widthFactorFeedPageDesktop(context);
+    final double horizontalPadding = horizontalPaddingDetailPage(context);
+
 
 
     return Padding(
       padding: const EdgeInsets.only(top: 25),
       child: FractionallySizedBox(
-        widthFactor: widthFactorFeedPageDesktop(context),
+        widthFactor: columnWidth,
         child: SingleChildScrollView(
           child: Container(
             decoration: BoxDecoration(
@@ -127,7 +129,7 @@ class DetailsPageDesktop extends StatelessWidget {
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.of(context).size.width * 0.05,
+                  horizontal: horizontalPadding,
                   vertical: 25),
               child: Column(
                 children: [

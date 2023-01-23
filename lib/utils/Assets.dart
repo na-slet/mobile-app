@@ -25,4 +25,9 @@ abstract class A {
   static const String assetsInProgressDetailButtonState = "assets/icons/details_page/inProgressDetailButtonState.png";
   static const String assetsParticipateDetailButtonState = "assets/icons/details_page/participateDetailButtonState.png";
   static const String assetsScanShareDetailButtonState = "assets/icons/details_page/scanShareDetailButtonState.png";
+
+  static const String assetsDoneEventCardStateIcon = "assets/icons/events_page/DoneEventCardStateIcon.png";
+  static const String assetsInProgressEventCardStateIcon = "assets/icons/events_page/InProgressEventCardStateIcon.png";
+  static const String assetsLockedEventCardStateIcon = "assets/icons/events_page/LockedEventCardStateIcon.png";
+  static const String assetsWaitPaymentEventCardStateIcon = "assets/icons/events_page/WaitPaymentEventCardStateIcon.png";
 }

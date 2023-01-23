@@ -89,4 +89,12 @@ class ColorService {
   Color cardTitleTextColor() {
     return const Color(0xFF343434);
   }
+
+  Color inProgressEventCardStateColor() {
+    return const Color(0xFFEBB21E);
+  }
+
+  Color doneEventCardStateColor() {
+    return const Color(0xFF2B9910);
+  }
 }

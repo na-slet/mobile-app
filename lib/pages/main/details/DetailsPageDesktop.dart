@@ -23,17 +23,16 @@ class DetailsPageDesktop extends StatelessWidget {
 
     final List<Widget> detailButtonStates = [
       //участвовать
-      SecondaryButton(
+      PrimaryButton(
+        onTap: () {},
         gradient: colorService.primaryGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Align(
-              child: SizedBox(
-                child: Image.asset(A.assetsParticipateDetailButtonState),
-                width: 17,
-                height: 17,
-              ),
+            SizedBox(
+              child: Image.asset(A.assetsParticipateDetailButtonState),
+              width: 17,
+              height: 17,
             ),
             SizedBox(
               width: 10,
@@ -47,7 +46,8 @@ class DetailsPageDesktop extends StatelessWidget {
       ),
 
       //прикрепить скрин
-      SecondaryButton(
+      PrimaryButton(
+        onTap: () {},
         gradient: colorService.logOutGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +69,8 @@ class DetailsPageDesktop extends StatelessWidget {
       ),
 
       //в обработке
-      SecondaryButton(
+      PrimaryButton(
+        onTap: () {},
         gradient: colorService.inProgressGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +92,8 @@ class DetailsPageDesktop extends StatelessWidget {
       ),
 
       //збронировано
-      SecondaryButton(
+      PrimaryButton(
+        onTap: () {},
         gradient: colorService.bookedGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -112,6 +114,7 @@ class DetailsPageDesktop extends StatelessWidget {
         ),
       ),
     ];
+
     double? columnWidth = widthFactorFeedPageDesktop(context);
     final double horizontalPadding = horizontalPaddingDetailPage(context);
 

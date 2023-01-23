@@ -73,6 +73,7 @@ class DesktopNavigationBar extends StatelessWidget
                     onPressed: () => onItemTapped(1),
                     icon: ImageIcon(
                       Image.asset(A.assetsMyTourTabIcon).image,
+                      size: 30,
                       color: selectedIndex == 1
                           ? colorService.primaryColor()
                           : colorService.bottomNavigationBarInactiveColor(),
@@ -90,6 +91,7 @@ class DesktopNavigationBar extends StatelessWidget
                     onPressed: () => onItemTapped(2),
                     icon: ImageIcon(
                       Image.asset(A.assetsProfileTabIcon).image,
+                      size: 20,
                       color: selectedIndex == 2
                           ? colorService.primaryColor()
                           : colorService.bottomNavigationBarInactiveColor(),

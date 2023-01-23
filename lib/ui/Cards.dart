@@ -16,6 +16,7 @@ class PrimaryCard extends StatelessWidget {
   final String location;
   final String imgPath;
   final String description;
+  final Widget? state;
 
   PrimaryCard({
     Key? key,
@@ -25,7 +26,7 @@ class PrimaryCard extends StatelessWidget {
     required this.location,
     required this.imgPath,
     required this.description,
-    required this.onTap,
+    required this.onTap, this.state,
   }) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
@@ -61,12 +62,30 @@ class PrimaryCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
-                color: colorService.cardTitleTextColor(),
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: colorService.cardTitleTextColor(),
+                      ),
+                    ),
+                  ),
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: state == null ? Container() : SizedBox(
+                        width: 19,
+                        height: 19,
+                        child: state,
+                      )
+                  ),
+                ],
               ),
             ),
             const SizedBox(

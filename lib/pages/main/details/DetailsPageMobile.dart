@@ -19,7 +19,8 @@ class DetailsPageMobile extends StatelessWidget {
 
     final List<Widget> detailButtonStates = [
       //участвовать
-      SecondaryButton(
+      PrimaryButton(
+        onTap: () {},
         gradient: colorService.primaryGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -41,7 +42,8 @@ class DetailsPageMobile extends StatelessWidget {
       ),
 
       //прикрепить скрин
-      SecondaryButton(
+      PrimaryButton(
+        onTap: () {},
         gradient: colorService.logOutGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +65,8 @@ class DetailsPageMobile extends StatelessWidget {
       ),
 
       //в обработке
-      SecondaryButton(
+      PrimaryButton(
+        onTap: () {},
         gradient: colorService.inProgressGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -85,7 +88,8 @@ class DetailsPageMobile extends StatelessWidget {
       ),
 
       //збронировано
-      SecondaryButton(
+      PrimaryButton(
+        onTap: () {},
         gradient: colorService.bookedGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

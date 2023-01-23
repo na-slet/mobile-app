@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:naslet_mobile/services/APIService.dart';
+
 import 'Gender.dart';
 import 'Union.dart';
 
@@ -11,10 +13,10 @@ class User {
   final String? phone;
   final String? parentPhone;
   final String email;
-  final String? avatar;
+  final String avatar;
   final String? city;
   final String? birthDate;
-  final String? union;
+  final Union? union;
 
   User({
     this.firstName,
@@ -23,7 +25,7 @@ class User {
     this.phone,
     this.parentPhone,
     required this.email,
-    this.avatar,
+    required this.avatar,
     this.city,
     this.birthDate,
     this.union,
@@ -40,7 +42,7 @@ class User {
       'avatar_id': avatar,
       'city': city,
       'birth_date': birthDate,
-      'union_id': union,
+      'union_id': union?.id,
     };
   }
 
@@ -55,10 +57,10 @@ class User {
       parentPhone:
           map['parent_phone'] != null ? map['parent_phone'] as String : null,
       email: map['email'] as String,
-      avatar: map['avatar_id'] != null ? map['avatar_id'] as String : null,
+      avatar: '${APIService.url}/${map['avatar_id'] as String}',
       city: map['city'] != null ? map['city'] as String : null,
       birthDate: map['birth_date'] != null ? map['birth_date'] as String : null,
-      union: map['union_id'] != null ? map['union_id'] as String : null,
+      union: map['union_id'] != null ? map['union_id'] as Union : null,
     );
   }
 

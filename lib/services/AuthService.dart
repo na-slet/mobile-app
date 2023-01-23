@@ -34,7 +34,8 @@ class AuthService {
   Future<String> loginUser(
       {required String email, required String password}) async {
     dynamic data = await APIService.postRequest(
-        request: 'user/login', data: {'identity': email, 'password': password});
+        request: 'user/login',
+        queryParameters: {'identity': email, 'password': password});
 
     try {
       if (data != '' && data['access_token'] != '') {
@@ -51,7 +52,8 @@ class AuthService {
   Future<String> regUser(
       {required String email, required String password}) async {
     dynamic data = await APIService.postRequest(
-        request: 'user/register', data: {'email': email, 'password': password});
+        request: 'user/register',
+        queryParameters: {'email': email, 'password': password});
 
     try {
       if (data != '' && data['access_token'] != '') {
@@ -68,7 +70,8 @@ class AuthService {
   Future<String> authUser(
       {required String email, required String password}) async {
     dynamic data = await APIService.postRequest(
-        request: 'user/auth', data: {'email': email, 'password': password});
+        request: 'user/auth',
+        queryParameters: {'email': email, 'password': password});
 
     try {
       if (data != '' && data['access_token'] != '') {

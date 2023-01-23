@@ -18,6 +18,7 @@ class ProfilePage extends StatelessWidget {
     return BlocProvider(
       create: (context) => ProfileBloc(authService: authService),
       child: LayoutBuilder(builder: (context, constraints) {
+        context.read<ProfileBloc>().add(ProfileLoadUser());
         if (MediaQuery.of(context).size.width < WidthFormFactor.tablet) {
           return ProfilePageMobile();
         } else {

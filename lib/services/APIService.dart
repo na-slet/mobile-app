@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class APIService {
-  static const _url = 'http://thevladoss.site:8000';
+  static const _url = 'http://naslet.ru:8000';
 
   static Future<dynamic> postRequest(
       {required String request, Map<String, String> data = const {}}) async {

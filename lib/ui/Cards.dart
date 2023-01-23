@@ -170,7 +170,6 @@ class PrimaryCard extends StatelessWidget {
 }
 
 class DetailCard extends StatelessWidget {
-  final VoidCallback onTap;
   final String title;
   final String date;
   final String ageLimit;
@@ -184,7 +183,6 @@ class DetailCard extends StatelessWidget {
 
   DetailCard({
     Key? key,
-    required this.onTap,
     required this.title,
     required this.date,
     required this.ageLimit,
@@ -215,7 +213,6 @@ class DetailCard extends StatelessWidget {
 
     final TextStyle descriptionTextStyle = TextStyle(
         fontSize: 14,
-        fontStyle: FontStyle.italic,
         fontWeight: FontWeight.w400,
         color: colorService.cardTitleTextColor());
 
@@ -654,14 +651,12 @@ class DetailCardDesktop extends StatelessWidget {
 
     final TextStyle descriptionTextStyle = TextStyle(
         fontSize: 14,
-        fontStyle: FontStyle.italic,
         fontWeight: FontWeight.w400,
         color: colorService.cardTitleTextColor());
 
     final columnWidth = widthColumnDetailPageDesktop(context);
     const double widthInfoIcon = 14;
     const double heightInfoIcon = 14;
-    final double registrationTextWith = MediaQuery.of(context).size.width * 0.2;
 
     return Container(
       decoration: BoxDecoration(
@@ -681,6 +676,7 @@ class DetailCardDesktop extends StatelessWidget {
             SizedBox(
               width: columnWidth,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
@@ -702,7 +698,7 @@ class DetailCardDesktop extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
@@ -720,7 +716,7 @@ class DetailCardDesktop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Row(
@@ -738,7 +734,7 @@ class DetailCardDesktop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Row(
@@ -756,7 +752,7 @@ class DetailCardDesktop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   SizedBox(
@@ -768,7 +764,7 @@ class DetailCardDesktop extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             SizedBox(
@@ -795,7 +791,7 @@ class DetailCardDesktop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Row(
@@ -814,22 +810,22 @@ class DetailCardDesktop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       detailButtonStates[state],
                       SizedBox(
                         height: 5,
                       ),
-                      SizedBox(
-                        width: registrationTextWith,
-                        child: Text(
-                          'Конец регистрации: ${endRegistration}',
-                          style: descriptionTextStyle,
+                      Text(
+                        'Конец регистрации: $endRegistration',
+                        style: descriptionTextStyle.copyWith(
+                          fontStyle: FontStyle.italic,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   )

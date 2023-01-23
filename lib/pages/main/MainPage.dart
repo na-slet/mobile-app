@@ -13,7 +13,7 @@ import '../../ui/navigation_bar/MobileNavigationBar.dart';
 import '../../utils/ScreenSize.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key? key}) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -60,6 +60,9 @@ class _MainPageState extends State<MainPage> {
           onGenerateRoute: (RouteSettings settings) {
             WidgetBuilder builder;
             switch (settings.name) {
+              case Routes.feedPage:
+                builder = (BuildContext context) => FeedPage();
+                break;
               case Routes.eventsPage:
                 //!
                 builder = (BuildContext context) => DetailsPage();
@@ -68,7 +71,7 @@ class _MainPageState extends State<MainPage> {
                 builder = (BuildContext context) => ProfilePage();
                 break;
               default:
-                builder = (BuildContext context) => FeedPage();
+                builder = (BuildContext context) => DetailsPage();
                 break;
             }
             return MaterialPageRoute(

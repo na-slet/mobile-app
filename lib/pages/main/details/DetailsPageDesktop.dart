@@ -41,7 +41,9 @@ class DetailsPageDesktop extends StatelessWidget {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: ImgCircleButton(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            },
                             height: 30,
                             width: 30,
                             widthImg: 16,
@@ -61,7 +63,7 @@ class DetailsPageDesktop extends StatelessWidget {
                                 style: TextStyle(
                                   color: colorService.primaryColor(),
                                   fontSize: 24,
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w900,
                                 ),
                               ),
                             ),

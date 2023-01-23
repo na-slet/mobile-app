@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
+import 'package:naslet_mobile/pages/main/details/DetailsPage.dart';
 import 'package:naslet_mobile/pages/main/events/EventsPage.dart';
 import 'package:naslet_mobile/pages/main/feed/FeedPage.dart';
 import 'package:naslet_mobile/pages/main/profile/ProfilePage.dart';
@@ -60,7 +61,7 @@ class _MainPageState extends State<MainPage> {
             WidgetBuilder builder;
             switch (settings.name) {
               case Routes.eventsPage:
-                builder = (BuildContext context) => EventsPage();
+                builder = (BuildContext context) => DetailsPage();
                 break;
               case Routes.profilePage:
                 builder = (BuildContext context) => ProfilePage();

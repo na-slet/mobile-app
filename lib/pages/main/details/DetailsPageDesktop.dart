@@ -15,110 +15,10 @@ class DetailsPageDesktop extends StatelessWidget {
 
   final colorService = Injector().get<ColorService>();
 
-  final TextStyle detailButtonTextStyle = TextStyle(
-      color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600);
-
   @override
   Widget build(BuildContext context) {
-
-    final List<Widget> detailButtonStates = [
-      //участвовать
-      PrimaryButton(
-        onTap: () {},
-        gradient: colorService.primaryGradient(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              child: Image.asset(A.assetsParticipateDetailButtonState),
-              width: 17,
-              height: 17,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              S.current.detailButtonStateParticipate,
-              style: detailButtonTextStyle,
-            ),
-          ],
-        ),
-      ),
-
-      //прикрепить скрин
-      PrimaryButton(
-        onTap: () {},
-        gradient: colorService.logOutGradient(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              child: Image.asset(A.assetsScanShareDetailButtonState),
-              width: 17,
-              height: 17,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              S.current.detailButtonStateShareScreen,
-              style: detailButtonTextStyle,
-            ),
-          ],
-        ),
-      ),
-
-      //в обработке
-      PrimaryButton(
-        onTap: () {},
-        gradient: colorService.inProgressGradient(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              child: Image.asset(A.assetsInProgressDetailButtonState),
-              width: 17,
-              height: 17,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              S.current.detailButtonStateInProgress,
-              style: detailButtonTextStyle,
-            ),
-          ],
-        ),
-      ),
-
-      //збронировано
-      PrimaryButton(
-        onTap: () {},
-        gradient: colorService.bookedGradient(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              child: Image.asset(A.assetsBookedDetailButtonState),
-              width: 17,
-              height: 17,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              S.current.detailButtonStateBooked,
-              style: detailButtonTextStyle,
-            ),
-          ],
-        ),
-      ),
-    ];
-
     double? columnWidth = widthFactorFeedPageDesktop(context);
     final double horizontalPadding = horizontalPaddingDetailPage(context);
-
-
 
     return Padding(
       padding: const EdgeInsets.only(top: 25),
@@ -132,8 +32,7 @@ class DetailsPageDesktop extends StatelessWidget {
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: horizontalPadding,
-                  vertical: 25),
+                  horizontal: horizontalPadding, vertical: 25),
               child: Column(
                 children: [
                   SizedBox(
@@ -176,6 +75,7 @@ class DetailsPageDesktop extends StatelessWidget {
                   ),
                   DetailCardDesktop(
                     onTap: () {},
+                    state: 2,
                     title: 'Слёт «Файер»',
                     date: '14-17 февраля 2023',
                     ageLimit: 'от 15 до 18 лет',
@@ -184,10 +84,10 @@ class DetailsPageDesktop extends StatelessWidget {
                     location: 'Рождественский бул., 20, Москва',
                     imgPath: '',
                     description:
-                    'Туристский слёт самое любимое, интересное и массовое внеклассное мероприятие, которое пользуется большой популярностью у детей и взрослых.',
+                        'Туристский слёт самое любимое, интересное и массовое внеклассное мероприятие, которое пользуется большой популярностью у детей и взрослых.',
                     endRegistration: '12 февраля 2023',
-                    detailButtonChild: detailButtonStates[0],
-                  ),                ],
+                  ),
+                ],
               ),
             ),
           ),

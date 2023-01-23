@@ -27,6 +27,7 @@ dependencies:
   dropdown_button2: ^1.9.2
   flutter_native_splash: ^2.2.17
   gradient_borders: ^0.2.0
+  yandex_mapkit: ^3.2.0
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +47,7 @@ flutter:
     - assets/icons/card_icon/
     - assets/icons/details_page/
     - assets/icons/events_page/
+    - assets/images/map/
 
   fonts:
     - family: Inter

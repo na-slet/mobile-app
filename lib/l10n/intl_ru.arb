@@ -76,5 +76,6 @@
     "detailButtonStateInProgress": "В обработке",
     "detailButtonStateBooked": "Забронировано",
 
-    "eventsPageTittleText": "Мои слёты"
+    "eventsPageTittleText": "Мои слёты",
+    "checkOnMap": "Смотреть на карте"
 }

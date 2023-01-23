@@ -97,4 +97,5 @@ class ColorService {
   Color doneEventCardStateColor() {
     return const Color(0xFF2B9910);
   }
+
 }

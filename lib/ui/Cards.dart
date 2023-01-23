@@ -8,6 +8,7 @@ import 'package:gradient_borders/gradient_borders.dart';
 import '../utils/Assets.dart';
 import '../utils/ScreenSize.dart';
 import 'Buttons.dart';
+import 'Map.dart';
 
 class PrimaryCard extends StatelessWidget {
   final VoidCallback onTap;
@@ -461,13 +462,9 @@ class DetailCard extends StatelessWidget {
             ),
             InkWell(
               borderRadius: BorderRadius.circular(5),
-              child: Container(
+              child: MapBlock(
+                onTap: () {},
                 height: 180,
-                decoration: BoxDecoration(
-                  color: Colors.greenAccent,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Container(),
               ),
             ),
             SizedBox(
@@ -779,10 +776,7 @@ class DetailCardDesktop extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 185,
-                    color: Colors.greenAccent,
-                  ),
+                  MapBlock(onTap: () {}, height: 185),
                   SizedBox(
                     height: 10,
                   ),

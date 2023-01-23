@@ -10,11 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5b5c669-ba16-4f3b-ab74-da9ced88c087" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/images/map/MapExample.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/Map.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/kotlin/com/example/abc/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/kotlin/com/example/naslet_mobile/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/kotlin/com/example/naslet_mobile/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/intl_ru.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/intl_ru.arb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/main/MainPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main/MainPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/main/details/DetailsPageDesktop.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main/details/DetailsPageDesktop.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/main/details/DetailsPageMobile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main/details/DetailsPageMobile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/ColorService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/ColorService.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/Cards.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/Cards.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/Assets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/Assets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

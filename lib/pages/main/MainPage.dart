@@ -61,6 +61,7 @@ class _MainPageState extends State<MainPage> {
             WidgetBuilder builder;
             switch (settings.name) {
               case Routes.eventsPage:
+                //!
                 builder = (BuildContext context) => DetailsPage();
                 break;
               case Routes.profilePage:

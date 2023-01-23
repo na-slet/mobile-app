@@ -149,6 +149,16 @@ double? setColumnWidthProfilePageDesktop(BuildContext context) {
   return deviceWidth * 0.4;
 }
 
+double setDateDropDownWidthProfilePageDesktop(BuildContext context) {
+  double deviceWidth = MediaQuery.of(context).size.width;
+  if (widthFactorProfilePageDesktop(context) == 0.5) {
+    return deviceWidth * 0.059;
+  } else if (widthFactorProfilePageDesktop(context) == 0.67) {
+    return deviceWidth * 0.07;
+  }
+  return deviceWidth * 0.1;
+}
+
 double widthFactorFeedPageDesktop(BuildContext context) {
   if (MediaQuery.of(context).size.width >= 1322) {
     return 0.5;
@@ -158,4 +168,35 @@ double widthFactorFeedPageDesktop(BuildContext context) {
     return 0.7;
   }
   return 0.8;
+}
+
+double widthFactorDetailPageDesktop(BuildContext context) {
+  if (MediaQuery.of(context).size.width >= 1322) {
+    return 0.5;
+  } else if (MediaQuery.of(context).size.width >= 1220) {
+    return 0.65;
+  } else if (MediaQuery.of(context).size.width >= 1024) {
+    return 0.7;
+  }
+  return 0.8;
+}
+
+double widthColumnDetailPageDesktop(BuildContext context) {
+  if (MediaQuery.of(context).size.width >= 1322) {
+    return MediaQuery.of(context).size.width * 0.2;
+  } else if (MediaQuery.of(context).size.width >= 1220) {
+    return MediaQuery.of(context).size.width * 0.23;
+  } else if (MediaQuery.of(context).size.width >= 1024) {
+    return MediaQuery.of(context).size.width * 0.26;
+  }
+  return MediaQuery.of(context).size.width * 0.3;
+}
+
+double horizontalPaddingDetailPage(BuildContext context) {
+  if (MediaQuery.of(context).size.width >= 1322) {
+    return MediaQuery.of(context).size.width * 0.025;
+  } else if (MediaQuery.of(context).size.width >= 1220) {
+    return MediaQuery.of(context).size.width * 0.04;
+  }
+  return MediaQuery.of(context).size.width * 0.05;
 }

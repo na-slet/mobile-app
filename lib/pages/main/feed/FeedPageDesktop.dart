@@ -46,7 +46,7 @@ class FeedPageDesktop extends StatelessWidget {
                           Flexible(
                             child: PrimaryCard(
                               onTap: () {},
-                              imgPath: A.assetsPrimaryCardImgExample,
+                              imgPath: A.assetsCardImgExample,
                               title: 'Слет «Файер»',
                               date: '14-17 февраля 2023',
                               ageLimit: 'от 15 до 18 лет',
@@ -61,7 +61,7 @@ class FeedPageDesktop extends StatelessWidget {
                           Flexible(
                             child: PrimaryCard(
                               onTap: () {},
-                              imgPath: A.assetsPrimaryCardImgExample,
+                              imgPath: A.assetsCardImgExample,
                               title: 'Слет «Файер»',
                               date: '14-17 февраля 2023',
                               ageLimit: 'от 15 до 18 лет',
@@ -80,7 +80,7 @@ class FeedPageDesktop extends StatelessWidget {
                           Flexible(
                             child: PrimaryCard(
                               onTap: () {},
-                              imgPath: A.assetsPrimaryCardImgExample,
+                              imgPath: A.assetsCardImgExample,
                               title: 'Слет «Файер»',
                               date: '14-17 февраля 2023',
                               ageLimit: 'от 15 до 18 лет',
@@ -95,7 +95,7 @@ class FeedPageDesktop extends StatelessWidget {
                           Flexible(
                             child: PrimaryCard(
                               onTap: () {},
-                              imgPath: A.assetsPrimaryCardImgExample,
+                              imgPath: A.assetsCardImgExample,
                               title: 'Слет «Файер»',
                               date: '14-17 февраля 2023',
                               ageLimit: 'от 15 до 18 лет',
@@ -114,7 +114,7 @@ class FeedPageDesktop extends StatelessWidget {
                           Flexible(
                             child: PrimaryCard(
                               onTap: () {},
-                              imgPath: A.assetsPrimaryCardImgExample,
+                              imgPath: A.assetsCardImgExample,
                               title: 'Слет «Файер»',
                               date: '14-17 февраля 2023',
                               ageLimit: 'от 15 до 18 лет',
@@ -129,7 +129,7 @@ class FeedPageDesktop extends StatelessWidget {
                           Flexible(
                             child: PrimaryCard(
                               onTap: () {},
-                              imgPath: A.assetsPrimaryCardImgExample,
+                              imgPath: A.assetsCardImgExample,
                               title: 'Слет «Файер»',
                               date: '14-17 февраля 2023',
                               ageLimit: 'от 15 до 18 лет',

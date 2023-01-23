@@ -120,6 +120,9 @@ class PrimaryCard extends StatelessWidget {
               height: 180,
               child: Image.asset(imgPath),
             ),
+            const SizedBox(
+              height: 8,
+            ),
             Text(
               description,
               style: descriptionTextStyle,

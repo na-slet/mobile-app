@@ -10,7 +10,6 @@ import 'package:naslet_mobile/utils/Routes.dart';
 import '../../services/ColorService.dart';
 import '../../ui/navigation_bar/MobileNavigationBar.dart';
 import '../../utils/ScreenSize.dart';
-import 'details/DetailsPage.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key? key}) : super(key: key);
@@ -60,7 +59,7 @@ class _MainPageState extends State<MainPage> {
             WidgetBuilder builder;
             switch (settings.name) {
               case Routes.eventsPage:
-                builder = (BuildContext context) => DetailsPage();
+                builder = (BuildContext context) => EventsPage();
                 break;
               case Routes.profilePage:
                 builder = (BuildContext context) => ProfilePage();

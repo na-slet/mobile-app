@@ -179,6 +179,7 @@ class DetailCard extends StatelessWidget {
   final String imgPath;
   final String description;
   final String endRegistration;
+  final VoidCallback onTap;
   final int state;
 
   DetailCard({
@@ -193,6 +194,7 @@ class DetailCard extends StatelessWidget {
     required this.description,
     required this.endRegistration,
     this.state = 0,
+    required this.onTap,
   }) : super(key: key);
 
   final colorService = Injector().get<ColorService>();

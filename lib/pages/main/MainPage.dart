@@ -64,8 +64,7 @@ class _MainPageState extends State<MainPage> {
                 builder = (BuildContext context) => FeedPage();
                 break;
               case Routes.eventsPage:
-                //!
-                builder = (BuildContext context) => DetailsPage();
+                builder = (BuildContext context) => EventsPage();
                 break;
               case Routes.profilePage:
                 builder = (BuildContext context) => ProfilePage();

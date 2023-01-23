@@ -20,6 +20,15 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         emit(ProfileLogoutState());
       } else if (event is ProfileLoadUser) {
         emit(ProfileLoaded(user: await _loadUser()));
+      } else if (event is ProfileUpdateUser) {
+        _updateUser(data: {
+          'first_name': event.firstName,
+          'last_name': event.lastName,
+          'phone': event.phone,
+          'parent_phone': event.parentPhone,
+          'email': event.email,
+          'city': event.city,
+        });
       }
     });
   }
@@ -31,5 +40,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     print(response);
 
     return User.fromMap(response);
+  }
+
+  _updateUser({Map<String, String> data = const {}}) async {
+    var response = await APIService.putRequest(
+        request: 'user',
+        queryParameters: {'access_token': authService.token},
+        data: data);
+
+    print(response);
   }
 }

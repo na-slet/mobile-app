@@ -102,7 +102,23 @@ class ProfilePageMobile extends StatelessWidget {
                             Align(
                               alignment: Alignment.topRight,
                               child: ImgCircleButton(
-                                onTap: () {},
+                                onTap: () {
+                                  context.read<ProfileBloc>().add(
+                                      ProfileUpdateUser(
+                                          firstName: _textFormNameController
+                                              .value.text,
+                                          lastName: _textFormSurnameController
+                                              .value.text,
+                                          phone: _textFormContactController
+                                              .value.text,
+                                          parentPhone:
+                                              _textFormParentsContactController
+                                                  .value.text,
+                                          email: _textFormEmailController
+                                              .value.text,
+                                          city: _textFormCityController
+                                              .value.text));
+                                },
                                 width: 40,
                                 height: 40,
                                 widthImg: 18,

@@ -34,20 +34,17 @@ class PrimaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final TextStyle infoTextStyle = TextStyle(
         fontSize: 14,
         fontStyle: FontStyle.italic,
         fontWeight: FontWeight.w400,
-        color: colorService.cardInfoTextColor()
-    );
+        color: colorService.cardInfoTextColor());
 
     final TextStyle descriptionTextStyle = TextStyle(
-      fontSize: 14,
-      fontStyle: FontStyle.italic,
-      fontWeight: FontWeight.w400,
-      color: colorService.cardTitleTextColor()
-    );
+        fontSize: 14,
+        // fontStyle: FontStyle.italic,
+        fontWeight: FontWeight.w400,
+        color: colorService.cardTitleTextColor());
 
     return GestureDetector(
       onTap: onTap,
@@ -56,13 +53,11 @@ class PrimaryCard extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
           border: GradientBoxBorder(
-            gradient: colorService.primaryGradient(),
-            width: 2
-          ),
+              gradient: colorService.primaryGradient(), width: 2),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Text(
@@ -74,7 +69,7 @@ class PrimaryCard extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 12,
             ),
             Row(
               children: <Widget>[

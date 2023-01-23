@@ -87,7 +87,7 @@ class ProfilePageDesktop extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(
-                            width: 19,
+                            width: 20,
                           ),
                           ImgCircleButton(
                             onTap: () {},

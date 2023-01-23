@@ -11,20 +11,19 @@ class FeedPageMobile extends StatelessWidget {
   FeedPageMobile({Key? key}) : super(key: key);
   final colorService = Injector().get<ColorService>();
 
-
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Stack(
-        children: <Widget>[
-          SizedBox(
-            width: double.infinity,
-            child: Image.asset(
-              A.assetsBackgroundFeed,
-              fit: BoxFit.fitWidth,
-            ),
+    return Stack(
+      children: <Widget>[
+        SizedBox(
+          width: double.infinity,
+          child: Image.asset(
+            A.assetsBackgroundFeed,
+            fit: BoxFit.fitWidth,
           ),
-          Padding(
+        ),
+        SingleChildScrollView(
+          child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 30),
             child: Column(
               children: <Widget>[
@@ -56,7 +55,7 @@ class FeedPageMobile extends StatelessWidget {
                   ageLimit: 'от 15 до 18 лет',
                   location: 'Москва, ЦО',
                   description:
-                  'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
+                      'Туристский слёт самое любимое, интересное и массовое  мероприятие, которое пользуется большой популярностью у детей и взрослых.',
                 ),
                 const SizedBox(
                   height: 20,
@@ -69,13 +68,13 @@ class FeedPageMobile extends StatelessWidget {
                   ageLimit: 'от 15 до 18 лет',
                   location: 'Москва, ЦО',
                   description:
-                  'Туристский слёт\nсамое любимое, интересное и\nмассовое  мероприятие,\nкоторое пользуется большой\nпопулярностью у детей и\nвзрослых.',
+                      'Туристский слёт самое любимое, интересное и массовое  мероприятие, которое пользуется большой популярностью у детей и взрослых.',
                 ),
               ],
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

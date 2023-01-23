@@ -6,6 +6,7 @@ import '../../../services/ColorService.dart';
 import '../../../services/GradientService.dart';
 import '../../../ui/Cards.dart';
 import '../../../utils/Assets.dart';
+import '../../../utils/Routes.dart';
 
 class FeedPageMobile extends StatelessWidget {
   FeedPageMobile({Key? key}) : super(key: key);
@@ -48,7 +49,9 @@ class FeedPageMobile extends StatelessWidget {
                   height: 15,
                 ),
                 PrimaryCard(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushNamed(Routes.detailsPage);
+                  },
                   imgPath: A.assetsCardImgExample,
                   title: 'Слет «Файер»',
                   date: '14-17 февраля 2023',

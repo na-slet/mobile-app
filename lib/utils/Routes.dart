@@ -7,4 +7,5 @@ abstract class Routes {
   static const String feedPage = "/feed";
   static const String eventsPage = "/events";
   static const String profilePage = "/profile";
+  static const String detailsPage = "/details";
 }

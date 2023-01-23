@@ -147,7 +147,6 @@ class PrimaryCard extends StatelessWidget {
 }
 
 class DetailCard extends StatelessWidget {
-  final VoidCallback onTap;
   final String title;
   final String date;
   final String ageLimit;
@@ -161,7 +160,6 @@ class DetailCard extends StatelessWidget {
 
   DetailCard({
     Key? key,
-    required this.onTap,
     required this.title,
     required this.date,
     required this.ageLimit,
@@ -189,156 +187,162 @@ class DetailCard extends StatelessWidget {
 
     final TextStyle descriptionTextStyle = TextStyle(
         fontSize: 14,
-        fontStyle: FontStyle.italic,
         fontWeight: FontWeight.w400,
         color: colorService.cardTitleTextColor());
 
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          border: GradientBoxBorder(
-            gradient: colorService.primaryGradient(),
-            width: 2,
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        border: GradientBoxBorder(
+          gradient: colorService.primaryGradient(),
+          width: 2,
+        ),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+                color: colorService.cardTitleTextColor(),
+              ),
+            ),
           ),
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  color: colorService.cardTitleTextColor(),
-                ),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(
+            children: <Widget>[
+              SizedBox(
+                  width: widthInfoIcon,
+                  height: heightInfoIcon,
+                  child: Image.asset(A.assetsCardDateIcon)),
+              const SizedBox(
+                width: 6,
+              ),
+              Text(
+                date,
+                style: infoTextStyle,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Row(
+            children: <Widget>[
+              SizedBox(
+                  width: widthInfoIcon,
+                  height: heightInfoIcon,
+                  child: Image.asset(A.assetsCardAvatarIcon)),
+              const SizedBox(
+                width: 6,
+              ),
+              Text(
+                ageLimit,
+                style: infoTextStyle,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Row(
+            children: <Widget>[
+              SizedBox(
+                  width: widthInfoIcon,
+                  height: heightInfoIcon,
+                  child: Image.asset(A.assetsCardEventTypeIcon)),
+              const SizedBox(
+                width: 6,
+              ),
+              Text(
+                eventType,
+                style: infoTextStyle,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Row(
+            children: <Widget>[
+              SizedBox(
+                  width: widthInfoIcon,
+                  height: heightInfoIcon,
+                  child: Image.asset(A.assetsCardLocationIcon)),
+              const SizedBox(
+                width: 6,
+              ),
+              Text(
+                locationType,
+                style: infoTextStyle,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Row(
+            children: <Widget>[
+              SizedBox(
+                  width: widthInfoIcon,
+                  height: heightInfoIcon,
+                  child: Image.asset(A.assetsCardSecondaryLocationIcon)),
+              const SizedBox(
+                width: 6,
+              ),
+              Text(
+                location,
+                style: infoTextStyle,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          InkWell(
+            borderRadius: BorderRadius.circular(5),
+            child: Container(
+              height: 180,
+              decoration: BoxDecoration(
+                color: Colors.greenAccent,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Container(),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            description,
+            style: descriptionTextStyle,
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          detailButtonChild,
+          const SizedBox(
+            height: 5,
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Конец регистрации: ${endRegistration}',
+              style: descriptionTextStyle.copyWith(
+                fontStyle: FontStyle.italic,
               ),
             ),
-            const SizedBox(
-              height: 15,
-            ),
-            Column(
-              children: [
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                        width: widthInfoIcon,
-                        height: heightInfoIcon,
-                        child: Image.asset(A.assetsCardDateIcon)),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      date,
-                      style: infoTextStyle,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                        width: widthInfoIcon,
-                        height: heightInfoIcon,
-                        child: Image.asset(A.assetsCardAvatarIcon)),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      ageLimit,
-                      style: infoTextStyle,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                        width: widthInfoIcon,
-                        height: heightInfoIcon,
-                        child: Image.asset(A.assetsCardEventTypeIcon)),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      eventType,
-                      style: infoTextStyle,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                        width: widthInfoIcon,
-                        height: heightInfoIcon,
-                        child: Image.asset(A.assetsCardLocationIcon)),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      locationType,
-                      style: infoTextStyle,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                        width: widthInfoIcon,
-                        height: heightInfoIcon,
-                        child: Image.asset(A.assetsCardSecondaryLocationIcon)),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      location,
-                      style: infoTextStyle,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            InkWell(
-              borderRadius: BorderRadius.circular(5),
-              child: Container(
-                height: 180,
-                decoration: BoxDecoration(
-                  color: Colors.greenAccent,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Container(),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              description,
-              style: descriptionTextStyle,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            detailButtonChild,
-            SizedBox(
-              height: 5,
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                'Конец регистрации: ${endRegistration}',
-                style: descriptionTextStyle,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -533,7 +537,8 @@ class DetailCardDesktop extends StatelessWidget {
                       SizedBox(
                           width: widthInfoIcon,
                           height: heightInfoIcon,
-                          child: Image.asset(A.assetsCardSecondaryLocationIcon)),
+                          child:
+                              Image.asset(A.assetsCardSecondaryLocationIcon)),
                       const SizedBox(
                         width: 6,
                       ),

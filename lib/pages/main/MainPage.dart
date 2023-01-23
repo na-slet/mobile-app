@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
+import 'package:naslet_mobile/pages/main/details/DetailsPage.dart';
 import 'package:naslet_mobile/pages/main/events/EventsPage.dart';
 import 'package:naslet_mobile/pages/main/feed/FeedPage.dart';
 import 'package:naslet_mobile/pages/main/profile/ProfilePage.dart';
@@ -12,7 +13,7 @@ import '../../ui/navigation_bar/MobileNavigationBar.dart';
 import '../../utils/ScreenSize.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key? key}) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -59,6 +60,9 @@ class _MainPageState extends State<MainPage> {
           onGenerateRoute: (RouteSettings settings) {
             WidgetBuilder builder;
             switch (settings.name) {
+              case Routes.feedPage:
+                builder = (BuildContext context) => FeedPage();
+                break;
               case Routes.eventsPage:
                 builder = (BuildContext context) => EventsPage();
                 break;
@@ -66,7 +70,7 @@ class _MainPageState extends State<MainPage> {
                 builder = (BuildContext context) => ProfilePage();
                 break;
               default:
-                builder = (BuildContext context) => FeedPage();
+                builder = (BuildContext context) => DetailsPage();
                 break;
             }
             return MaterialPageRoute(

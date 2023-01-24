@@ -1,26 +1,26 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_vk/flutter_login_vk.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:naslet_mobile/services/APIService.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:naslet_mobile/services/APIService.dart';
 
 import '../generated/l10n.dart';
 
 class AuthService {
+  final SharedPreferences prefs;
+
   String _token = '';
-  late final SharedPreferences prefs;
 
   get token => _token;
 
-  AuthService() {
-    _init();
-  }
-
-  _init() async {
-    prefs = await SharedPreferences.getInstance();
+  AuthService({
+    required this.prefs,
+  }) {
     _token = prefs.getString('token') ?? '';
   }
 
@@ -40,6 +40,7 @@ class AuthService {
     try {
       if (data != '' && data['access_token'] != '') {
         await prefs.setString('token', data['access_token']);
+        _token = data['access_token'];
         return 'Token: ${data['access_token']}';
       }
     } catch (e) {
@@ -58,6 +59,7 @@ class AuthService {
     try {
       if (data != '' && data['access_token'] != '') {
         await prefs.setString('token', data['access_token']);
+        _token = data['access_token'];
         return 'Token: ${data['access_token']}';
       }
     } catch (e) {
@@ -76,6 +78,7 @@ class AuthService {
     try {
       if (data != '' && data['access_token'] != '') {
         await prefs.setString('token', data['access_token']);
+        _token = data['access_token'];
         return 'Token: ${data['access_token']}';
       }
     } catch (e) {

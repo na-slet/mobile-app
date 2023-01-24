@@ -1,14 +1,18 @@
 import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:naslet_mobile/services/AuthService.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../services/ColorService.dart';
 import '../services/FontService.dart';
 
 class ModuleContainer {
-  static Injector initialize(Injector injector) {
+  static Future<Injector> initialize(Injector injector) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+
     injector.map<ColorService>((i) => ColorService(), isSingleton: true);
     injector.map<FontService>((i) => FontService(), isSingleton: true);
-    injector.map<AuthService>((i) => AuthService(), isSingleton: true);
+    injector.map<AuthService>((i) => AuthService(prefs: preferences),
+        isSingleton: true);
     return injector;
   }
 }

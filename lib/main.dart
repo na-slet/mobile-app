@@ -12,9 +12,9 @@ import 'pages/auth/SignUpPage.dart';
 import 'pages/main/MainPage.dart';
 import 'services/FontService.dart';
 
-void main() {
+void main() async {
+  await ModuleContainer.initialize(Injector());
   WidgetsFlutterBinding.ensureInitialized();
-  ModuleContainer.initialize(Injector());
   runApp(NaSletApp());
 }
 

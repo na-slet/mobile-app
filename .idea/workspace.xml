@@ -10,16 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5b5c669-ba16-4f3b-ab74-da9ced88c087" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/icons/map/MapCloseIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/map/MapExampleHightRes.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/main/details/DetailsPageMobile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main/details/DetailsPageMobile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/main/events/EventsPageMobile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main/events/EventsPageMobile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/Cards.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/Cards.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/Map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/Map.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/Assets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/Assets.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/ScreenSize.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/ScreenSize.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,22 +50,22 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "D:/Flutter_projects/mobile-app/lib/screens/auth",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "experimental",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Flutter_projects/mobile-app/lib/screens/auth&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;experimental&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Flutter_projects\mobile-app\lib\screens\auth" />

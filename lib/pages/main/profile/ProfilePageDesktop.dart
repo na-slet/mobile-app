@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
@@ -26,7 +27,11 @@ class ProfilePageDesktop extends StatelessWidget {
   final _textFormParentsContactController = TextEditingController();
   final _textFormCityController = TextEditingController();
 
-  List<String> dateList = List<String>.generate(31, (i) => (i + 1).toString());
+  List<String> dateList = List<String>.generate(
+      31,
+      (i) => ((i + 1).toString().length == 1)
+          ? '0${(i + 1).toString()}'
+          : (i + 1).toString());
   Map<String, String> monthList = {
     '01': S.current.January,
     '02': S.current.February,
@@ -114,317 +119,343 @@ class ProfilePageDesktop extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
               ),
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            S.current.profilePageTitleText,
-                            style: const TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          ImgCircleButton(
-                            onTap: () {
-                              context.read<ProfileBloc>().add(ProfileUpdateUser(
-                                  firstName: _textFormNameController.value.text,
-                                  lastName:
-                                      _textFormSurnameController.value.text,
-                                  middleName:
-                                      _textFormPatronymicController.value.text,
-                                  phone: _textFormContactController.value.text,
-                                  parentPhone: _textFormParentsContactController
-                                      .value.text,
-                                  parentFIO:
-                                      _textFormInitialsController.value.text,
-                                  email: _textFormEmailController.value.text,
-                                  city: _textFormCityController.value.text,
-                                  birthDate:
-                                      '${yearController.selectedValue}-${monthList.keys.firstWhere((k) => monthList[k] == monthController.selectedValue)}-${dateController.selectedValue}',
-                                  union: Union.allUnions.values
-                                      .firstWhere((element) =>
-                                          element.name ==
-                                          unificationController.selectedValue)
-                                      .id));
-                            },
-                            width: 40,
-                            height: 40,
-                            widthImg: 18,
-                            heightImg: 12,
-                            imgPath: A.assetsProfilePageDoneMarkIcon,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          SizedBox(
-                            width: columnWidth,
-                            child: Column(
-                              children: <Widget>[
-                                ProfilePageTextField(
-                                  controller: _textFormSurnameController,
-                                  hintText:
-                                      S.current.profilePageSurnameFieldHintText,
-                                  lableText: S
-                                      .current.profilePageSurnameFieldLabelText,
+              child: (state is ProfileLoading)
+                  ? const Center(child: CupertinoActivityIndicator())
+                  : SingleChildScrollView(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 25),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  S.current.profilePageTitleText,
+                                  style: const TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w900,
+                                  ),
                                 ),
                                 const SizedBox(
-                                  height: 10,
+                                  width: 20,
                                 ),
-                                ProfilePageTextField(
-                                  controller: _textFormNameController,
-                                  hintText:
-                                      S.current.profilePageNameFieldHintText,
-                                  lableText:
-                                      S.current.profilePageNameFieldLabelText,
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                ProfilePageTextField(
-                                  controller: _textFormPatronymicController,
-                                  hintText: S.current
-                                      .profilePagePatronymicFieldHintText,
-                                  lableText: S.current
-                                      .profilePagePatronymicFieldLabelText,
-                                ),
-                                const SizedBox(
+                                ImgCircleButton(
+                                  onTap: () {
+                                    context.read<ProfileBloc>().add(ProfileUpdateUser(
+                                        firstName:
+                                            _textFormNameController.value.text,
+                                        lastName: _textFormSurnameController
+                                            .value.text,
+                                        middleName:
+                                            _textFormPatronymicController
+                                                .value.text,
+                                        phone: _textFormContactController
+                                            .value.text,
+                                        parentPhone:
+                                            _textFormParentsContactController
+                                                .value.text,
+                                        parentFIO: _textFormInitialsController
+                                            .value.text,
+                                        email:
+                                            _textFormEmailController.value.text,
+                                        city:
+                                            _textFormCityController.value.text,
+                                        birthDate:
+                                            '${yearController.selectedValue}-${monthList.keys.firstWhere((k) => monthList[k] == monthController.selectedValue)}-${dateController.selectedValue}',
+                                        union: Union.allUnions.values
+                                            .firstWhere((element) =>
+                                                element.name ==
+                                                unificationController
+                                                    .selectedValue)
+                                            .id));
+                                  },
+                                  width: 40,
                                   height: 40,
-                                ),
-                                ProfilePageTextField(
-                                  controller: _textFormContactController,
-                                  hintText:
-                                      S.current.profilePageContactFieldHintText,
-                                  lableText: S
-                                      .current.profilePageContactFieldLabelText,
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                ProfilePageTextField(
-                                  controller: _textFormEmailController,
-                                  hintText:
-                                      S.current.profilePageEmailFieldHintText,
-                                  lableText:
-                                      S.current.profilePageEmailFieldLabelText,
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      S.current
-                                          .profilePageBirthDateFieldLabelText,
-                                      style: TextStyle(
-                                        color: colorService
-                                            .profilePageTexFieldHintColor(),
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 5,
-                                    ),
-                                    Row(
-                                      children: <Widget>[
-                                        DropdownField(
-                                          buttonWidth: dateFieldWidth,
-                                          buttonHeight: 35,
-                                          controller: dateController,
-                                          hintPadding:
-                                              const EdgeInsets.only(left: 12),
-                                          hintAlignment: Alignment.centerLeft,
-                                          textColor: colorService
-                                              .signInScreenTitleColor(),
-                                        ),
-                                        const SizedBox(
-                                          width: 8,
-                                        ),
-                                        DropdownField(
-                                          buttonWidth: monthFieldWidth,
-                                          buttonHeight: 35,
-                                          controller: monthController,
-                                          hintAlignment: Alignment.centerLeft,
-                                          hintPadding:
-                                              const EdgeInsets.only(left: 12),
-                                          textColor: colorService
-                                              .signInScreenTitleColor(),
-                                        ),
-                                        const SizedBox(
-                                          width: 8,
-                                        ),
-                                        DropdownField(
-                                          buttonWidth: yearFieldWidth,
-                                          buttonHeight: 35,
-                                          controller: yearController,
-                                          hintPadding:
-                                              const EdgeInsets.only(left: 12),
-                                          hintAlignment: Alignment.centerLeft,
-                                          textColor: colorService
-                                              .signInScreenTitleColor(),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 38,
-                                ),
-                                ProfilePageTextField(
-                                  controller: _textFormInitialsController,
-                                  hintText: S
-                                      .current.profilePageInitialsFieldHintText,
-                                  lableText: S.current
-                                      .profilePageInitialsFieldLabelText,
+                                  widthImg: 18,
+                                  heightImg: 12,
+                                  imgPath: A.assetsProfilePageDoneMarkIcon,
                                 ),
                               ],
                             ),
-                          ),
-                          const Spacer(),
-                          SizedBox(
-                            width: columnWidth,
-                            child: Column(
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Row(
                               children: <Widget>[
-                                Container(
-                                  width: 190,
-                                  height: 190,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: colorService
-                                            .profilePageAvatarBoxShadowColor(),
-                                        spreadRadius: 0,
-                                        blurRadius: 25,
-                                        offset: const Offset(0, 8),
+                                SizedBox(
+                                  width: columnWidth,
+                                  child: Column(
+                                    children: <Widget>[
+                                      ProfilePageTextField(
+                                        controller: _textFormSurnameController,
+                                        hintText: S.current
+                                            .profilePageSurnameFieldHintText,
+                                        lableText: S.current
+                                            .profilePageSurnameFieldLabelText,
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      ProfilePageTextField(
+                                        controller: _textFormNameController,
+                                        hintText: S.current
+                                            .profilePageNameFieldHintText,
+                                        lableText: S.current
+                                            .profilePageNameFieldLabelText,
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      ProfilePageTextField(
+                                        controller:
+                                            _textFormPatronymicController,
+                                        hintText: S.current
+                                            .profilePagePatronymicFieldHintText,
+                                        lableText: S.current
+                                            .profilePagePatronymicFieldLabelText,
+                                      ),
+                                      const SizedBox(
+                                        height: 40,
+                                      ),
+                                      ProfilePageTextField(
+                                        controller: _textFormContactController,
+                                        hintText: S.current
+                                            .profilePageContactFieldHintText,
+                                        lableText: S.current
+                                            .profilePageContactFieldLabelText,
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      ProfilePageTextField(
+                                        controller: _textFormEmailController,
+                                        hintText: S.current
+                                            .profilePageEmailFieldHintText,
+                                        lableText: S.current
+                                            .profilePageEmailFieldLabelText,
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            S.current
+                                                .profilePageBirthDateFieldLabelText,
+                                            style: TextStyle(
+                                              color: colorService
+                                                  .profilePageTexFieldHintColor(),
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          Row(
+                                            children: <Widget>[
+                                              DropdownField(
+                                                buttonWidth: dateFieldWidth,
+                                                buttonHeight: 35,
+                                                controller: dateController,
+                                                hintPadding:
+                                                    const EdgeInsets.only(
+                                                        left: 12),
+                                                hintAlignment:
+                                                    Alignment.centerLeft,
+                                                textColor: colorService
+                                                    .signInScreenTitleColor(),
+                                              ),
+                                              const SizedBox(
+                                                width: 8,
+                                              ),
+                                              DropdownField(
+                                                buttonWidth: monthFieldWidth,
+                                                buttonHeight: 35,
+                                                controller: monthController,
+                                                hintAlignment:
+                                                    Alignment.centerLeft,
+                                                hintPadding:
+                                                    const EdgeInsets.only(
+                                                        left: 12),
+                                                textColor: colorService
+                                                    .signInScreenTitleColor(),
+                                              ),
+                                              const SizedBox(
+                                                width: 8,
+                                              ),
+                                              DropdownField(
+                                                buttonWidth: yearFieldWidth,
+                                                buttonHeight: 35,
+                                                controller: yearController,
+                                                hintPadding:
+                                                    const EdgeInsets.only(
+                                                        left: 12),
+                                                hintAlignment:
+                                                    Alignment.centerLeft,
+                                                textColor: colorService
+                                                    .signInScreenTitleColor(),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 38,
+                                      ),
+                                      ProfilePageTextField(
+                                        controller: _textFormInitialsController,
+                                        hintText: S.current
+                                            .profilePageInitialsFieldHintText,
+                                        lableText: S.current
+                                            .profilePageInitialsFieldLabelText,
                                       ),
                                     ],
                                   ),
-                                  child: Stack(
+                                ),
+                                const Spacer(),
+                                SizedBox(
+                                  width: columnWidth,
+                                  child: Column(
                                     children: <Widget>[
-                                      Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: ClipRRect(
+                                      Container(
+                                        width: 190,
+                                        height: 190,
+                                        decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
-                                          child: Image.asset(
-                                            A.assetsProfilePageAvatarImage,
-                                            fit: BoxFit.fill,
-                                            width: 180,
-                                            height: 180,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: colorService
+                                                  .profilePageAvatarBoxShadowColor(),
+                                              spreadRadius: 0,
+                                              blurRadius: 25,
+                                              offset: const Offset(0, 8),
+                                            ),
+                                          ],
+                                        ),
+                                        child: Stack(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(10.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                child: Image.asset(
+                                                  A.assetsProfilePageAvatarImage,
+                                                  fit: BoxFit.fill,
+                                                  width: 180,
+                                                  height: 180,
+                                                ),
+                                              ),
+                                            ),
+                                            Align(
+                                                alignment:
+                                                    const Alignment(1, 1),
+                                                child: EditButton(
+                                                    onTap: () {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                              SnackBar(
+                                                        content: Text(
+                                                          S.current
+                                                              .avatarChangingError,
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                        ),
+                                                        behavior:
+                                                            SnackBarBehavior
+                                                                .floating,
+                                                      ));
+                                                    },
+                                                    color: colorService
+                                                        .primaryColor(),
+                                                    imgPath: A
+                                                        .assetsProfilePagePencileIcon))
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 25,
+                                      ),
+                                      Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          S.current
+                                              .profilePageUnificationFieldLabelText,
+                                          style: TextStyle(
+                                            color: colorService
+                                                .profilePageTexFieldHintColor(),
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                       ),
-                                      Align(
-                                          alignment: const Alignment(1, 1),
-                                          child: EditButton(
-                                              onTap: () {
-                                                ScaffoldMessenger.of(context)
-                                                    .showSnackBar(SnackBar(
-                                                  content: Text(
-                                                    S.current
-                                                        .avatarChangingError,
-                                                    textAlign: TextAlign.center,
-                                                  ),
-                                                  behavior:
-                                                      SnackBarBehavior.floating,
-                                                ));
-                                              },
-                                              color:
-                                                  colorService.primaryColor(),
-                                              imgPath: A
-                                                  .assetsProfilePagePencileIcon))
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      DropdownField(
+                                        hintAlignment: Alignment.centerLeft,
+                                        hintPadding:
+                                            const EdgeInsets.only(left: 10),
+                                        buttonWidth: columnWidth,
+                                        buttonHeight: 35,
+                                        controller: unificationController,
+                                        textColor: colorService
+                                            .profilePageTexFieldHintColor(),
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      ProfilePageTextField(
+                                        controller: _textFormCityController,
+                                        hintText: S.current
+                                            .profilePageCityFieldHintText,
+                                        lableText: S.current
+                                            .profilePageCityFieldLabelText,
+                                      ),
+                                      const SizedBox(
+                                        height: 18,
+                                      ),
+                                      PrimaryButton(
+                                        onTap: () {
+                                          context
+                                              .read<ProfileBloc>()
+                                              .add(ProfileLogoutEvent());
+                                        },
+                                        height: 41,
+                                        title: S.current.logOutButtonText,
+                                        gradient: colorService.logOutGradient(),
+                                        textStyle: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 36,
+                                      ),
+                                      ProfilePageTextField(
+                                        controller:
+                                            _textFormParentsContactController,
+                                        hintText: S.current
+                                            .profilePageParentsContactFieldHintText,
+                                        lableText: S.current
+                                            .profilePageParentsContactFieldLabelText,
+                                      ),
                                     ],
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 25,
-                                ),
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    S.current
-                                        .profilePageUnificationFieldLabelText,
-                                    style: TextStyle(
-                                      color: colorService
-                                          .profilePageTexFieldHintColor(),
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                DropdownField(
-                                  hintAlignment: Alignment.centerLeft,
-                                  hintPadding: const EdgeInsets.only(left: 10),
-                                  buttonWidth: columnWidth,
-                                  buttonHeight: 35,
-                                  controller: unificationController,
-                                  textColor: colorService
-                                      .profilePageTexFieldHintColor(),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                ProfilePageTextField(
-                                  controller: _textFormCityController,
-                                  hintText:
-                                      S.current.profilePageCityFieldHintText,
-                                  lableText:
-                                      S.current.profilePageCityFieldLabelText,
-                                ),
-                                const SizedBox(
-                                  height: 18,
-                                ),
-                                PrimaryButton(
-                                  onTap: () {
-                                    context
-                                        .read<ProfileBloc>()
-                                        .add(ProfileLogoutEvent());
-                                  },
-                                  height: 41,
-                                  title: S.current.logOutButtonText,
-                                  gradient: colorService.logOutGradient(),
-                                  textStyle: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 36,
-                                ),
-                                ProfilePageTextField(
-                                  controller: _textFormParentsContactController,
-                                  hintText: S.current
-                                      .profilePageParentsContactFieldHintText,
-                                  lableText: S.current
-                                      .profilePageParentsContactFieldLabelText,
-                                ),
                               ],
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
+                    ),
             ),
           ),
         );

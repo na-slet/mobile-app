@@ -27,7 +27,11 @@ class ProfilePageMobile extends StatelessWidget {
   final _textFormParentsContactController = TextEditingController();
   final _textFormCityController = TextEditingController();
 
-  List<String> dateList = List<String>.generate(31, (i) => (i + 1).toString());
+  List<String> dateList = List<String>.generate(
+      31,
+      (i) => ((i + 1).toString().length == 1)
+          ? '0${(i + 1).toString()}'
+          : (i + 1).toString());
   Map<String, String> monthList = {
     '01': S.current.January,
     '02': S.current.February,
@@ -59,6 +63,14 @@ class ProfilePageMobile extends StatelessWidget {
     String monthListActive = monthList['01']!;
     String yearListActive = yearList[0];
     String unificationActive = unification[0];
+    DropdownFieldController dateController =
+        DropdownFieldController(items: dateList, selectedValue: dateListActive);
+    DropdownFieldController monthController = DropdownFieldController(
+        items: monthList.values.toList(), selectedValue: monthListActive);
+    DropdownFieldController yearController =
+        DropdownFieldController(items: yearList, selectedValue: yearListActive);
+    DropdownFieldController unificationController = DropdownFieldController(
+        items: unification, selectedValue: unificationActive);
 
     return BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {
@@ -89,6 +101,11 @@ class ProfilePageMobile extends StatelessWidget {
           unificationActive = (state.user.union != null)
               ? state.user.union!.name
               : unification[0];
+
+          dateController.setValue(dateListActive);
+          monthController.setValue(monthListActive);
+          yearController.setValue(yearListActive);
+          unificationController.setValue(unificationActive);
         }
 
         return (state is ProfileLoading)
@@ -124,28 +141,31 @@ class ProfilePageMobile extends StatelessWidget {
                               alignment: Alignment.topRight,
                               child: ImgCircleButton(
                                 onTap: () {
-                                  context.read<ProfileBloc>().add(
-                                      ProfileUpdateUser(
-                                          firstName: _textFormNameController
+                                  context.read<ProfileBloc>().add(ProfileUpdateUser(
+                                      firstName:
+                                          _textFormNameController.value.text,
+                                      lastName:
+                                          _textFormSurnameController.value.text,
+                                      middleName: _textFormPatronymicController
+                                          .value.text,
+                                      phone:
+                                          _textFormContactController.value.text,
+                                      parentPhone:
+                                          _textFormParentsContactController
                                               .value.text,
-                                          lastName:
-                                              _textFormSurnameController
-                                                  .value.text,
-                                          middleName:
-                                              _textFormPatronymicController.value
-                                                  .text,
-                                          phone: _textFormContactController.value
-                                              .text,
-                                          parentPhone:
-                                              _textFormParentsContactController
-                                                  .value.text,
-                                          parentFIO:
-                                              _textFormInitialsController
-                                                  .value.text,
-                                          email: _textFormEmailController
-                                              .value.text,
-                                          city: _textFormCityController
-                                              .value.text));
+                                      parentFIO: _textFormInitialsController
+                                          .value.text,
+                                      email:
+                                          _textFormEmailController.value.text,
+                                      city: _textFormCityController.value.text,
+                                      birthDate:
+                                          '${yearController.selectedValue}-${monthList.keys.firstWhere((k) => monthList[k] == monthController.selectedValue)}-${dateController.selectedValue}',
+                                      union: Union.allUnions.values
+                                          .firstWhere((element) =>
+                                              element.name ==
+                                              unificationController
+                                                  .selectedValue)
+                                          .id));
                                 },
                                 width: 40,
                                 height: 40,
@@ -275,11 +295,10 @@ class ProfilePageMobile extends StatelessWidget {
                                 DropdownField(
                                   buttonWidth: dateFieldWidth,
                                   buttonHeight: 35,
-                                  items: dateList,
+                                  controller: dateController,
                                   hintPadding: const EdgeInsets.only(left: 12),
                                   textColor:
                                       colorService.signInScreenTitleColor(),
-                                  selectedValue: dateListActive,
                                 ),
                                 const SizedBox(
                                   width: 8,
@@ -287,11 +306,10 @@ class ProfilePageMobile extends StatelessWidget {
                                 DropdownField(
                                   buttonWidth: monthFieldWidth,
                                   buttonHeight: 35,
-                                  items: monthList.values.toList(),
+                                  controller: monthController,
                                   hintPadding: const EdgeInsets.only(left: 12),
                                   textColor:
                                       colorService.signInScreenTitleColor(),
-                                  selectedValue: monthListActive,
                                 ),
                                 const SizedBox(
                                   width: 8,
@@ -299,11 +317,10 @@ class ProfilePageMobile extends StatelessWidget {
                                 DropdownField(
                                   buttonWidth: yearFieldWidth,
                                   buttonHeight: 35,
-                                  items: yearList,
+                                  controller: yearController,
                                   hintPadding: const EdgeInsets.only(left: 9),
                                   textColor:
                                       colorService.signInScreenTitleColor(),
-                                  selectedValue: yearListActive,
                                 ),
                               ],
                             )
@@ -351,10 +368,9 @@ class ProfilePageMobile extends StatelessWidget {
                           hintPadding: const EdgeInsets.only(left: 10),
                           buttonWidth: deviceWidth,
                           buttonHeight: 35,
-                          items: unification,
+                          controller: unificationController,
                           textColor:
                               colorService.profilePageTexFieldHintColor(),
-                          selectedValue: unificationActive,
                         ),
                         const SizedBox(
                           height: 5,

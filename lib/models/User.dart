@@ -51,7 +51,9 @@ class User {
       avatar: '${APIService.url}/${map['avatar_id'] as String}',
       city: map['city'] != null ? map['city'] as String : null,
       birthDate: map['birth_date'] != null ? map['birth_date'] as String : null,
-      union: map['union_id'] != null ? map['union_id'] as Union : null,
+      union: map['union_id'] != null
+          ? Union.allUnions[map['union_id']] as Union
+          : null,
     );
   }
 

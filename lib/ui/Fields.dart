@@ -133,23 +133,33 @@ class ProfilePageTextField extends StatelessWidget {
   }
 }
 
+class DropdownFieldController extends ChangeNotifier {
+  final List<String> items;
+  String selectedValue;
+
+  DropdownFieldController({required this.items, required this.selectedValue});
+
+  setValue(String value) {
+    selectedValue = value;
+    notifyListeners();
+  }
+}
+
 class DropdownField extends StatefulWidget {
   final double buttonWidth;
   final double buttonHeight;
-  final List<String> items;
   final AlignmentGeometry hintAlignment;
   final EdgeInsetsGeometry hintPadding;
   final Color textColor;
-  String selectedValue;
+  final DropdownFieldController controller;
 
   DropdownField(
       {super.key,
       required this.buttonWidth,
       required this.buttonHeight,
-      required this.items,
       this.hintAlignment = Alignment.centerLeft,
       this.hintPadding = EdgeInsets.zero,
-      required this.selectedValue,
+      required this.controller,
       required this.textColor});
 
   @override
@@ -158,8 +168,6 @@ class DropdownField extends StatefulWidget {
 
 class _DropdownFieldState extends State<DropdownField> {
   final colorService = Injector().get<ColorService>();
-
-  late List<String> items = widget.items;
 
   @override
   Widget build(BuildContext context) {
@@ -177,14 +185,14 @@ class _DropdownFieldState extends State<DropdownField> {
           padding: widget.hintPadding,
           alignment: widget.hintAlignment,
           child: Text(
-            items[0],
+            widget.controller.selectedValue,
             style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
                 color: widget.textColor),
           ),
         ),
-        items: (items
+        items: (widget.controller.items
             .map(
               (item) => DropdownMenuItem<String>(
                 value: item,
@@ -205,10 +213,10 @@ class _DropdownFieldState extends State<DropdownField> {
               ),
             )
             .toList()),
-        value: widget.selectedValue,
+        value: widget.controller.selectedValue,
         onChanged: (value) {
           setState(() {
-            widget.selectedValue = value as String;
+            widget.controller.setValue(value as String);
           });
         },
       ),

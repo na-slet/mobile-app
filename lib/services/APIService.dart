@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 
 class APIService {
@@ -9,6 +11,7 @@ class APIService {
     try {
       var response =
           await Dio().post('$url/$request', queryParameters: queryParameters);
+      print(response.data);
       if (response.statusCode == 200) {
         return response.data;
       }
@@ -24,6 +27,7 @@ class APIService {
     try {
       var response =
           await Dio().get('$url/$request', queryParameters: queryParameters);
+      print(response.data);
       if (response.statusCode == 200) {
         return response.data;
       }
@@ -40,10 +44,12 @@ class APIService {
     try {
       var response = await Dio()
           .put('$url/$request', queryParameters: queryParameters, data: data);
+      print(response);
       if (response.statusCode == 200) {
         return response.data;
       }
     } catch (e) {
+      print(e);
       return '';
     }
     return '';

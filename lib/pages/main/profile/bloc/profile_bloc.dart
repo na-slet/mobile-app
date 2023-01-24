@@ -30,6 +30,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           'parent_fio': event.parentFIO,
           'email': event.email,
           'city': event.city,
+          'birth_date': event.birthDate,
+          'union_id': event.union,
         });
       }
     });
@@ -39,17 +41,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     var response = await APIService.getRequest(
         request: 'user', queryParameters: {'access_token': authService.token});
 
-    print(response);
-
     return User.fromMap(response);
   }
 
   _updateUser({Map<String, String> data = const {}}) async {
-    var response = await APIService.putRequest(
+    print(data);
+    await APIService.putRequest(
         request: 'user',
         queryParameters: {'access_token': authService.token},
         data: data);
-
-    print(response);
   }
 }

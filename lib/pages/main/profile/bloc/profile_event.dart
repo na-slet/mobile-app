@@ -15,6 +15,8 @@ class ProfileUpdateUser extends ProfileEvent {
   final String parentFIO;
   final String email;
   final String city;
+  final String birthDate;
+  final String union;
 
   ProfileUpdateUser({
     required this.firstName,
@@ -25,6 +27,8 @@ class ProfileUpdateUser extends ProfileEvent {
     required this.parentFIO,
     required this.email,
     required this.city,
+    required this.birthDate,
+    required this.union,
   });
 }
 

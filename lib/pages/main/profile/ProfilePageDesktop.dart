@@ -58,6 +58,14 @@ class ProfilePageDesktop extends StatelessWidget {
     String monthListActive = monthList['01']!;
     String yearListActive = yearList[0];
     String unificationActive = unification[0];
+    DropdownFieldController dateController =
+        DropdownFieldController(items: dateList, selectedValue: dateListActive);
+    DropdownFieldController monthController = DropdownFieldController(
+        items: monthList.values.toList(), selectedValue: monthListActive);
+    DropdownFieldController yearController =
+        DropdownFieldController(items: yearList, selectedValue: yearListActive);
+    DropdownFieldController unificationController = DropdownFieldController(
+        items: unification, selectedValue: unificationActive);
 
     return BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {
@@ -67,6 +75,34 @@ class ProfilePageDesktop extends StatelessWidget {
         }
       },
       builder: (context, state) {
+        if (state is ProfileLoaded) {
+          _textFormNameController.text = state.user.firstName ?? '';
+          _textFormSurnameController.text = state.user.lastName ?? '';
+          _textFormPatronymicController.text = state.user.middleName ?? '';
+          _textFormCityController.text = state.user.city ?? '';
+          _textFormContactController.text = state.user.phone ?? '';
+          _textFormParentsContactController.text = state.user.parentPhone ?? '';
+          _textFormInitialsController.text = state.user.parentFIO ?? '';
+          _textFormEmailController.text = state.user.email;
+
+          if (state.user.birthDate != null) {
+            List<String> birthDate = state.user.birthDate!.split('-');
+
+            dateListActive = birthDate[2];
+            monthListActive = monthList[birthDate[1]]!;
+            yearListActive = birthDate[0];
+          }
+
+          unificationActive = (state.user.union != null)
+              ? state.user.union!.name
+              : unification[0];
+
+          dateController.setValue(dateListActive);
+          monthController.setValue(monthListActive);
+          yearController.setValue(yearListActive);
+          unificationController.setValue(unificationActive);
+        }
+
         return Padding(
           padding: const EdgeInsets.only(top: 25),
           child: FractionallySizedBox(
@@ -98,14 +134,26 @@ class ProfilePageDesktop extends StatelessWidget {
                           ),
                           ImgCircleButton(
                             onTap: () {
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(SnackBar(
-                                content: Text(
-                                  S.current.avatarChangingError,
-                                  textAlign: TextAlign.center,
-                                ),
-                                behavior: SnackBarBehavior.floating,
-                              ));
+                              context.read<ProfileBloc>().add(ProfileUpdateUser(
+                                  firstName: _textFormNameController.value.text,
+                                  lastName:
+                                      _textFormSurnameController.value.text,
+                                  middleName:
+                                      _textFormPatronymicController.value.text,
+                                  phone: _textFormContactController.value.text,
+                                  parentPhone: _textFormParentsContactController
+                                      .value.text,
+                                  parentFIO:
+                                      _textFormInitialsController.value.text,
+                                  email: _textFormEmailController.value.text,
+                                  city: _textFormCityController.value.text,
+                                  birthDate:
+                                      '${yearController.selectedValue}-${monthList.keys.firstWhere((k) => monthList[k] == monthController.selectedValue)}-${dateController.selectedValue}',
+                                  union: Union.allUnions.values
+                                      .firstWhere((element) =>
+                                          element.name ==
+                                          unificationController.selectedValue)
+                                      .id));
                             },
                             width: 40,
                             height: 40,
@@ -195,13 +243,12 @@ class ProfilePageDesktop extends StatelessWidget {
                                         DropdownField(
                                           buttonWidth: dateFieldWidth,
                                           buttonHeight: 35,
-                                          items: dateList,
+                                          controller: dateController,
                                           hintPadding:
                                               const EdgeInsets.only(left: 12),
                                           hintAlignment: Alignment.centerLeft,
                                           textColor: colorService
                                               .signInScreenTitleColor(),
-                                          selectedValue: dateListActive,
                                         ),
                                         const SizedBox(
                                           width: 8,
@@ -209,13 +256,12 @@ class ProfilePageDesktop extends StatelessWidget {
                                         DropdownField(
                                           buttonWidth: monthFieldWidth,
                                           buttonHeight: 35,
-                                          items: monthList.values.toList(),
+                                          controller: monthController,
                                           hintAlignment: Alignment.centerLeft,
                                           hintPadding:
                                               const EdgeInsets.only(left: 12),
                                           textColor: colorService
                                               .signInScreenTitleColor(),
-                                          selectedValue: monthListActive,
                                         ),
                                         const SizedBox(
                                           width: 8,
@@ -223,13 +269,12 @@ class ProfilePageDesktop extends StatelessWidget {
                                         DropdownField(
                                           buttonWidth: yearFieldWidth,
                                           buttonHeight: 35,
-                                          items: yearList,
+                                          controller: yearController,
                                           hintPadding:
                                               const EdgeInsets.only(left: 12),
                                           hintAlignment: Alignment.centerLeft,
                                           textColor: colorService
                                               .signInScreenTitleColor(),
-                                          selectedValue: yearListActive,
                                         ),
                                       ],
                                     )
@@ -286,7 +331,18 @@ class ProfilePageDesktop extends StatelessWidget {
                                       Align(
                                           alignment: const Alignment(1, 1),
                                           child: EditButton(
-                                              onTap: () {},
+                                              onTap: () {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(SnackBar(
+                                                  content: Text(
+                                                    S.current
+                                                        .avatarChangingError,
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                  behavior:
+                                                      SnackBarBehavior.floating,
+                                                ));
+                                              },
                                               color:
                                                   colorService.primaryColor(),
                                               imgPath: A
@@ -318,10 +374,9 @@ class ProfilePageDesktop extends StatelessWidget {
                                   hintPadding: const EdgeInsets.only(left: 10),
                                   buttonWidth: columnWidth,
                                   buttonHeight: 35,
-                                  items: unification,
+                                  controller: unificationController,
                                   textColor: colorService
                                       .profilePageTexFieldHintColor(),
-                                  selectedValue: unificationActive,
                                 ),
                                 const SizedBox(
                                   height: 5,

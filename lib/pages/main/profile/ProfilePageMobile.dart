@@ -261,7 +261,7 @@ class ProfilePageMobile extends StatelessWidget {
                                   buttonWidth: yearFieldWidth,
                                   buttonHeight: 35,
                                   items: yearList,
-                                  hintPadding: const EdgeInsets.only(left: 12),
+                                  hintPadding: const EdgeInsets.only(left: 9),
                                   textColor:
                                       colorService.signInScreenTitleColor(),
                                 ),

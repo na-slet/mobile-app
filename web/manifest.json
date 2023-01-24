@@ -1,11 +1,11 @@
 {
-    "name": "naslet_mobile",
-    "short_name": "naslet_mobile",
+    "name": "НаСлёт",
+    "short_name": "НаСлёт",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Сервис для участия в слетах",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

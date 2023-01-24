@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
 import '../../../generated/l10n.dart';
+import '../../../models/Union.dart';
 import '../../../services/ColorService.dart';
 import '../../../ui/Buttons.dart';
 import '../../../ui/Fields.dart';
@@ -26,24 +27,26 @@ class ProfilePageDesktop extends StatelessWidget {
   final _textFormCityController = TextEditingController();
 
   List<String> dateList = List<String>.generate(31, (i) => (i + 1).toString());
-  List<String> monthList = [
-    S.current.January,
-    S.current.February,
-    S.current.March,
-    S.current.April,
-    S.current.May,
-    S.current.June,
-    S.current.July,
-    S.current.August,
-    S.current.September,
-    S.current.October,
-    S.current.November,
-    S.current.December,
-  ];
+  Map<String, String> monthList = {
+    '01': S.current.January,
+    '02': S.current.February,
+    '03': S.current.March,
+    '04': S.current.April,
+    '05': S.current.May,
+    '06': S.current.June,
+    '07': S.current.July,
+    '08': S.current.August,
+    '09': S.current.September,
+    '10': S.current.October,
+    '11': S.current.November,
+    '12': S.current.December,
+  };
   List<String> yearList = List<String>.generate(
       (DateTime.now().year - 1900) + 1,
       (index) => (DateTime.now().year - index).toString());
-  List<String> unification = [S.current.profilePageUnificationFieldHintText];
+  List<String> unification = [
+    for (var union in Union.allUnions.values) union.name
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +54,10 @@ class ProfilePageDesktop extends StatelessWidget {
     double dateFieldWidth = (columnWidth! - 16) * 0.25 - 3;
     double monthFieldWidth = (columnWidth - 16) * 0.5 - 3;
     double yearFieldWidth = (columnWidth - 16) * 0.25 - 3;
+    String dateListActive = dateList[0];
+    String monthListActive = monthList['01']!;
+    String yearListActive = yearList[0];
+    String unificationActive = unification[0];
 
     return BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {
@@ -90,7 +97,16 @@ class ProfilePageDesktop extends StatelessWidget {
                             width: 20,
                           ),
                           ImgCircleButton(
-                            onTap: () {},
+                            onTap: () {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content: Text(
+                                  S.current.avatarChangingError,
+                                  textAlign: TextAlign.center,
+                                ),
+                                behavior: SnackBarBehavior.floating,
+                              ));
+                            },
                             width: 40,
                             height: 40,
                             widthImg: 18,
@@ -185,6 +201,7 @@ class ProfilePageDesktop extends StatelessWidget {
                                           hintAlignment: Alignment.centerLeft,
                                           textColor: colorService
                                               .signInScreenTitleColor(),
+                                          selectedValue: dateListActive,
                                         ),
                                         const SizedBox(
                                           width: 8,
@@ -192,12 +209,13 @@ class ProfilePageDesktop extends StatelessWidget {
                                         DropdownField(
                                           buttonWidth: monthFieldWidth,
                                           buttonHeight: 35,
-                                          items: monthList,
+                                          items: monthList.values.toList(),
                                           hintAlignment: Alignment.centerLeft,
                                           hintPadding:
                                               const EdgeInsets.only(left: 12),
                                           textColor: colorService
                                               .signInScreenTitleColor(),
+                                          selectedValue: monthListActive,
                                         ),
                                         const SizedBox(
                                           width: 8,
@@ -211,6 +229,7 @@ class ProfilePageDesktop extends StatelessWidget {
                                           hintAlignment: Alignment.centerLeft,
                                           textColor: colorService
                                               .signInScreenTitleColor(),
+                                          selectedValue: yearListActive,
                                         ),
                                       ],
                                     )
@@ -302,6 +321,7 @@ class ProfilePageDesktop extends StatelessWidget {
                                   items: unification,
                                   textColor: colorService
                                       .profilePageTexFieldHintColor(),
+                                  selectedValue: unificationActive,
                                 ),
                                 const SizedBox(
                                   height: 5,

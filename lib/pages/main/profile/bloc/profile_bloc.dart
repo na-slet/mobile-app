@@ -24,8 +24,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         _updateUser(data: {
           'first_name': event.firstName,
           'last_name': event.lastName,
+          'middle_name': event.middleName,
           'phone': event.phone,
           'parent_phone': event.parentPhone,
+          'parent_fio': event.parentFIO,
           'email': event.email,
           'city': event.city,
         });

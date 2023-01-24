@@ -140,14 +140,16 @@ class DropdownField extends StatefulWidget {
   final AlignmentGeometry hintAlignment;
   final EdgeInsetsGeometry hintPadding;
   final Color textColor;
+  String selectedValue;
 
-  const DropdownField(
+  DropdownField(
       {super.key,
       required this.buttonWidth,
       required this.buttonHeight,
       required this.items,
       this.hintAlignment = Alignment.centerLeft,
       this.hintPadding = EdgeInsets.zero,
+      required this.selectedValue,
       required this.textColor});
 
   @override
@@ -157,7 +159,6 @@ class DropdownField extends StatefulWidget {
 class _DropdownFieldState extends State<DropdownField> {
   final colorService = Injector().get<ColorService>();
 
-  String? selectedValue;
   late List<String> items = widget.items;
 
   @override
@@ -204,10 +205,10 @@ class _DropdownFieldState extends State<DropdownField> {
               ),
             )
             .toList()),
-        value: selectedValue,
+        value: widget.selectedValue,
         onChanged: (value) {
           setState(() {
-            selectedValue = value as String;
+            widget.selectedValue = value as String;
           });
         },
       ),

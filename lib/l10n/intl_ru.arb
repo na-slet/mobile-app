@@ -28,6 +28,7 @@
     "userNotExistError": "Такого пользователя не существует или введен неправильный пароль",
     "userExistError": "Вероятно, такой пользователь существует. Попробуйте войти в аккаунт",
     "tryAgainError": "Ошибка! Попробуйте еще раз",
+    "avatarChangingError": "Смена фотографии пока что недоступна",
 
     "navBarFeedTabTitleText": "Лента",
     "navBarMyTourTabTitleText": "Мои слёты",

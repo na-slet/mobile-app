@@ -5,6 +5,7 @@ import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:naslet_mobile/ui/Buttons.dart';
 
 import '../../../generated/l10n.dart';
+import '../../../models/Union.dart';
 import '../../../services/ColorService.dart';
 import '../../../services/GradientService.dart';
 import '../../../ui/Fields.dart';
@@ -27,24 +28,26 @@ class ProfilePageMobile extends StatelessWidget {
   final _textFormCityController = TextEditingController();
 
   List<String> dateList = List<String>.generate(31, (i) => (i + 1).toString());
-  List<String> monthList = [
-    S.current.January,
-    S.current.February,
-    S.current.March,
-    S.current.April,
-    S.current.May,
-    S.current.June,
-    S.current.July,
-    S.current.August,
-    S.current.September,
-    S.current.October,
-    S.current.November,
-    S.current.December,
-  ];
+  Map<String, String> monthList = {
+    '01': S.current.January,
+    '02': S.current.February,
+    '03': S.current.March,
+    '04': S.current.April,
+    '05': S.current.May,
+    '06': S.current.June,
+    '07': S.current.July,
+    '08': S.current.August,
+    '09': S.current.September,
+    '10': S.current.October,
+    '11': S.current.November,
+    '12': S.current.December,
+  };
   List<String> yearList = List<String>.generate(
       (DateTime.now().year - 1900) + 1,
       (index) => (DateTime.now().year - index).toString());
-  List<String> unification = [S.current.profilePageUnificationFieldHintText];
+  List<String> unification = [
+    for (var union in Union.allUnions.values) union.name
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +55,10 @@ class ProfilePageMobile extends StatelessWidget {
     double dateFieldWidth = (deviceWidth - 16) * 0.25 - 3;
     double monthFieldWidth = (deviceWidth - 16) * 0.5 - 3;
     double yearFieldWidth = (deviceWidth - 16) * 0.25 - 3;
+    String dateListActive = dateList[0];
+    String monthListActive = monthList['01']!;
+    String yearListActive = yearList[0];
+    String unificationActive = unification[0];
 
     return BlocConsumer<ProfileBloc, ProfileState>(
       listener: (context, state) {
@@ -64,10 +71,24 @@ class ProfilePageMobile extends StatelessWidget {
         if (state is ProfileLoaded) {
           _textFormNameController.text = state.user.firstName ?? '';
           _textFormSurnameController.text = state.user.lastName ?? '';
+          _textFormPatronymicController.text = state.user.middleName ?? '';
           _textFormCityController.text = state.user.city ?? '';
           _textFormContactController.text = state.user.phone ?? '';
           _textFormParentsContactController.text = state.user.parentPhone ?? '';
+          _textFormInitialsController.text = state.user.parentFIO ?? '';
           _textFormEmailController.text = state.user.email;
+
+          if (state.user.birthDate != null) {
+            List<String> birthDate = state.user.birthDate!.split('-');
+
+            dateListActive = birthDate[2];
+            monthListActive = birthDate[1];
+            yearListActive = birthDate[0];
+          }
+
+          unificationActive = (state.user.union != null)
+              ? state.user.union!.name
+              : unification[0];
         }
 
         return (state is ProfileLoading)
@@ -107,12 +128,19 @@ class ProfilePageMobile extends StatelessWidget {
                                       ProfileUpdateUser(
                                           firstName: _textFormNameController
                                               .value.text,
-                                          lastName: _textFormSurnameController
-                                              .value.text,
-                                          phone: _textFormContactController
-                                              .value.text,
+                                          lastName:
+                                              _textFormSurnameController
+                                                  .value.text,
+                                          middleName:
+                                              _textFormPatronymicController.value
+                                                  .text,
+                                          phone: _textFormContactController.value
+                                              .text,
                                           parentPhone:
                                               _textFormParentsContactController
+                                                  .value.text,
+                                          parentFIO:
+                                              _textFormInitialsController
                                                   .value.text,
                                           email: _textFormEmailController
                                               .value.text,
@@ -167,7 +195,16 @@ class ProfilePageMobile extends StatelessWidget {
                               Align(
                                   alignment: const Alignment(1, 1),
                                   child: EditButton(
-                                      onTap: () {},
+                                      onTap: () {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                          content: Text(
+                                            S.current.avatarChangingError,
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          behavior: SnackBarBehavior.floating,
+                                        ));
+                                      },
                                       color: colorService.primaryColor(),
                                       imgPath: A.assetsProfilePagePencileIcon))
                             ],
@@ -242,6 +279,7 @@ class ProfilePageMobile extends StatelessWidget {
                                   hintPadding: const EdgeInsets.only(left: 12),
                                   textColor:
                                       colorService.signInScreenTitleColor(),
+                                  selectedValue: dateListActive,
                                 ),
                                 const SizedBox(
                                   width: 8,
@@ -249,10 +287,11 @@ class ProfilePageMobile extends StatelessWidget {
                                 DropdownField(
                                   buttonWidth: monthFieldWidth,
                                   buttonHeight: 35,
-                                  items: monthList,
+                                  items: monthList.values.toList(),
                                   hintPadding: const EdgeInsets.only(left: 12),
                                   textColor:
                                       colorService.signInScreenTitleColor(),
+                                  selectedValue: monthListActive,
                                 ),
                                 const SizedBox(
                                   width: 8,
@@ -264,6 +303,7 @@ class ProfilePageMobile extends StatelessWidget {
                                   hintPadding: const EdgeInsets.only(left: 12),
                                   textColor:
                                       colorService.signInScreenTitleColor(),
+                                  selectedValue: yearListActive,
                                 ),
                               ],
                             )
@@ -314,6 +354,7 @@ class ProfilePageMobile extends StatelessWidget {
                           items: unification,
                           textColor:
                               colorService.profilePageTexFieldHintColor(),
+                          selectedValue: unificationActive,
                         ),
                         const SizedBox(
                           height: 5,

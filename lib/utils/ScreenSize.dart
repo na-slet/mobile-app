@@ -107,7 +107,6 @@ double setWidthFactor(BuildContext context) {
   }
   return ScreenSize.desktop.widthFactor;
 }
-
 double setHeightFactor(BuildContext context) {
   if (MediaQuery.of(context).size.height >= HeightFormFactor.desktop) {
     return ScreenSize.mobile.heightFactor;
@@ -117,6 +116,7 @@ double setHeightFactor(BuildContext context) {
   return ScreenSize.desktop.heightFactor;
 }
 
+
 double widthFactorProfilePageDesktop(BuildContext context) {
   if (MediaQuery.of(context).size.width >= 1200) {
     return 0.5;
@@ -125,7 +125,6 @@ double widthFactorProfilePageDesktop(BuildContext context) {
   }
   return 0.9;
 }
-
 double heightFactorProfilePageDesktop(BuildContext context) {
   if (MediaQuery.of(context).size.height >= HeightFormFactor.desktop) {
     return 0.45;
@@ -138,7 +137,6 @@ double heightFactorProfilePageDesktop(BuildContext context) {
   }
   return 0.9;
 }
-
 double? setColumnWidthProfilePageDesktop(BuildContext context) {
   double deviceWidth = MediaQuery.of(context).size.width;
   if (widthFactorProfilePageDesktop(context) == 0.5) {
@@ -148,7 +146,6 @@ double? setColumnWidthProfilePageDesktop(BuildContext context) {
   }
   return deviceWidth * 0.4;
 }
-
 double setDateDropDownWidthProfilePageDesktop(BuildContext context) {
   double deviceWidth = MediaQuery.of(context).size.width;
   if (widthFactorProfilePageDesktop(context) == 0.5) {
@@ -158,6 +155,7 @@ double setDateDropDownWidthProfilePageDesktop(BuildContext context) {
   }
   return deviceWidth * 0.1;
 }
+
 
 double widthFactorFeedPageDesktop(BuildContext context) {
   if (MediaQuery.of(context).size.width >= 1322) {
@@ -170,6 +168,7 @@ double widthFactorFeedPageDesktop(BuildContext context) {
   return 0.8;
 }
 
+
 double widthFactorDetailPageDesktop(BuildContext context) {
   if (MediaQuery.of(context).size.width >= 1322) {
     return 0.5;
@@ -180,7 +179,6 @@ double widthFactorDetailPageDesktop(BuildContext context) {
   }
   return 0.8;
 }
-
 double widthColumnDetailPageDesktop(BuildContext context) {
   if (MediaQuery.of(context).size.width >= 1322) {
     return MediaQuery.of(context).size.width * 0.2;
@@ -191,7 +189,6 @@ double widthColumnDetailPageDesktop(BuildContext context) {
   }
   return MediaQuery.of(context).size.width * 0.3;
 }
-
 double horizontalPaddingDetailPage(BuildContext context) {
   if (MediaQuery.of(context).size.width >= 1322) {
     return MediaQuery.of(context).size.width * 0.025;
@@ -199,4 +196,16 @@ double horizontalPaddingDetailPage(BuildContext context) {
     return MediaQuery.of(context).size.width * 0.04;
   }
   return MediaQuery.of(context).size.width * 0.05;
+}
+
+
+double widthFactorMapPage(BuildContext context) {
+  if (MediaQuery.of(context).size.width >= 1322) {
+    return 0.7;
+  } else if (MediaQuery.of(context).size.width >= 1220) {
+    return 0.75;
+  } else if (MediaQuery.of(context).size.width >= 1024) {
+    return 0.8;
+  }
+  return 0.9;
 }

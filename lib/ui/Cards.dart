@@ -180,7 +180,9 @@ class DetailCard extends StatelessWidget {
   final String description;
   final String endRegistration;
   final VoidCallback onTap;
+  final VoidCallback onMapTap;
   final int state;
+
 
   DetailCard({
     Key? key,
@@ -194,7 +196,7 @@ class DetailCard extends StatelessWidget {
     required this.description,
     required this.endRegistration,
     this.state = 0,
-    required this.onTap,
+    required this.onTap, required this.onMapTap,
   }) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
@@ -334,161 +336,158 @@ class DetailCard extends StatelessWidget {
       ),
     ];
 
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          border: GradientBoxBorder(
-            gradient: colorService.primaryGradient(),
-            width: 2,
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        border: GradientBoxBorder(
+          gradient: colorService.primaryGradient(),
+          width: 2,
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: colorService.cardTitleTextColor(),
-                    ),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: colorService.cardTitleTextColor(),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: SizedBox(
-                    width: 16,
-                    height: 19,
-                    child: detailCardStates[state],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Column(
-              children: [
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                        width: widthInfoIcon,
-                        height: heightInfoIcon,
-                        child: Image.asset(A.assetsCardDateIcon)),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      date,
-                      style: infoTextStyle,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                        width: widthInfoIcon,
-                        height: heightInfoIcon,
-                        child: Image.asset(A.assetsCardAvatarIcon)),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      ageLimit,
-                      style: infoTextStyle,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                        width: widthInfoIcon,
-                        height: heightInfoIcon,
-                        child: Image.asset(A.assetsCardEventTypeIcon)),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      eventType,
-                      style: infoTextStyle,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                        width: widthInfoIcon,
-                        height: heightInfoIcon,
-                        child: Image.asset(A.assetsCardLocationIcon)),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      locationType,
-                      style: infoTextStyle,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    SizedBox(
-                        width: widthInfoIcon,
-                        height: heightInfoIcon,
-                        child: Image.asset(A.assetsCardSecondaryLocationIcon)),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      location,
-                      style: infoTextStyle,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            InkWell(
-              borderRadius: BorderRadius.circular(5),
-              child: MapBlock(
-                onTap: () {},
-                height: 180,
               ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: SizedBox(
+                  width: 16,
+                  height: 19,
+                  child: detailCardStates[state],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Column(
+            children: [
+              Row(
+                children: <Widget>[
+                  SizedBox(
+                      width: widthInfoIcon,
+                      height: heightInfoIcon,
+                      child: Image.asset(A.assetsCardDateIcon)),
+                  const SizedBox(
+                    width: 6,
+                  ),
+                  Text(
+                    date,
+                    style: infoTextStyle,
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  SizedBox(
+                      width: widthInfoIcon,
+                      height: heightInfoIcon,
+                      child: Image.asset(A.assetsCardAvatarIcon)),
+                  const SizedBox(
+                    width: 6,
+                  ),
+                  Text(
+                    ageLimit,
+                    style: infoTextStyle,
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  SizedBox(
+                      width: widthInfoIcon,
+                      height: heightInfoIcon,
+                      child: Image.asset(A.assetsCardEventTypeIcon)),
+                  const SizedBox(
+                    width: 6,
+                  ),
+                  Text(
+                    eventType,
+                    style: infoTextStyle,
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  SizedBox(
+                      width: widthInfoIcon,
+                      height: heightInfoIcon,
+                      child: Image.asset(A.assetsCardLocationIcon)),
+                  const SizedBox(
+                    width: 6,
+                  ),
+                  Text(
+                    locationType,
+                    style: infoTextStyle,
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  SizedBox(
+                      width: widthInfoIcon,
+                      height: heightInfoIcon,
+                      child: Image.asset(A.assetsCardSecondaryLocationIcon)),
+                  const SizedBox(
+                    width: 6,
+                  ),
+                  Text(
+                    location,
+                    style: infoTextStyle,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          InkWell(
+            borderRadius: BorderRadius.circular(5),
+            child: MapBlock(
+              onTap: onMapTap,
+              height: 180,
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              description,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            description,
+            style: descriptionTextStyle,
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          detailButtonStates[state],
+          SizedBox(
+            height: 5,
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Конец регистрации: ${endRegistration}',
               style: descriptionTextStyle,
             ),
-            SizedBox(
-              height: 15,
-            ),
-            detailButtonStates[state],
-            SizedBox(
-              height: 5,
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                'Конец регистрации: ${endRegistration}',
-                style: descriptionTextStyle,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

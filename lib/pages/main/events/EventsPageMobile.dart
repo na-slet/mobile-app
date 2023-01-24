@@ -74,6 +74,7 @@ class EventsPageMobile extends StatelessWidget {
                 ),
                 PrimaryCard(
                   onTap: () {},
+                  state: eventCardStates[1],
                   imgPath: A.assetsCardImgExample,
                   title: 'Слет «Файер»',
                   date: '14-17 февраля 2023',
@@ -81,13 +82,13 @@ class EventsPageMobile extends StatelessWidget {
                   location: 'Москва, ЦО',
                   description:
                       'Туристский слёт самое любимое, интересное и массовое  мероприятие, которое пользуется большой популярностью у детей и взрослых.',
-                state: eventCardStates[0],
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 PrimaryCard(
                   onTap: () {},
+                  state: eventCardStates[0],
                   imgPath: A.assetsCardImgExample,
                   title: 'Слет «Файер»',
                   date: '14-17 февраля 2023',
@@ -104,48 +105,3 @@ class EventsPageMobile extends StatelessWidget {
     );
   }
 }
-
-class SecondaryButton extends StatelessWidget {
-  final colorService = Injector().get<ColorService>();
-
-  final double height;
-  final LinearGradient gradient;
-  final Widget child;
-  final VoidCallback? onTap;
-  final bool enabled;
-
-  SecondaryButton({
-    Key? key,
-    this.height = 45,
-    this.onTap,
-    required this.gradient,
-    this.enabled = true,
-    required this.child,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GradinetLeftToRight(
-      blendMode: BlendMode.color,
-      color: enabled ? gradient : colorService.inactiveGradient(),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: enabled ? onTap : null,
-          borderRadius: BorderRadius.circular(5),
-          child: Container(
-            height: height,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Center(
-                child: child
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-

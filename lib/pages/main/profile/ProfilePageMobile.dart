@@ -82,7 +82,7 @@ class ProfilePageMobile extends StatelessWidget {
             List<String> birthDate = state.user.birthDate!.split('-');
 
             dateListActive = birthDate[2];
-            monthListActive = birthDate[1];
+            monthListActive = monthList[birthDate[1]]!;
             yearListActive = birthDate[0];
           }
 

@@ -48,6 +48,7 @@ flutter:
     - assets/icons/details_page/
     - assets/icons/events_page/
     - assets/images/map/
+    - assets/icons/map/
 
   fonts:
     - family: Inter

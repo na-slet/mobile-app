@@ -32,5 +32,6 @@ abstract class A {
   static const String assetsWaitPaymentEventCardStateIcon = "assets/icons/events_page/WaitPaymentEventCardStateIcon.png";
 
   static const String assetsMapExampleImg = "assets/images/map/MapExample.png";
-
+  static const String assetsMapCloseIcon = "assets/icons/map/MapCloseIcon.png";
+  static const String assetsMapExampleHightRes= "assets/images/map/MapExampleHightRes.png";
 }

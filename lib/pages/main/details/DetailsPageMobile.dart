@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
@@ -6,7 +7,9 @@ import '../../../services/ColorService.dart';
 import '../../../services/GradientService.dart';
 import '../../../ui/Buttons.dart';
 import '../../../ui/Cards.dart';
+import '../../../ui/Map.dart';
 import '../../../utils/Assets.dart';
+import '../../../utils/Routes.dart';
 
 class DetailsPageMobile extends StatelessWidget {
   DetailsPageMobile({Key? key}) : super(key: key);
@@ -68,6 +71,16 @@ class DetailsPageMobile extends StatelessWidget {
                 ),
                 DetailCard(
                   onTap: () {},
+                  onMapTap: () => Navigator.push(
+                    context,
+                    CupertinoModalPopupRoute(
+                      builder: (context) => MapOpendBlock(
+                        onTapCloseButton: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                  ),
                   state: 0,
                   title: 'Слёт «Файер»',
                   date: '14-17 февраля 2023',
@@ -77,7 +90,7 @@ class DetailsPageMobile extends StatelessWidget {
                   location: 'Рождественский бул., 20, Москва',
                   imgPath: '',
                   description:
-                  'Туристский слёт самое любимое, интересное и массовое внеклассное мероприятие, которое пользуется большой популярностью у детей и взрослых.',
+                      'Туристский слёт самое любимое, интересное и массовое внеклассное мероприятие, которое пользуется большой популярностью у детей и взрослых.',
                   endRegistration: '12 февраля 2023',
                 ),
               ],

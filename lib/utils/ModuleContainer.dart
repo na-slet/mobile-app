@@ -1,7 +1,7 @@
 import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:naslet_mobile/services/AuthService.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../services/AuthService.dart';
 import '../services/ColorService.dart';
 import '../services/FontService.dart';
 

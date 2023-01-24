@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:naslet_mobile/services/APIService.dart';
 
 import '../../../../models/User.dart';
+import '../../../../services/APIService.dart';
 import '../../../../services/AuthService.dart';
 
 part 'profile_event.dart';

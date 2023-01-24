@@ -2,7 +2,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:naslet_mobile/pages/auth/blocs/sign_up_bloc.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../services/AuthService.dart';

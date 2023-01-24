@@ -7,9 +7,8 @@ import 'package:flutter_login_vk/flutter_login_vk.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:naslet_mobile/services/APIService.dart';
-
 import '../generated/l10n.dart';
+import 'APIService.dart';
 
 class AuthService {
   final SharedPreferences prefs;

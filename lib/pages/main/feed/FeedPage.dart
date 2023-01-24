@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:naslet_mobile/pages/main/feed/FeedPageDesktop.dart';
-import 'package:naslet_mobile/pages/main/feed/FeedPageMobile.dart';
 
 import '../../../utils/ScreenSize.dart';
+import 'FeedPageDesktop.dart';
+import 'FeedPageMobile.dart';
 
 class FeedPage extends StatelessWidget {
   const FeedPage({Key? key}) : super(key: key);

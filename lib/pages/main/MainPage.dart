@@ -1,16 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:naslet_mobile/pages/main/details/DetailsPage.dart';
-import 'package:naslet_mobile/pages/main/events/EventsPage.dart';
-import 'package:naslet_mobile/pages/main/feed/FeedPage.dart';
-import 'package:naslet_mobile/pages/main/profile/ProfilePage.dart';
-import 'package:naslet_mobile/ui/navigation_bar/DesktopNavigationBar.dart';
-import 'package:naslet_mobile/utils/Routes.dart';
-
+import 'package:naslet/pages/main/profile/ProfilePage.dart';
 import '../../services/ColorService.dart';
+import '../../ui/navigation_bar/DesktopNavigationBar.dart';
 import '../../ui/navigation_bar/MobileNavigationBar.dart';
+import '../../utils/Routes.dart';
 import '../../utils/ScreenSize.dart';
+import 'details/DetailsPage.dart';
+import 'events/EventsPage.dart';
+import 'feed/FeedPage.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);

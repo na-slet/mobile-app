@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:naslet_mobile/ui/Buttons.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../models/Union.dart';
 import '../../../services/ColorService.dart';
 import '../../../services/GradientService.dart';
+import '../../../ui/Buttons.dart';
 import '../../../ui/Fields.dart';
 import '../../../utils/Assets.dart';
 import '../../../utils/Routes.dart';

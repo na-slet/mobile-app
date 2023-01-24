@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:naslet_mobile/utils/ScreenSize.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 import 'package:flutter/foundation.dart';
 
 import '../generated/l10n.dart';
 import '../services/ColorService.dart';
 import '../utils/Assets.dart';
+import '../utils/ScreenSize.dart';
 import 'Buttons.dart';
 
 class MapBlock extends StatelessWidget {

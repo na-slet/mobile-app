@@ -25,9 +25,26 @@ dependencies:
   firebase_auth: ^4.2.5
   shared_preferences: ^2.0.16
   dropdown_button2: ^1.9.2
-  flutter_native_splash: ^2.2.17
   gradient_borders: ^0.2.0
   yandex_mapkit: ^3.2.0
+  flutter_launcher_icons: ^0.9.0
+  flutter_native_splash: ^1.2.0
+
+flutter_icons:
+  image_path_android: "assets/icons/app_icon/icon.png"
+  image_path_ios: "assets/icons/app_icon/icon.png"
+  android: true # can specify file name here e.g. "ic_launcher"
+  ios: true # can specify file name here e.g. "My-Launcher-Icon"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  remove_alpha_ios: true
+  web:
+    generate: true
+    image_path: "assets/icons/app_icon/icon.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+
+dependency_overrides:
+  args: ^2.1.1
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +66,7 @@ flutter:
     - assets/icons/events_page/
     - assets/images/map/
     - assets/icons/map/
+    - assets/icons/app_icon/
 
   fonts:
     - family: Inter

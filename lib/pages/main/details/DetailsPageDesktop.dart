@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
+import 'package:intl/intl.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../models/Event.dart';
@@ -78,16 +79,18 @@ class DetailsPageDesktop extends StatelessWidget {
                   ),
                   DetailCardDesktop(
                     onTap: () {},
-                    state: 2,
-                    title: 'Слёт «Файер»',
-                    date: '14-17 февраля 2023',
-                    ageLimit: 'от 15 до 18 лет',
-                    eventType: 'Молодежный слёт',
-                    locationType: 'Центральное объединение',
-                    location: 'Рождественский бул., 20, Москва',
-                    description:
-                        'Туристский слёт самое любимое, интересное и массовое внеклассное мероприятие, которое пользуется большой популярностью у детей и взрослых.',
-                    endRegistration: '12 февраля 2023',
+                    state: 0,
+                    title: '${event.categoryType.name} «${event.name}»',
+                    date:
+                        '${DateFormat('dd MMMM').format(event.startDate)} — ${DateFormat('dd MMMM yyyy').format(event.endDate)}',
+                    ageLimit: 'от ${event.minAge} до ${event.maxAge} лет',
+                    eventType:
+                        '${event.eventType.name} ${event.categoryType.name.toLowerCase()}',
+                    locationType: event.union.name,
+                    location: '${event.address}, ${event.city}',
+                    description: event.description,
+                    endRegistration:
+                        DateFormat('dd MMMM yyyy').format(event.regEndDate),
                   ),
                 ],
               ),

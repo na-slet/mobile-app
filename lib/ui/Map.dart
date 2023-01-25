@@ -27,17 +27,13 @@ class MapBlock extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          SizedBox(
-            width: double.infinity,
+          Positioned.fill(
             child: (defaultTargetPlatform == TargetPlatform.iOS ||
                     defaultTargetPlatform == TargetPlatform.android)
-                ? Expanded(
-                    child: YandexMap(),
-                  )
+                ? const YandexMap()
                 : Image.asset(A.assetsMapExampleImg, fit: BoxFit.fitWidth),
           ),
-          SizedBox(
-            width: double.infinity,
+          Positioned.fill(
             child: Material(
               color: Colors.transparent,
               child: InkWell(
@@ -47,16 +43,17 @@ class MapBlock extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5),
                     color: Colors.black.withOpacity(0.44),
                   ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    S.current.checkOnMap,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-          Text(
-            S.current.checkOnMap,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
             ),
           ),
         ],

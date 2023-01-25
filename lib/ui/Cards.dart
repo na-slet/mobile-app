@@ -402,6 +402,9 @@ class DetailCard extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(
+                width: 2,
+              ),
               Row(
                 children: <Widget>[
                   SizedBox(
@@ -416,6 +419,9 @@ class DetailCard extends StatelessWidget {
                     style: infoTextStyle,
                   ),
                 ],
+              ),
+              const SizedBox(
+                width: 2,
               ),
               Row(
                 children: <Widget>[
@@ -432,6 +438,9 @@ class DetailCard extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(
+                width: 2,
+              ),
               Row(
                 children: <Widget>[
                   SizedBox(
@@ -446,6 +455,9 @@ class DetailCard extends StatelessWidget {
                     style: infoTextStyle,
                   ),
                 ],
+              ),
+              const SizedBox(
+                width: 2,
               ),
               Row(
                 children: <Widget>[
@@ -779,7 +791,17 @@ class DetailCardDesktop extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MapBlock(onTap: () {}, height: 185),
+                  MapBlock(
+                      onTap: () {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(
+                            S.current.mapUnavailableError,
+                            textAlign: TextAlign.center,
+                          ),
+                          behavior: SnackBarBehavior.floating,
+                        ));
+                      },
+                      height: 185),
                   SizedBox(
                     height: 10,
                   ),

@@ -57,23 +57,23 @@ class _MainPageState extends State<MainPage> {
           key: navigatorKey,
           initialRoute: Routes.feedPage,
           onGenerateRoute: (RouteSettings settings) {
-            WidgetBuilder builder;
+            Widget route;
             switch (settings.name) {
               case Routes.feedPage:
-                builder = (BuildContext context) => FeedPage();
+                route = FeedPage();
                 break;
               case Routes.eventsPage:
-                builder = (BuildContext context) => EventsPage();
+                route = EventsPage();
                 break;
               case Routes.profilePage:
-                builder = (BuildContext context) => ProfilePage();
+                route = ProfilePage();
                 break;
               default:
-                builder = (BuildContext context) => FeedPage();
+                route = FeedPage();
                 break;
             }
-            return MaterialPageRoute(
-              builder: builder,
+            return PageRouteBuilder(
+              pageBuilder: (_, __, ___) => route,
               settings: settings,
             );
           },

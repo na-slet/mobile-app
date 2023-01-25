@@ -10,6 +10,7 @@ abstract class A {
   static const String assetsProfilePagePencileIcon = "assets/icons/profile_page/ProfilePagePencileIcon.png";
   static const String assetsBackgroundFeed = "assets/images/background.png";
   static const String assetsProfilePageAvatarImage = "assets/images/profile_page/profilePageAvatarImage.png";
+  static const String assetsProfilePageLeaveIcon = "assets/icons/profile_page/ProfilePageLeaveIcon.png";
 
   static const String assetsCardAvatarIcon = "assets/icons/card_icon/AvatarCardIcon.png";
   static const String assetsCardImgExample = "assets/icons/card_icon/CardImgExample.png";

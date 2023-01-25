@@ -7,10 +7,11 @@ class APIService {
 
   static Future<dynamic> postRequest(
       {required String request,
-      Map<String, String> queryParameters = const {}}) async {
+      Map<String, String> queryParameters = const {},
+      Map<String, String> data = const {}}) async {
     try {
-      var response =
-          await Dio().post('$url/$request', queryParameters: queryParameters);
+      var response = await Dio()
+          .post('$url/$request', queryParameters: queryParameters, data: data);
       print(response.data);
       if (response.statusCode == 200) {
         return response.data;

@@ -253,7 +253,7 @@ class DetailCard extends StatelessWidget {
     final List<Widget> detailButtonStates = [
       //участвовать
       PrimaryButton(
-        onTap: () {},
+        onTap: onTap,
         gradient: colorService.primaryGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -504,7 +504,7 @@ class DetailCard extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               'Конец регистрации: ${endRegistration}',
-              style: descriptionTextStyle,
+              style: descriptionTextStyle.copyWith(fontStyle: FontStyle.italic),
             ),
           ),
         ],

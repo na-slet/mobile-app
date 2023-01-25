@@ -141,39 +141,15 @@ class ProfilePageDesktop extends StatelessWidget {
                                 ),
                                 ImgCircleButton(
                                   onTap: () {
-                                    context.read<ProfileBloc>().add(ProfileUpdateUser(
-                                        firstName:
-                                            _textFormNameController.value.text,
-                                        lastName: _textFormSurnameController
-                                            .value.text,
-                                        middleName:
-                                            _textFormPatronymicController
-                                                .value.text,
-                                        phone: _textFormContactController
-                                            .value.text,
-                                        parentPhone:
-                                            _textFormParentsContactController
-                                                .value.text,
-                                        parentFIO: _textFormInitialsController
-                                            .value.text,
-                                        email:
-                                            _textFormEmailController.value.text,
-                                        city:
-                                            _textFormCityController.value.text,
-                                        birthDate:
-                                            '${yearController.selectedValue}-${monthList.keys.firstWhere((k) => monthList[k] == monthController.selectedValue)}-${dateController.selectedValue}',
-                                        union: Union.allUnions.values
-                                            .firstWhere((element) =>
-                                                element.name ==
-                                                unificationController
-                                                    .selectedValue)
-                                            .id));
+                                    context
+                                        .read<ProfileBloc>()
+                                        .add(ProfileLogoutEvent());
                                   },
                                   width: 40,
                                   height: 40,
-                                  widthImg: 18,
-                                  heightImg: 12,
-                                  imgPath: A.assetsProfilePageDoneMarkIcon,
+                                  widthImg: 14,
+                                  heightImg: 18,
+                                  imgPath: A.assetsProfilePageLeaveIcon,
                                 ),
                               ],
                             ),
@@ -423,13 +399,37 @@ class ProfilePageDesktop extends StatelessWidget {
                                       ),
                                       PrimaryButton(
                                         onTap: () {
-                                          context
-                                              .read<ProfileBloc>()
-                                              .add(ProfileLogoutEvent());
+                                          context.read<ProfileBloc>().add(ProfileUpdateUser(
+                                              firstName:
+                                              _textFormNameController.value.text,
+                                              lastName: _textFormSurnameController
+                                                  .value.text,
+                                              middleName:
+                                              _textFormPatronymicController
+                                                  .value.text,
+                                              phone: _textFormContactController
+                                                  .value.text,
+                                              parentPhone:
+                                              _textFormParentsContactController
+                                                  .value.text,
+                                              parentFIO: _textFormInitialsController
+                                                  .value.text,
+                                              email:
+                                              _textFormEmailController.value.text,
+                                              city:
+                                              _textFormCityController.value.text,
+                                              birthDate:
+                                              '${yearController.selectedValue}-${monthList.keys.firstWhere((k) => monthList[k] == monthController.selectedValue)}-${dateController.selectedValue}',
+                                              union: Union.allUnions.values
+                                                  .firstWhere((element) =>
+                                              element.name ==
+                                                  unificationController
+                                                      .selectedValue)
+                                                  .id));
                                         },
                                         height: 41,
-                                        title: S.current.logOutButtonText,
-                                        gradient: colorService.logOutGradient(),
+                                        title: S.current.profilePageSaveButtonText,
+                                        gradient: colorService.bookedGradient(),
                                         textStyle: const TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,

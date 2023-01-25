@@ -81,5 +81,6 @@
     "eventsPageTittleText": "Мои слёты",
     "checkOnMap": "Смотреть на карте",
 
-    "updating": "Обновление"
+    "updating": "Обновление",
+    "profilePageSaveButtonText": "Сохранить"
 }

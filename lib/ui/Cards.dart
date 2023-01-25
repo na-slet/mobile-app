@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
+import 'package:naslet/services/APIService.dart';
 
 import '../generated/l10n.dart';
 import '../services/ColorService.dart';
@@ -110,6 +111,9 @@ class PrimaryCard extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 4,
+            ),
             Row(
               children: <Widget>[
                 SizedBox(
@@ -124,6 +128,9 @@ class PrimaryCard extends StatelessWidget {
                   style: infoTextStyle,
                 ),
               ],
+            ),
+            const SizedBox(
+              height: 4,
             ),
             Row(
               children: <Widget>[
@@ -140,9 +147,12 @@ class PrimaryCard extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 8,
+            ),
             SizedBox(
               height: 180,
-              child: Image.asset(imgPath),
+              child: Image.network('${APIService.url}/$imgPath'),
             ),
             const SizedBox(
               height: 8,
@@ -183,7 +193,6 @@ class DetailCard extends StatelessWidget {
   final VoidCallback onMapTap;
   final int state;
 
-
   DetailCard({
     Key? key,
     required this.title,
@@ -196,7 +205,8 @@ class DetailCard extends StatelessWidget {
     required this.description,
     required this.endRegistration,
     this.state = 0,
-    required this.onTap, required this.onMapTap,
+    required this.onTap,
+    required this.onMapTap,
   }) : super(key: key);
 
   final colorService = Injector().get<ColorService>();

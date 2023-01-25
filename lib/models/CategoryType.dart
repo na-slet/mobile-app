@@ -1,7 +1,8 @@
 enum CategoryType {
-  event('EVENT'),
-  camp('CAMP');
+  event('EVENT', 'Слет'),
+  camp('CAMP', 'Лагерь');
 
   final String val;
-  const CategoryType(this.val);
+  final String name;
+  const CategoryType(this.val, this.name);
 }

@@ -16,6 +16,7 @@ class APIService {
         return response.data;
       }
     } catch (e) {
+      print(e);
       return '';
     }
     return '';
@@ -32,6 +33,7 @@ class APIService {
         return response.data;
       }
     } catch (e) {
+      print(e);
       return '';
     }
     return '';

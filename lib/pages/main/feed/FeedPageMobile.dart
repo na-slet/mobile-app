@@ -29,34 +29,34 @@ class FeedPageMobile extends StatelessWidget {
                 fit: BoxFit.fitWidth,
               ),
             ),
-            (state is FeedLoaded)
-                ? SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 27, vertical: 30),
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              GradinetLeftToRight(
-                                blendMode: BlendMode.srcIn,
-                                color: colorService.primaryGradient(),
-                                child: Text(
-                                  S.current.feedPageTittleText,
-                                  style: TextStyle(
-                                    color: colorService.primaryColor(),
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                                ),
-                              ),
-                            ],
+            SingleChildScrollView(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 27, vertical: 30),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GradinetLeftToRight(
+                          blendMode: BlendMode.srcIn,
+                          color: colorService.primaryGradient(),
+                          child: Text(
+                            S.current.feedPageTittleText,
+                            style: TextStyle(
+                              color: colorService.primaryColor(),
+                              fontSize: 24,
+                              fontWeight: FontWeight.w800,
+                            ),
                           ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          ListView.separated(
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    (state is FeedLoaded)
+                        ? ListView.separated(
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: state.events.length,
@@ -80,14 +80,12 @@ class FeedPageMobile extends StatelessWidget {
                                   '${state.events[i].city}, ${state.events[i].union.shortName}',
                               description: state.events[i].shortDescription,
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
-                : const Center(
-                    child: CupertinoActivityIndicator(),
-                  )
+                          )
+                        : const CupertinoActivityIndicator()
+                  ],
+                ),
+              ),
+            )
           ],
         );
       },

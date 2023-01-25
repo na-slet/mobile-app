@@ -1,12 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
+import 'package:intl/intl.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../services/ColorService.dart';
 import '../../../services/GradientService.dart';
-import '../../../ui/Buttons.dart';
 import '../../../ui/Cards.dart';
 import '../../../utils/Assets.dart';
+import '../../../utils/Routes.dart';
+import 'bloc/events_bloc.dart';
 
 class EventsPageMobile extends StatelessWidget {
   EventsPageMobile({Key? key}) : super(key: key);
@@ -14,7 +18,6 @@ class EventsPageMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final List<Widget> eventCardStates = [
       //участвовать
       Image.asset(
@@ -38,70 +41,77 @@ class EventsPageMobile extends StatelessWidget {
       ),
     ];
 
-    return Stack(
-      children: <Widget>[
-        SizedBox(
-          width: double.infinity,
-          child: Image.asset(
-            A.assetsBackgroundFeed,
-            fit: BoxFit.fitWidth,
-          ),
-        ),
-        SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 30),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GradinetLeftToRight(
-                      blendMode: BlendMode.srcIn,
-                      color: colorService.primaryGradient(),
-                      child: Text(
-                        S.current.eventsPageTittleText,
-                        style: TextStyle(
-                          color: colorService.primaryColor(),
-                          fontSize: 24,
-                          fontWeight: FontWeight.w800,
+    return BlocBuilder<EventsBloc, EventsState>(
+      builder: (context, state) {
+        return Stack(
+          children: <Widget>[
+            SizedBox(
+              width: double.infinity,
+              child: Image.asset(
+                A.assetsBackgroundFeed,
+                fit: BoxFit.fitWidth,
+              ),
+            ),
+            SingleChildScrollView(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 27, vertical: 30),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GradinetLeftToRight(
+                          blendMode: BlendMode.srcIn,
+                          color: colorService.primaryGradient(),
+                          child: Text(
+                            S.current.eventsPageTittleText,
+                            style: TextStyle(
+                              color: colorService.primaryColor(),
+                              fontSize: 24,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    (state is EventsLoaded)
+                        ? ListView.separated(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: state.events.length,
+                            separatorBuilder: (context, index) =>
+                                const SizedBox(
+                              height: 20,
+                            ),
+                            itemBuilder: (context, i) => PrimaryCard(
+                              onTap: () {
+                                Navigator.of(context)
+                                    .pushNamed(Routes.detailsPage);
+                              },
+                              imgPath: 'static/4-orange.png',
+                              title:
+                                  '${state.events[i].categoryType.name} «${state.events[i].name}»',
+                              date:
+                                  '${DateFormat('dd MMMM').format(state.events[i].startDate)} — ${DateFormat('dd MMMM yyyy').format(state.events[i].endDate)}',
+                              ageLimit:
+                                  'от ${state.events[i].minAge} до ${state.events[i].maxAge} лет',
+                              location:
+                                  '${state.events[i].city}, ${state.events[i].union.shortName}',
+                              description: state.events[i].shortDescription,
+                            ),
+                          )
+                        : const CupertinoActivityIndicator(),
                   ],
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
-                PrimaryCard(
-                  onTap: () {},
-                  state: eventCardStates[1],
-                  imgPath: A.assetsCardImgExample,
-                  title: 'Слет «Файер»',
-                  date: '14-17 февраля 2023',
-                  ageLimit: 'от 15 до 18 лет',
-                  location: 'Москва, ЦО',
-                  description:
-                      'Туристский слёт самое любимое, интересное и массовое  мероприятие, которое пользуется большой популярностью у детей и взрослых.',
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                PrimaryCard(
-                  onTap: () {},
-                  state: eventCardStates[0],
-                  imgPath: A.assetsCardImgExample,
-                  title: 'Слет «Файер»',
-                  date: '14-17 февраля 2023',
-                  ageLimit: 'от 15 до 18 лет',
-                  location: 'Москва, ЦО',
-                  description:
-                      'Туристский слёт самое любимое, интересное и массовое  мероприятие, которое пользуется большой популярностью у детей и взрослых.',
-                ),
-              ],
-            ),
-          ),
-        )
-      ],
+              ),
+            )
+          ],
+        );
+      },
     );
   }
 }

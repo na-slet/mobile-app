@@ -109,7 +109,16 @@ class ProfilePageMobile extends StatelessWidget {
         }
 
         return (state is ProfileLoading)
-            ? const Center(child: CupertinoActivityIndicator())
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(S.current.updating),
+                  const SizedBox(
+                    height: 4,
+                  ),
+                  const CupertinoActivityIndicator(),
+                ],
+              )
             : SingleChildScrollView(
                 child: Container(
                   color: Colors.white,

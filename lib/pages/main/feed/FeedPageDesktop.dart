@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:intl/intl.dart';
+import 'package:naslet/pages/main/details/DetailsPage.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../ui/Cards.dart';
@@ -54,8 +55,12 @@ class FeedPageDesktop extends StatelessWidget {
                                   state.events.length,
                                   (i) => PrimaryCard(
                                     onTap: () {
-                                      Navigator.of(context)
-                                          .pushNamed(Routes.detailsPage);
+                                      Navigator.of(context).push(
+                                        CupertinoPageRoute(
+                                            builder: (context) => DetailsPage(
+                                                  event: state.events[i],
+                                                )),
+                                      );
                                     },
                                     imgPath: 'static/4-orange.png',
                                     title:

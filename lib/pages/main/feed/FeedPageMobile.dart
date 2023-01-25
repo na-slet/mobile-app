@@ -10,6 +10,7 @@ import '../../../services/GradientService.dart';
 import '../../../ui/Cards.dart';
 import '../../../utils/Assets.dart';
 import '../../../utils/Routes.dart';
+import '../details/DetailsPage.dart';
 import 'bloc/feed_bloc.dart';
 
 class FeedPageMobile extends StatelessWidget {
@@ -66,8 +67,12 @@ class FeedPageMobile extends StatelessWidget {
                             ),
                             itemBuilder: (context, i) => PrimaryCard(
                               onTap: () {
-                                Navigator.of(context)
-                                    .pushNamed(Routes.detailsPage);
+                                Navigator.of(context).push(
+                                  CupertinoPageRoute(
+                                      builder: (context) => DetailsPage(
+                                            event: state.events[i],
+                                          )),
+                                );
                               },
                               imgPath: 'static/4-orange.png',
                               title:

@@ -21,7 +21,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       } else if (event is ProfileLoadUser) {
         emit(ProfileLoaded(user: await _loadUser()));
       } else if (event is ProfileUpdateUser) {
-        _updateUser(data: {
+        emit(ProfileLoading());
+        await _updateUser(data: {
           'first_name': event.firstName,
           'last_name': event.lastName,
           'middle_name': event.middleName,
@@ -33,6 +34,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           'birth_date': event.birthDate,
           'union_id': event.union,
         });
+        emit(ProfileLoaded(user: await _loadUser()));
       }
     });
   }

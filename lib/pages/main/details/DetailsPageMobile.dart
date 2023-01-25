@@ -1,19 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
+import 'package:intl/intl.dart';
 
 import '../../../generated/l10n.dart';
+import '../../../models/Event.dart';
 import '../../../services/ColorService.dart';
 import '../../../services/GradientService.dart';
 import '../../../ui/Buttons.dart';
 import '../../../ui/Cards.dart';
 import '../../../ui/Map.dart';
 import '../../../utils/Assets.dart';
-import '../../../utils/Routes.dart';
 
 class DetailsPageMobile extends StatelessWidget {
-  DetailsPageMobile({Key? key}) : super(key: key);
   final colorService = Injector().get<ColorService>();
+  final Event event;
+
+  DetailsPageMobile({Key? key, required this.event}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,7 @@ class DetailsPageMobile extends StatelessWidget {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: ImgCircleButton(
-                          onTap: () {},
+                          onTap: () => Navigator.pop(context),
                           height: 30,
                           width: 30,
                           widthImg: 16,
@@ -71,27 +74,26 @@ class DetailsPageMobile extends StatelessWidget {
                 ),
                 DetailCard(
                   onTap: () {},
-                  onMapTap: () => Navigator.push(
-                    context,
-                    CupertinoModalPopupRoute(
-                      builder: (context) => MapOpendBlock(
-                        onTapCloseButton: () {
-                          Navigator.pop(context);
-                        },
-                      ),
+                  onMapTap: () =>
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(
+                      S.current.mapUnavailableError,
+                      textAlign: TextAlign.center,
                     ),
-                  ),
+                    behavior: SnackBarBehavior.floating,
+                  )),
                   state: 0,
-                  title: 'Слёт «Файер»',
-                  date: '14-17 февраля 2023',
-                  ageLimit: 'от 15 до 18 лет',
-                  eventType: 'Молодежный слёт',
-                  locationType: 'Центральное объединение',
-                  location: 'Рождественский бул., 20, Москва',
-                  imgPath: '',
-                  description:
-                      'Туристский слёт самое любимое, интересное и массовое внеклассное мероприятие, которое пользуется большой популярностью у детей и взрослых.',
-                  endRegistration: '12 февраля 2023',
+                  title: '${event.categoryType.name} «${event.name}»',
+                  date:
+                      '${DateFormat('dd MMMM').format(event.startDate)} — ${DateFormat('dd MMMM yyyy').format(event.endDate)}',
+                  ageLimit: 'от ${event.minAge} до ${event.maxAge} лет',
+                  eventType:
+                      '${event.eventType.name} ${event.categoryType.name.toLowerCase()}',
+                  locationType: event.union.name,
+                  location: '${event.address}, ${event.city}',
+                  description: event.description,
+                  endRegistration:
+                      DateFormat('dd MMMM yyyy').format(event.regEndDate),
                 ),
               ],
             ),

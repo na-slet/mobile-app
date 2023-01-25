@@ -69,7 +69,7 @@ class _MainPageState extends State<MainPage> {
                 builder = (BuildContext context) => ProfilePage();
                 break;
               default:
-                builder = (BuildContext context) => DetailsPage();
+                builder = (BuildContext context) => FeedPage();
                 break;
             }
             return MaterialPageRoute(

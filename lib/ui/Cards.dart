@@ -186,7 +186,6 @@ class DetailCard extends StatelessWidget {
   final String eventType;
   final String location;
   final String locationType;
-  final String imgPath;
   final String description;
   final String endRegistration;
   final VoidCallback onTap;
@@ -201,7 +200,6 @@ class DetailCard extends StatelessWidget {
     required this.eventType,
     required this.locationType,
     required this.location,
-    required this.imgPath,
     required this.description,
     required this.endRegistration,
     this.state = 0,
@@ -511,7 +509,6 @@ class DetailCardDesktop extends StatelessWidget {
   final String eventType;
   final String location;
   final String locationType;
-  final String imgPath;
   final String description;
   final String endRegistration;
   final int state;
@@ -525,7 +522,6 @@ class DetailCardDesktop extends StatelessWidget {
     required this.eventType,
     required this.locationType,
     required this.location,
-    required this.imgPath,
     required this.description,
     required this.endRegistration,
     required this.state,

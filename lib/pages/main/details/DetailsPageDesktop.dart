@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 import '../../../generated/l10n.dart';
+import '../../../models/Event.dart';
 import '../../../services/ColorService.dart';
 import '../../../services/GradientService.dart';
 import '../../../ui/Buttons.dart';
@@ -11,9 +11,10 @@ import '../../../utils/Assets.dart';
 import '../../../utils/ScreenSize.dart';
 
 class DetailsPageDesktop extends StatelessWidget {
-  DetailsPageDesktop({Key? key}) : super(key: key);
-
+  final Event event;
   final colorService = Injector().get<ColorService>();
+
+  DetailsPageDesktop({Key? key, required this.event}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +85,6 @@ class DetailsPageDesktop extends StatelessWidget {
                     eventType: 'Молодежный слёт',
                     locationType: 'Центральное объединение',
                     location: 'Рождественский бул., 20, Москва',
-                    imgPath: '',
                     description:
                         'Туристский слёт самое любимое, интересное и массовое внеклассное мероприятие, которое пользуется большой популярностью у детей и взрослых.',
                     endRegistration: '12 февраля 2023',

@@ -1,9 +1,10 @@
 enum EventType {
-  scout('SCOUT'),
-  teenager('TEENAGER'),
-  family('FAMILY'),
-  junior('JUNIOR');
+  scout('SCOUT', 'Следопытский'),
+  teenager('TEENAGER', 'Подростковый'),
+  family('FAMILY', 'Семейный'),
+  junior('JUNIOR', 'Молодежный');
 
   final String val;
-  const EventType(this.val);
+  final String name;
+  const EventType(this.val, this.name);
 }

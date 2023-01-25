@@ -10,6 +10,7 @@ import '../../../services/GradientService.dart';
 import '../../../ui/Cards.dart';
 import '../../../utils/Assets.dart';
 import '../../../utils/Routes.dart';
+import '../details/DetailsPage.dart';
 import 'bloc/events_bloc.dart';
 
 class EventsPageMobile extends StatelessWidget {
@@ -89,10 +90,15 @@ class EventsPageMobile extends StatelessWidget {
                             ),
                             itemBuilder: (context, i) => PrimaryCard(
                               onTap: () {
-                                Navigator.of(context)
-                                    .pushNamed(Routes.detailsPage);
+                                Navigator.of(context).push(CupertinoPageRoute(
+                                    builder: (context) => DetailsPage(
+                                          event: state.events[i],
+                                        )));
                               },
                               imgPath: 'static/4-orange.png',
+                              state: (state.events[i].stage == 'APPROVED')
+                                  ? eventCardStates[2]
+                                  : eventCardStates[1],
                               title:
                                   '${state.events[i].categoryType.name} «${state.events[i].name}»',
                               date:

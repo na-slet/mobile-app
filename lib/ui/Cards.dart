@@ -299,7 +299,6 @@ class DetailCard extends StatelessWidget {
 
       //в обработке
       PrimaryButton(
-        onTap: () {},
         gradient: colorService.inProgressGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -322,7 +321,6 @@ class DetailCard extends StatelessWidget {
 
       //збронировано
       PrimaryButton(
-        onTap: () {},
         gradient: colorService.bookedGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -617,7 +615,6 @@ class DetailCardDesktop extends StatelessWidget {
 
       //в обработке
       PrimaryButton(
-        onTap: () {},
         gradient: colorService.inProgressGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -640,7 +637,6 @@ class DetailCardDesktop extends StatelessWidget {
 
       //збронировано
       PrimaryButton(
-        onTap: () {},
         gradient: colorService.bookedGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

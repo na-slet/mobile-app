@@ -102,7 +102,12 @@ class DetailsPageMobile extends StatelessWidget {
                         ),
                         behavior: SnackBarBehavior.floating,
                       )),
-                      state: 0,
+                      state: (event.stage == 'APPROVED')
+                          ? 3
+                          : (event.stage == 'PAYMENT_PENDING' ||
+                                  event.stage == 'PAYMENT_NEEDED')
+                              ? 2
+                              : 0,
                       title: '${event.categoryType.name} «${event.name}»',
                       date:
                           '${DateFormat('dd MMMM').format(event.startDate)} — ${DateFormat('dd MMMM yyyy').format(event.endDate)}',

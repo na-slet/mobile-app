@@ -24,6 +24,7 @@ class Event {
   final String address;
   final double latitude;
   final double longitude;
+  final String? stage;
 
   Event({
     required this.id,
@@ -44,29 +45,34 @@ class Event {
     required this.address,
     required this.latitude,
     required this.longitude,
+    this.stage,
   });
 
   factory Event.fromMap(Map<String, dynamic> map) {
     return Event(
-      id: map['id'] as String,
-      name: map['name'] as String,
-      description: map['description'] as String,
-      shortDescription: map['short_description'] as String,
-      logoVariant: map['logo_variant'] as String,
-      city: map['city'] as String,
-      regEndDate: DateTime.parse(map['reg_end_date'] as String),
-      startDate: DateTime.parse(map['start_date'] as String),
-      endDate: DateTime.parse(map['end_date'] as String),
-      eventType: EventType.values.firstWhere((e) => e.val == map['event_type']),
-      categoryType:
-          CategoryType.values.firstWhere((e) => e.val == map['category_type']),
-      union: Union.allUnions[map['union_id']]!,
-      minAge: map['min_age'] as int,
-      maxAge: map['max_age'] as int,
-      price: map['price'] as int,
-      address: map['address'] as String,
-      latitude: map['latitude'] as double,
-      longitude: map['longitude'] as double,
+      id: map['event']['id'] as String,
+      name: map['event']['name'] as String,
+      description: map['event']['description'] as String,
+      shortDescription: map['event']['short_description'] as String,
+      logoVariant: map['event']['logo_variant'] as String,
+      city: map['event']['city'] as String,
+      regEndDate: DateTime.parse(map['event']['reg_end_date'] as String),
+      startDate: DateTime.parse(map['event']['start_date'] as String),
+      endDate: DateTime.parse(map['event']['end_date'] as String),
+      eventType: EventType.values
+          .firstWhere((e) => e.val == map['event']['event_type']),
+      categoryType: CategoryType.values
+          .firstWhere((e) => e.val == map['event']['category_type']),
+      union: Union.allUnions[map['event']['union_id']]!,
+      minAge: map['event']['min_age'] as int,
+      maxAge: map['event']['max_age'] as int,
+      price: map['event']['price'] as int,
+      address: map['event']['address'] as String,
+      latitude: map['event']['latitude'] as double,
+      longitude: map['event']['longitude'] as double,
+      stage: map['participation'] != null
+          ? map['participation']['participation_stage'] as String
+          : null,
     );
   }
 

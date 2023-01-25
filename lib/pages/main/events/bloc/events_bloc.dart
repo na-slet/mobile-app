@@ -32,7 +32,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
     if (response != '') {
       try {
         List<Event> events = List<Event>.generate(
-            response.length, (i) => Event.fromMap(response[i]['event']));
+            response.length, (i) => Event.fromMap(response[i]));
 
         return events;
       } catch (e) {

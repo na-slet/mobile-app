@@ -88,6 +88,9 @@ class EventsPageDesktop extends StatelessWidget {
                                               )),
                                     );
                                   },
+                                  state: (state.events[i].stage == 'APPROVED')
+                                      ? eventCardStates[2]
+                                      : eventCardStates[1],
                                   imgPath: 'static/4-orange.png',
                                   title:
                                       '${state.events[i].categoryType.name} «${state.events[i].name}»',

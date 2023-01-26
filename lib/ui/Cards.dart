@@ -620,7 +620,7 @@ class DetailCardDesktop extends StatelessWidget {
     final List<Widget> detailButtonStates = [
       //участвовать
       PrimaryButton(
-        onTap: () {},
+        onTap: onTap,
         gradient: colorService.primaryGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

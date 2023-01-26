@@ -22,7 +22,7 @@ class Event {
   final Union union;
   final int minAge;
   final int maxAge;
-  final int price;
+  final double price;
   final String address;
   final double latitude;
   final double longitude;
@@ -68,7 +68,7 @@ class Event {
       union: Union.allUnions[map['event']['union_id']]!,
       minAge: map['event']['min_age'] as int,
       maxAge: map['event']['max_age'] as int,
-      price: map['event']['price'] as int,
+      price: map['event']['price'] as double,
       address: map['event']['address'] as String,
       latitude: map['event']['latitude'] as double,
       longitude: map['event']['longitude'] as double,

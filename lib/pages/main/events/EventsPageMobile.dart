@@ -67,10 +67,13 @@ class EventsPageMobile extends StatelessWidget {
                             ),
                             itemBuilder: (context, i) => PrimaryCard(
                               onTap: () {
-                                Navigator.of(context).push(CupertinoPageRoute(
+                                Navigator.of(context).push(
+                                  CupertinoPageRoute(
                                     builder: (context) => DetailsPage(
-                                          event: state.events[i],
-                                        )));
+                                      event: state.events[i],
+                                    ),
+                                  ),
+                                );
                               },
                               imgPath: 'static/4-orange.png',
                               state: state.events[i].state,

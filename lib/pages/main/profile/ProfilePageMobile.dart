@@ -33,18 +33,18 @@ class ProfilePageMobile extends StatelessWidget {
           ? '0${(i + 1).toString()}'
           : (i + 1).toString());
   Map<String, String> monthList = {
-    '01': S.current.January,
-    '02': S.current.February,
-    '03': S.current.March,
-    '04': S.current.April,
-    '05': S.current.May,
-    '06': S.current.June,
-    '07': S.current.July,
-    '08': S.current.August,
-    '09': S.current.September,
-    '10': S.current.October,
-    '11': S.current.November,
-    '12': S.current.December,
+    '01': S.current.january,
+    '02': S.current.february,
+    '03': S.current.march,
+    '04': S.current.april,
+    '05': S.current.may,
+    '06': S.current.june,
+    '07': S.current.july,
+    '08': S.current.august,
+    '09': S.current.september,
+    '10': S.current.october,
+    '11': S.current.november,
+    '12': S.current.december,
   };
   List<String> yearList = List<String>.generate(
       (DateTime.now().year - 1900) + 1,
@@ -201,13 +201,16 @@ class ProfilePageMobile extends StatelessWidget {
                                     child: EditButton(
                                         onTap: () {
                                           ScaffoldMessenger.of(context)
-                                              .showSnackBar(SnackBar(
-                                            content: Text(
-                                              S.current.avatarChangingError,
-                                              textAlign: TextAlign.center,
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                S.current.avatarChangingError,
+                                                textAlign: TextAlign.center,
+                                              ),
+                                              behavior:
+                                                  SnackBarBehavior.floating,
                                             ),
-                                            behavior: SnackBarBehavior.floating,
-                                          ));
+                                          );
                                         },
                                         color: colorService.primaryColor(),
                                         imgPath:

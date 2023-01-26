@@ -79,6 +79,8 @@ class ProfilePageDesktop extends StatelessWidget {
               .pushNamedAndRemoveUntil(Routes.signInPage, (route) => false);
         }
       },
+      buildWhen: (previous, current) =>
+          previous.runtimeType != current.runtimeType,
       builder: (context, state) {
         if (state is ProfileLoaded) {
           _textFormNameController.text = state.user.firstName ?? '';

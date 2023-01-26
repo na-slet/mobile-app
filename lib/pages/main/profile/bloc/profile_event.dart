@@ -4,7 +4,11 @@ part of 'profile_bloc.dart';
 @immutable
 abstract class ProfileEvent {}
 
-class ProfileLoadUser extends ProfileEvent {}
+class ProfileLoadUser extends ProfileEvent {
+  final User user;
+
+  ProfileLoadUser({required this.user});
+}
 
 class ProfileUpdateUser extends ProfileEvent {
   final String firstName;

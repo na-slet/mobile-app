@@ -83,49 +83,21 @@ class ProfilePageMobile extends StatelessWidget {
           previous.runtimeType != current.runtimeType,
       builder: (context, state) {
         if (state is ProfileLoaded) {
-          _textFormNameController.text =
-              _textFormNameController.value.text == ''
-                  ? state.user.firstName ?? ''
-                  : _textFormNameController.value.text;
-          _textFormSurnameController.text =
-              _textFormSurnameController.value.text == ''
-                  ? state.user.lastName ?? ''
-                  : _textFormSurnameController.value.text;
-          _textFormPatronymicController.text =
-              _textFormPatronymicController.value.text == ''
-                  ? state.user.middleName ?? ''
-                  : _textFormPatronymicController.value.text;
-          _textFormCityController.text =
-              _textFormCityController.value.text == ''
-                  ? state.user.city ?? ''
-                  : _textFormCityController.value.text;
-          _textFormContactController.text =
-              _textFormContactController.value.text == ''
-                  ? state.user.phone ?? ''
-                  : _textFormContactController.value.text;
-          _textFormParentsContactController.text =
-              _textFormParentsContactController.value.text == ''
-                  ? state.user.parentPhone ?? ''
-                  : _textFormParentsContactController.value.text;
-          _textFormInitialsController.text =
-              _textFormParentsContactController.value.text == ''
-                  ? state.user.parentFIO ?? ''
-                  : _textFormParentsContactController.value.text;
-          _textFormEmailController.text =
-              _textFormEmailController.value.text == ''
-                  ? state.user.email
-                  : _textFormEmailController.value.text;
+          _textFormNameController.text = state.user.firstName ?? '';
+          _textFormSurnameController.text = state.user.lastName ?? '';
+          _textFormPatronymicController.text = state.user.middleName ?? '';
+          _textFormCityController.text = state.user.city ?? '';
+          _textFormContactController.text = state.user.phone ?? '';
+          _textFormParentsContactController.text = state.user.parentPhone ?? '';
+          _textFormInitialsController.text = state.user.parentFIO ?? '';
+          _textFormEmailController.text = state.user.email;
 
           if (state.user.birthDate != null) {
             List<String> birthDate = state.user.birthDate!.split('-');
 
-            dateListActive =
-                (dateListActive == dateList[0]) ? birthDate[2] : dateList[0];
-            monthListActive = (monthListActive == monthList['01']!)
-                ? monthList[birthDate[1]]!
-                : monthList['01']!;
-            yearListActive =
-                (yearListActive == yearList[0]) ? birthDate[0] : yearList[0];
+            dateListActive = birthDate[2];
+            monthListActive = monthList[birthDate[1]]!;
+            yearListActive = birthDate[0];
           }
 
           unificationActive = (state.user.union != null)

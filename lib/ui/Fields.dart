@@ -107,8 +107,7 @@ class ProfilePageTextField extends StatelessWidget {
             cursorColor: colorService.primaryColor(),
             controller: controller,
             obscureText: obscureText,
-            onEditingComplete: () {},
-            onSubmitted: (str) {},
+            // validator: validator,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
                 borderSide:

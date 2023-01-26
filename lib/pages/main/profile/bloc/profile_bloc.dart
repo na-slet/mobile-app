@@ -1,3 +1,5 @@
+import 'dart:js_util';
+
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -14,12 +16,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc({
     required this.authService,
   }) : super(ProfileLoading()) {
+    _loadUser().then((value) => this.add(ProfileLoadUser(user: value)));
     on<ProfileEvent>((event, emit) async {
       if (event is ProfileLogoutEvent) {
         await authService.signOut();
         emit(ProfileLogoutState());
       } else if (event is ProfileLoadUser) {
-        emit(ProfileLoaded(user: await _loadUser()));
+        emit(ProfileLoaded(user: event.user));
       } else if (event is ProfileUpdateUser) {
         emit(ProfileLoading());
         await _updateUser(data: {

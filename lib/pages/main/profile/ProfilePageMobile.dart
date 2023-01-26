@@ -79,7 +79,9 @@ class ProfilePageMobile extends StatelessWidget {
               .pushNamedAndRemoveUntil(Routes.signInPage, (route) => false);
         }
       },
+      buildWhen: (previous, current) => previous != current,
       builder: (context, state) {
+        print(state);
         if (state is ProfileLoaded) {
           _textFormNameController.text = state.user.firstName ?? '';
           _textFormSurnameController.text = state.user.lastName ?? '';

@@ -24,7 +24,8 @@ class FeedPageDesktop extends StatelessWidget {
           child: FractionallySizedBox(
             widthFactor: widthFactorFeedPageDesktop(context),
             child: ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
+              constraints:
+                  BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -32,8 +33,8 @@ class FeedPageDesktop extends StatelessWidget {
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 20),
                     child: Column(
                       children: [
                         Row(
@@ -65,6 +66,7 @@ class FeedPageDesktop extends StatelessWidget {
                                       );
                                     },
                                     imgPath: 'static/4-orange.png',
+                                    state: state.events[i].state,
                                     title:
                                         '${state.events[i].categoryType.name} «${state.events[i].name}»',
                                     date:
@@ -73,7 +75,8 @@ class FeedPageDesktop extends StatelessWidget {
                                         'от ${state.events[i].minAge} до ${state.events[i].maxAge} лет',
                                     location:
                                         '${state.events[i].city}, ${state.events[i].union.shortName}',
-                                    description: state.events[i].shortDescription,
+                                    description:
+                                        state.events[i].shortDescription,
                                   ),
                                 ))
                             : const Center(

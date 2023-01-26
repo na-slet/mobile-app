@@ -77,6 +77,7 @@ class FeedPageMobile extends StatelessWidget {
                                 );
                               },
                               imgPath: 'static/4-orange.png',
+                              state: state.events[i].state,
                               title:
                                   '${state.events[i].categoryType.name} «${state.events[i].name}»',
                               date:

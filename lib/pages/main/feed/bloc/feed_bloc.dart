@@ -14,10 +14,10 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
   FeedBloc({
     required this.authService,
   }) : super(FeedLoading()) {
+    _loadEvents().then((value) => add(FeedLoadEvent(events: value)));
     on<FeedEvent>((event, emit) async {
       if (event is FeedLoadEvent) {
-        List<Event> events = await _loadEvents();
-        emit(FeedLoaded(events: events));
+        emit(FeedLoaded(events: event.events));
       }
     });
   }

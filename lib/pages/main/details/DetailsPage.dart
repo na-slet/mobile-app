@@ -21,21 +21,14 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          DetailBloc(authService: authService, eventId: event.id),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          if (MediaQuery.of(context).size.width < WidthFormFactor.tablet) {
-            return DetailsPageMobile(
-              event: event,
-            );
-          } else {
-            return DetailsPageDesktop(
-              event: event,
-            );
-          }
-        },
-      ),
-    );
+        create: (context) =>
+            DetailBloc(authService: authService, eventId: event.id),
+        child: (MediaQuery.of(context).size.width < WidthFormFactor.tablet)
+            ? DetailsPageMobile(
+                event: event,
+              )
+            : DetailsPageDesktop(
+                event: event,
+              ));
   }
 }

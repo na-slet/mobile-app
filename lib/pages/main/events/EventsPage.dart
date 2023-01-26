@@ -16,17 +16,9 @@ class EventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => EventsBloc(authService: authService),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          context.read<EventsBloc>().add(EventsLoadEvent());
-          if (MediaQuery.of(context).size.width < WidthFormFactor.tablet) {
-            return EventsPageMobile();
-          } else {
-            return EventsPageDesktop();
-          }
-        },
-      ),
-    );
+        create: (context) => EventsBloc(authService: authService),
+        child: (MediaQuery.of(context).size.width < WidthFormFactor.tablet)
+            ? EventsPageMobile()
+            : EventsPageDesktop());
   }
 }

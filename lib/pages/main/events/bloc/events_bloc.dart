@@ -16,10 +16,10 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
   EventsBloc({
     required this.authService,
   }) : super(EventsLoading()) {
+    _loadEvents().then((value) => add(EventsLoadEvent(events: value)));
     on<EventsEvent>((event, emit) async {
       if (event is EventsLoadEvent) {
-        List<Event> events = await _loadEvents();
-        emit(EventsLoaded(events: events));
+        emit(EventsLoaded(events: event.events));
       }
     });
   }

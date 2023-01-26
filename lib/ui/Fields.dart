@@ -100,7 +100,7 @@ class ProfilePageTextField extends StatelessWidget {
         ),
         SizedBox(
           height: height,
-          child: TextFormField(
+          child: TextField(
             keyboardType: textInputType,
             autofocus: autofocus,
             readOnly: readonly,

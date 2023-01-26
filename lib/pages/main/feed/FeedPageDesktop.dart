@@ -23,15 +23,17 @@ class FeedPageDesktop extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 25),
           child: FractionallySizedBox(
             widthFactor: widthFactorFeedPageDesktop(context),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-              ),
-              child: SingleChildScrollView(
-                child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 20),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                ),
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                     child: Column(
                       children: [
                         Row(
@@ -71,15 +73,16 @@ class FeedPageDesktop extends StatelessWidget {
                                         'от ${state.events[i].minAge} до ${state.events[i].maxAge} лет',
                                     location:
                                         '${state.events[i].city}, ${state.events[i].union.shortName}',
-                                    description:
-                                        state.events[i].shortDescription,
+                                    description: state.events[i].shortDescription,
                                   ),
                                 ))
                             : const Center(
                                 child: CupertinoActivityIndicator(),
                               ),
                       ],
-                    )),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),

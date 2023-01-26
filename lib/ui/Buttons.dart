@@ -166,7 +166,10 @@ class ImgCircleButton extends StatelessWidget {
           Container(
             width: widthImg,
             height: heightImg,
-            child: Image.asset(imgPath),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Image.asset(imgPath),
+            ),
           ),
           Positioned.fill(
             child: Material(

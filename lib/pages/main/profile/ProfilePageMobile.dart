@@ -224,6 +224,7 @@ class ProfilePageMobile extends StatelessWidget {
                             height: 20,
                           ),
                           ProfilePageTextField(
+                            textInputType: TextInputType.text,
                             controller: _textFormSurnameController,
                             lableText:
                                 S.current.profilePageSurnameFieldLabelText,
@@ -233,6 +234,7 @@ class ProfilePageMobile extends StatelessWidget {
                             height: 5,
                           ),
                           ProfilePageTextField(
+                            textInputType: TextInputType.text,
                             controller: _textFormNameController,
                             lableText: S.current.profilePageNameFieldLabelText,
                             hintText: S.current.profilePageNameFieldHintText,
@@ -241,6 +243,7 @@ class ProfilePageMobile extends StatelessWidget {
                             height: 5,
                           ),
                           ProfilePageTextField(
+                            textInputType: TextInputType.text,
                             controller: _textFormPatronymicController,
                             lableText:
                                 S.current.profilePagePatronymicFieldLabelText,
@@ -251,6 +254,7 @@ class ProfilePageMobile extends StatelessWidget {
                             height: 5,
                           ),
                           ProfilePageTextField(
+                            textInputType: TextInputType.phone,
                             controller: _textFormContactController,
                             lableText:
                                 S.current.profilePageContactFieldLabelText,
@@ -260,6 +264,7 @@ class ProfilePageMobile extends StatelessWidget {
                             height: 5,
                           ),
                           ProfilePageTextField(
+                            textInputType: TextInputType.emailAddress,
                             controller: _textFormEmailController,
                             lableText: S.current.profilePageEmailFieldLabelText,
                             hintText: S.current.profilePageEmailFieldHintText,
@@ -324,6 +329,7 @@ class ProfilePageMobile extends StatelessWidget {
                             height: 5,
                           ),
                           ProfilePageTextField(
+                            textInputType: TextInputType.text,
                             controller: _textFormInitialsController,
                             lableText:
                                 S.current.profilePageInitialsFieldLabelText,
@@ -334,6 +340,7 @@ class ProfilePageMobile extends StatelessWidget {
                             height: 5,
                           ),
                           ProfilePageTextField(
+                            textInputType: TextInputType.phone,
                             controller: _textFormParentsContactController,
                             lableText: S.current
                                 .profilePageParentsContactFieldLabelText,
@@ -371,6 +378,7 @@ class ProfilePageMobile extends StatelessWidget {
                             height: 5,
                           ),
                           ProfilePageTextField(
+                            textInputType: TextInputType.text,
                             controller: _textFormCityController,
                             lableText: S.current.profilePageCityFieldLabelText,
                             hintText: S.current.profilePageCityFieldHintText,

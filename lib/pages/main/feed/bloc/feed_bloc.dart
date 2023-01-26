@@ -3,12 +3,17 @@ import 'package:meta/meta.dart';
 import 'package:naslet/models/Event.dart';
 
 import '../../../../services/APIService.dart';
+import '../../../../services/AuthService.dart';
 
 part 'feed_event.dart';
 part 'feed_state.dart';
 
 class FeedBloc extends Bloc<FeedEvent, FeedState> {
-  FeedBloc() : super(FeedLoading()) {
+  final AuthService authService;
+
+  FeedBloc({
+    required this.authService,
+  }) : super(FeedLoading()) {
     on<FeedEvent>((event, emit) async {
       if (event is FeedLoadEvent) {
         List<Event> events = await _loadEvents();
@@ -18,7 +23,9 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
   }
 
   Future<List<Event>> _loadEvents() async {
-    var response = await APIService.getRequest(request: 'events');
+    var response = await APIService.getRequest(
+        request: 'events',
+        queryParameters: {'access_token': authService.token});
 
     if (response != '') {
       try {

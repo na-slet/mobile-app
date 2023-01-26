@@ -73,9 +73,11 @@ class Event {
       latitude: map['event']['latitude'] as double,
       longitude: map['event']['longitude'] as double,
       state: map['participation'] != null
-          ? EventState.values.firstWhere((element) =>
-              element.serverName ==
-              map['participation']['participation_stage'] as String)
+          ? map['participation']['participation_stage'] != null
+              ? EventState.values.firstWhere((element) =>
+                  element.serverName ==
+                  map['participation']['participation_stage'] as String)
+              : null
           : null,
     );
   }

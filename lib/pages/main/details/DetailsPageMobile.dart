@@ -34,17 +34,18 @@ class DetailsPageMobile extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        return SingleChildScrollView(
-          child: Stack(
-            children: <Widget>[
-              SizedBox(
-                width: double.infinity,
-                child: Image.asset(
-                  A.assetsBackgroundFeed,
-                  fit: BoxFit.fitWidth,
-                ),
+        return Stack(
+          children: <Widget>[
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 1.2,
+              width: double.infinity,
+              child: Image.asset(
+                A.assetsBackgroundFeed,
+                fit: BoxFit.fitWidth,
               ),
-              Padding(
+            ),
+            SingleChildScrollView(
+              child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 27, vertical: 30),
                 child: Column(
@@ -96,13 +97,25 @@ class DetailsPageMobile extends StatelessWidget {
                                   .add(DetailParticipateEvent());
                             },
                       onMapTap: () =>
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(
-                          S.current.mapUnavailableError,
-                          textAlign: TextAlign.center,
+                          ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            S.current.mapUnavailableError,
+                            textAlign: TextAlign.center,
+                          ),
+                          behavior: SnackBarBehavior.floating,
                         ),
-                        behavior: SnackBarBehavior.floating,
-                      )),
+                      ),
+                      // onMapTap: () => Navigator.push(
+                      //   context,
+                      //   CupertinoModalPopupRoute(
+                      //     builder: (context) => MapOpendBlock(
+                      //       onTapCloseButton: () {
+                      //         Navigator.pop(context);
+                      //       },
+                      //     ),
+                      //   ),
+                      // ),
                       state: event.state ?? EventState.notParticipated,
                       title: '${event.categoryType.name} «${event.name}»',
                       date:
@@ -112,15 +125,16 @@ class DetailsPageMobile extends StatelessWidget {
                           '${event.eventType.name} ${event.categoryType.name.toLowerCase()}',
                       locationType: event.union.name,
                       location: '${event.address}, ${event.city}',
+                      price: '${event.price} ₽',
                       description: event.description,
                       endRegistration:
                           DateFormat('dd MMMM yyyy').format(event.regEndDate),
                     ),
                   ],
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         );
       },
     );

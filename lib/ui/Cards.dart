@@ -7,6 +7,7 @@ import '../generated/l10n.dart';
 import '../models/EventState.dart';
 import '../services/ColorService.dart';
 import 'package:gradient_borders/gradient_borders.dart';
+import '../services/GradientService.dart';
 import '../utils/Assets.dart';
 import '../utils/ScreenSize.dart';
 import 'Buttons.dart';
@@ -211,6 +212,7 @@ class DetailCard extends StatelessWidget {
   final VoidCallback onTap;
   final VoidCallback onMapTap;
   final EventState state;
+  final String price;
 
   DetailCard({
     Key? key,
@@ -225,6 +227,7 @@ class DetailCard extends StatelessWidget {
     this.state = EventState.notParticipated,
     required this.onTap,
     required this.onMapTap,
+    required this.price,
   }) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
@@ -443,6 +446,32 @@ class DetailCard extends StatelessWidget {
               ),
               Row(
                 children: <Widget>[
+                  GradinetLeftToRight(
+                    blendMode: BlendMode.srcIn,
+                    color: colorService.primaryGradient(),
+                    child: SizedBox(
+                      width: widthInfoIcon,
+                      height: heightInfoIcon + 3,
+                      child: Image.asset(
+                        A.assetsEventPriceIcon,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 6,
+                  ),
+                  Text(
+                    price,
+                    style: infoTextStyle,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                width: 2,
+              ),
+              Row(
+                children: <Widget>[
                   SizedBox(
                       width: widthInfoIcon,
                       height: heightInfoIcon,
@@ -542,6 +571,7 @@ class DetailCardDesktop extends StatelessWidget {
   final String description;
   final String endRegistration;
   final EventState state;
+  final String price;
 
   DetailCardDesktop({
     Key? key,
@@ -555,6 +585,7 @@ class DetailCardDesktop extends StatelessWidget {
     required this.description,
     required this.endRegistration,
     this.state = EventState.notParticipated,
+    required this.price,
   }) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
@@ -783,6 +814,32 @@ class DetailCardDesktop extends StatelessWidget {
                       ),
                       Text(
                         ageLimit,
+                        style: infoTextStyle,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 6,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      GradinetLeftToRight(
+                        blendMode: BlendMode.srcIn,
+                        color: colorService.primaryGradient(),
+                        child: SizedBox(
+                          width: widthInfoIcon,
+                          height: heightInfoIcon + 3,
+                          child: Image.asset(
+                            A.assetsEventPriceIcon,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text(
+                        price,
                         style: infoTextStyle,
                       ),
                     ],

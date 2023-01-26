@@ -43,7 +43,7 @@
     "profilePageNameFieldHintText": "Введите имя",
     "profilePagePatronymicFieldLabelText": "Отчество",
     "profilePagePatronymicFieldHintText": "Введите отчество",
-    "profilePageContactFieldLabelText": "Контакты",
+    "profilePageContactFieldLabelText": "Номер телефона",
     "profilePageContactFieldHintText": "Введите номер телефона",
     "profilePageEmailFieldLabelText": "Эл. почта",
     "profilePageEmailFieldHintText": "Введите эл. почту",

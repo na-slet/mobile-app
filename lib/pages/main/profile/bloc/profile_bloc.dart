@@ -1,5 +1,3 @@
-import 'dart:js_util';
-
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -16,7 +14,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc({
     required this.authService,
   }) : super(ProfileLoading()) {
-    _loadUser().then((value) => this.add(ProfileLoadUser(user: value)));
+    _loadUser().then((value) => add(ProfileLoadUser(user: value)));
     on<ProfileEvent>((event, emit) async {
       if (event is ProfileLogoutEvent) {
         await authService.signOut();

@@ -104,7 +104,7 @@ class SignUpPage extends StatelessWidget {
                                           if (value == null || value.isEmpty) {
                                             return S.current.emailError;
                                           } else if (!RegExp(
-                                                  r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                               .hasMatch(value)) {
                                             return S.current.emailError2;
                                           }

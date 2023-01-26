@@ -119,44 +119,53 @@ class ProfilePageDesktop extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
               ),
-              child: (state is ProfileLoading)
-                  ? const Center(child: CupertinoActivityIndicator())
-                  : SingleChildScrollView(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 25),
-                        child: Column(
-                          children: [
-                            Row(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            S.current.profilePageTitleText,
+                            style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          ImgCircleButton(
+                            onTap: () {
+                              context
+                                  .read<ProfileBloc>()
+                                  .add(ProfileLogoutEvent());
+                            },
+                            width: 40,
+                            height: 40,
+                            widthImg: 14,
+                            heightImg: 18,
+                            imgPath: A.assetsProfilePageLeaveIcon,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      (state is ProfileLoading)
+                          ? Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  S.current.profilePageTitleText,
-                                  style: const TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                                ),
+                                Text(S.current.updating),
                                 const SizedBox(
-                                  width: 20,
+                                  height: 4,
                                 ),
-                                ImgCircleButton(
-                                  onTap: () {
-                                    context
-                                        .read<ProfileBloc>()
-                                        .add(ProfileLogoutEvent());
-                                  },
-                                  width: 40,
-                                  height: 40,
-                                  widthImg: 14,
-                                  heightImg: 18,
-                                  imgPath: A.assetsProfilePageLeaveIcon,
-                                ),
+                                const CupertinoActivityIndicator(),
                               ],
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Row(
+                            )
+                          : Row(
                               children: <Widget>[
                                 SizedBox(
                                   width: columnWidth,
@@ -400,35 +409,34 @@ class ProfilePageDesktop extends StatelessWidget {
                                       PrimaryButton(
                                         onTap: () {
                                           context.read<ProfileBloc>().add(ProfileUpdateUser(
-                                              firstName:
-                                              _textFormNameController.value.text,
+                                              firstName: _textFormNameController
+                                                  .value.text,
                                               lastName: _textFormSurnameController
                                                   .value.text,
-                                              middleName:
-                                              _textFormPatronymicController
+                                              middleName: _textFormPatronymicController
                                                   .value.text,
                                               phone: _textFormContactController
                                                   .value.text,
                                               parentPhone:
-                                              _textFormParentsContactController
-                                                  .value.text,
+                                                  _textFormParentsContactController
+                                                      .value.text,
                                               parentFIO: _textFormInitialsController
                                                   .value.text,
-                                              email:
-                                              _textFormEmailController.value.text,
-                                              city:
-                                              _textFormCityController.value.text,
+                                              email: _textFormEmailController
+                                                  .value.text,
+                                              city: _textFormCityController
+                                                  .value.text,
                                               birthDate:
-                                              '${yearController.selectedValue}-${monthList.keys.firstWhere((k) => monthList[k] == monthController.selectedValue)}-${dateController.selectedValue}',
+                                                  '${yearController.selectedValue}-${monthList.keys.firstWhere((k) => monthList[k] == monthController.selectedValue)}-${dateController.selectedValue}',
                                               union: Union.allUnions.values
                                                   .firstWhere((element) =>
-                                              element.name ==
-                                                  unificationController
-                                                      .selectedValue)
+                                                      element.name ==
+                                                      unificationController.selectedValue)
                                                   .id));
                                         },
                                         height: 41,
-                                        title: S.current.profilePageSaveButtonText,
+                                        title:
+                                            S.current.profilePageSaveButtonText,
                                         gradient: colorService.bookedGradient(),
                                         textStyle: const TextStyle(
                                           fontSize: 16,
@@ -452,10 +460,10 @@ class ProfilePageDesktop extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
         );

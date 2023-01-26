@@ -24,8 +24,9 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
         String answer = await _participateEvent();
         if (answer != '') {
           emit(DetailSuccess(message: answer));
+        } else {
+          emit(DetailError(message: S.current.maybeWithoutProfileError));
         }
-        emit(DetailError(message: S.current.tryAgainError));
       }
     });
   }
@@ -37,7 +38,17 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
         data: {'id': eventId});
 
     if (response != '') {
-      return S.current.detailButtonStateBooked;
+      var response = await APIService.postRequest(
+          request: 'user/event/payment',
+          queryParameters: {
+            'access_token': authService.token,
+            'event_id': eventId
+          });
+      if (response != '') {
+        return S.current.detailButtonStateBooked;
+      } else {
+        return '';
+      }
     } else {
       return '';
     }

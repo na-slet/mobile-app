@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../models/Event.dart';
+import '../../../models/EventState.dart';
 import '../../../services/ColorService.dart';
 import '../../../services/GradientService.dart';
 import '../../../ui/Buttons.dart';
@@ -97,12 +98,7 @@ class DetailsPageDesktop extends StatelessWidget {
                                     .read<DetailBloc>()
                                     .add(DetailParticipateEvent());
                               },
-                        state: (event.stage == 'APPROVED')
-                            ? 3
-                            : (event.stage == 'PAYMENT_PENDING' ||
-                                    event.stage == 'PAYMENT_NEEDED')
-                                ? 2
-                                : 0,
+                        state: event.state ?? EventState.notParticipated,
                         title: '${event.categoryType.name} «${event.name}»',
                         date:
                             '${DateFormat('dd MMMM').format(event.startDate)} — ${DateFormat('dd MMMM yyyy').format(event.endDate)}',

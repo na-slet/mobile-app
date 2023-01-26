@@ -4,6 +4,7 @@ import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:naslet/services/APIService.dart';
 
 import '../generated/l10n.dart';
+import '../models/EventState.dart';
 import '../services/ColorService.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import '../utils/Assets.dart';
@@ -19,7 +20,7 @@ class PrimaryCard extends StatelessWidget {
   final String location;
   final String imgPath;
   final String description;
-  final Widget? state;
+  final EventState? state;
 
   PrimaryCard({
     Key? key,
@@ -51,6 +52,25 @@ class PrimaryCard extends StatelessWidget {
         // fontStyle: FontStyle.italic,
         fontWeight: FontWeight.w400,
         color: colorService.cardTitleTextColor());
+
+    final Map<EventState, Widget> eventCardStates = {
+      EventState.paymentNeeded: Image.asset(
+        A.assetsWaitPaymentEventCardStateIcon,
+        color: colorService.logOutBottomColor(),
+      ),
+      EventState.awaiting: Image.asset(
+        A.assetsInProgressEventCardStateIcon,
+        color: colorService.inProgressEventCardStateColor(),
+      ),
+      EventState.approved: Image.asset(
+        A.assetsDoneEventCardStateIcon,
+        color: colorService.doneEventCardStateColor(),
+      ),
+      EventState.closed: Image.asset(
+        A.assetsLockedEventCardStateIcon,
+        color: colorService.bottomNavigationBarInactiveColor(),
+      ),
+    };
 
     return GestureDetector(
       onTap: onTap,
@@ -88,7 +108,7 @@ class PrimaryCard extends StatelessWidget {
                           : SizedBox(
                               width: 19,
                               height: 19,
-                              child: state,
+                              child: eventCardStates[state],
                             )),
                 ],
               ),
@@ -190,7 +210,7 @@ class DetailCard extends StatelessWidget {
   final String endRegistration;
   final VoidCallback onTap;
   final VoidCallback onMapTap;
-  final int state;
+  final EventState state;
 
   DetailCard({
     Key? key,
@@ -202,7 +222,7 @@ class DetailCard extends StatelessWidget {
     required this.location,
     required this.description,
     required this.endRegistration,
-    this.state = 0,
+    this.state = EventState.notParticipated,
     required this.onTap,
     required this.onMapTap,
   }) : super(key: key);
@@ -375,7 +395,7 @@ class DetailCard extends StatelessWidget {
                 child: SizedBox(
                   width: 16,
                   height: 19,
-                  child: detailCardStates[state],
+                  child: detailCardStates[state.index],
                 ),
               ),
             ],
@@ -494,7 +514,7 @@ class DetailCard extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          detailButtonStates[state],
+          detailButtonStates[state.index],
           SizedBox(
             height: 5,
           ),
@@ -521,7 +541,7 @@ class DetailCardDesktop extends StatelessWidget {
   final String locationType;
   final String description;
   final String endRegistration;
-  final int state;
+  final EventState state;
 
   DetailCardDesktop({
     Key? key,
@@ -534,7 +554,7 @@ class DetailCardDesktop extends StatelessWidget {
     required this.location,
     required this.description,
     required this.endRegistration,
-    required this.state,
+    this.state = EventState.notParticipated,
   }) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
@@ -709,7 +729,7 @@ class DetailCardDesktop extends StatelessWidget {
                       Container(
                         width: 20,
                         height: 20,
-                        child: detailCardStates[state],
+                        child: detailCardStates[state.index],
                       )
                     ],
                   ),
@@ -841,7 +861,7 @@ class DetailCardDesktop extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      detailButtonStates[state],
+                      detailButtonStates[state.index],
                       SizedBox(
                         height: 5,
                       ),

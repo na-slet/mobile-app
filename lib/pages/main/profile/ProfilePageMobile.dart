@@ -385,7 +385,7 @@ class ProfilePageMobile extends StatelessWidget {
                                   parentPhone: _textFormParentsContactController
                                       .value.text,
                                   parentFIO:
-                                      _textFormInitialsController.value.text,
+                                      '${_textFormInitialsController.value.text}  ',
                                   email: _textFormEmailController.value.text,
                                   city: _textFormCityController.value.text,
                                   birthDate:

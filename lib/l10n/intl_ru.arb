@@ -30,6 +30,7 @@
     "tryAgainError": "Ошибка! Попробуйте еще раз. Если вы считаете что все правильно напишите нам - t.me/nasletru",
     "avatarChangingError": "Смена фотографии недоступна. Задать вопрос можно здесь - t.me/nasletru",
     "mapUnavailableError": "Карта недоступна. Задать вопрос можно здесь - t.me/nasletru",
+    "maybeWithoutProfileError": "Ошибка! Проверьте, заполнены ли все поля в вашем профиле либо вы уже участвуете. Если вы считаете что все правильно напишите нам - t.me/nasletru",
 
     "navBarFeedTabTitleText": "Лента",
     "navBarMyTourTabTitleText": "Мои слёты",

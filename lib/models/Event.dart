@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:naslet/models/EventState.dart';
+
 import 'CategoryType.dart';
 import 'EventType.dart';
 import 'Union.dart';
@@ -24,7 +26,7 @@ class Event {
   final String address;
   final double latitude;
   final double longitude;
-  final String? stage;
+  final EventState? state;
 
   Event({
     required this.id,
@@ -45,7 +47,7 @@ class Event {
     required this.address,
     required this.latitude,
     required this.longitude,
-    this.stage,
+    this.state,
   });
 
   factory Event.fromMap(Map<String, dynamic> map) {
@@ -70,8 +72,10 @@ class Event {
       address: map['event']['address'] as String,
       latitude: map['event']['latitude'] as double,
       longitude: map['event']['longitude'] as double,
-      stage: map['participation'] != null
-          ? map['participation']['participation_stage'] as String
+      state: map['participation'] != null
+          ? EventState.values.firstWhere((element) =>
+              element.serverName ==
+              map['participation']['participation_stage'] as String)
           : null,
     );
   }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:intl/intl.dart';
+import 'package:naslet/models/EventState.dart';
 import 'package:naslet/utils/Routes.dart';
 
 import '../../../generated/l10n.dart';
@@ -102,12 +103,7 @@ class DetailsPageMobile extends StatelessWidget {
                         ),
                         behavior: SnackBarBehavior.floating,
                       )),
-                      state: (event.stage == 'APPROVED')
-                          ? 3
-                          : (event.stage == 'PAYMENT_PENDING' ||
-                                  event.stage == 'PAYMENT_NEEDED')
-                              ? 2
-                              : 0,
+                      state: event.state ?? EventState.notParticipated,
                       title: '${event.categoryType.name} «${event.name}»',
                       date:
                           '${DateFormat('dd MMMM').format(event.startDate)} — ${DateFormat('dd MMMM yyyy').format(event.endDate)}',

@@ -19,29 +19,6 @@ class EventsPageMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> eventCardStates = [
-      //участвовать
-      Image.asset(
-        A.assetsWaitPaymentEventCardStateIcon,
-        color: colorService.logOutBottomColor(),
-      ),
-      //прикрепить скрин
-      Image.asset(
-        A.assetsInProgressEventCardStateIcon,
-        color: colorService.inProgressEventCardStateColor(),
-      ),
-      //в обработке
-      Image.asset(
-        A.assetsDoneEventCardStateIcon,
-        color: colorService.doneEventCardStateColor(),
-      ),
-      //збронировано
-      Image.asset(
-        A.assetsLockedEventCardStateIcon,
-        color: colorService.bottomNavigationBarInactiveColor(),
-      ),
-    ];
-
     return BlocBuilder<EventsBloc, EventsState>(
       builder: (context, state) {
         return Stack(
@@ -96,9 +73,7 @@ class EventsPageMobile extends StatelessWidget {
                                         )));
                               },
                               imgPath: 'static/4-orange.png',
-                              state: (state.events[i].stage == 'APPROVED')
-                                  ? eventCardStates[2]
-                                  : eventCardStates[1],
+                              state: state.events[i].state,
                               title:
                                   '${state.events[i].categoryType.name} «${state.events[i].name}»',
                               date:

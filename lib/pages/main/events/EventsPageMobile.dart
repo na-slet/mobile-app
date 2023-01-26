@@ -24,6 +24,7 @@ class EventsPageMobile extends StatelessWidget {
         return Stack(
           children: <Widget>[
             SizedBox(
+              height: MediaQuery.of(context).size.height * 1.2,
               width: double.infinity,
               child: Image.asset(
                 A.assetsBackgroundFeed,

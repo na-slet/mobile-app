@@ -107,6 +107,7 @@ class DetailsPageDesktop extends StatelessWidget {
                             '${event.eventType.name} ${event.categoryType.name.toLowerCase()}',
                         locationType: event.union.name,
                         location: '${event.address}, ${event.city}',
+                        price: '${event.price} ₽',
                         description: event.description,
                         endRegistration:
                             DateFormat('dd MMMM yyyy').format(event.regEndDate),

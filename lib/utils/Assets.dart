@@ -31,6 +31,7 @@ abstract class A {
   static const String assetsInProgressEventCardStateIcon = "assets/icons/events_page/InProgressEventCardStateIcon.png";
   static const String assetsLockedEventCardStateIcon = "assets/icons/events_page/LockedEventCardStateIcon.png";
   static const String assetsWaitPaymentEventCardStateIcon = "assets/icons/events_page/WaitPaymentEventCardStateIcon.png";
+  static const String assetsEventPriceIcon = "assets/icons/card_icon/MoneyIcon.png";
 
   static const String assetsMapExampleImg = "assets/images/map/MapExample.png";
   static const String assetsMapCloseIcon = "assets/icons/map/MapCloseIcon.png";

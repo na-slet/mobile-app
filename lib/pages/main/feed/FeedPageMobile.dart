@@ -24,6 +24,7 @@ class FeedPageMobile extends StatelessWidget {
         return Stack(
           children: <Widget>[
             SizedBox(
+              height: MediaQuery.of(context).size.height * 1.2,
               width: double.infinity,
               child: Image.asset(
                 A.assetsBackgroundFeed,
@@ -69,9 +70,10 @@ class FeedPageMobile extends StatelessWidget {
                               onTap: () {
                                 Navigator.of(context).push(
                                   CupertinoPageRoute(
-                                      builder: (context) => DetailsPage(
-                                            event: state.events[i],
-                                          )),
+                                    builder: (context) => DetailsPage(
+                                      event: state.events[i],
+                                    ),
+                                  ),
                                 );
                               },
                               imgPath: 'static/4-orange.png',

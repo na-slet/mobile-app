@@ -73,6 +73,25 @@ class MapOpendBlock extends StatelessWidget {
   }) : super(key: key);
   final colorService = Injector().get<ColorService>();
 
+  final MapObject mapObject = PlacemarkMapObject(
+    mapId: MapObjectId('normal_icon_placemark'),
+    point: Point(latitude: 0.0, longitude: 0.0),
+    onTap: (PlacemarkMapObject self, Point point) =>
+        print('Tapped me at $point'),
+    opacity: 0.7,
+    direction: 90,
+    isDraggable: true,
+    onDragStart: (_) => print('Drag start'),
+    onDrag: (_, Point point) => print('Drag at point $point'),
+    onDragEnd: (_) => print('Drag end'),
+    icon: PlacemarkIcon.single(
+      PlacemarkIconStyle(
+        image: BitmapDescriptor.fromAssetImage('lib/assets/icons/place.png'),
+        rotationType: RotationType.rotate,
+      ),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -93,7 +112,7 @@ class MapOpendBlock extends StatelessWidget {
                     child: (defaultTargetPlatform == TargetPlatform.iOS ||
                             defaultTargetPlatform == TargetPlatform.android)
                         ? Expanded(
-                            child: YandexMap(),
+                            child: YandexMap(mapObjects: [mapObject]),
                           )
                         : Image.asset(
                             (MediaQuery.of(context).size.width <=

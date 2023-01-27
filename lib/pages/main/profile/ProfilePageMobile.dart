@@ -135,8 +135,8 @@ class ProfilePageMobile extends StatelessWidget {
                     },
                     width: 40,
                     height: 40,
-                    widthImg: 14,
-                    heightImg: 18,
+                    widthImg: 28,
+                    heightImg: 24,
                     imgPath: A.assetsProfilePageLeaveIcon,
                   ),
                 )

@@ -144,6 +144,7 @@ class ImgCircleButton extends StatelessWidget {
   final VoidCallback onTap;
   final double widthImg;
   final double heightImg;
+ final   EdgeInsetsGeometry paddingImg;
 
   ImgCircleButton({
     Key? key,
@@ -153,6 +154,7 @@ class ImgCircleButton extends StatelessWidget {
     required this.onTap,
     this.widthImg = 20,
     this.heightImg = 20,
+    this.paddingImg = EdgeInsets.zero,
   }) : super(key: key);
 
   @override
@@ -167,7 +169,7 @@ class ImgCircleButton extends StatelessWidget {
             width: widthImg,
             height: heightImg,
             child: Padding(
-              padding: const EdgeInsets.only(top: 4),
+              padding: paddingImg,
               child: Image.asset(imgPath),
             ),
           ),

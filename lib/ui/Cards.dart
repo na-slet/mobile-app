@@ -188,8 +188,8 @@ class PrimaryCard extends StatelessWidget {
                 onTap: onTap,
                 height: 40,
                 width: 40,
-                widthImg: 16,
-                heightImg: 12,
+                widthImg: 25,
+                heightImg: 20,
                 imgPath: A.assetsPrimaryCardRightArrowIcon,
               ),
             )

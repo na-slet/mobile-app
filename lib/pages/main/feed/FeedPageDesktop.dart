@@ -34,7 +34,9 @@ class FeedPageDesktop extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 20),
+                      horizontal: 30,
+                      vertical: 20,
+                    ),
                     child: Column(
                       children: [
                         Row(

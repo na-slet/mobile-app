@@ -236,8 +236,10 @@ class DetailCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle detailButtonTextStyle = TextStyle(
-        color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600);
-
+      color: Colors.white,
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+    );
     final TextStyle infoTextStyle = TextStyle(
         fontSize: 14,
         fontStyle: FontStyle.italic,
@@ -254,7 +256,7 @@ class DetailCard extends StatelessWidget {
         A.assetsParticipateDetailButtonState,
         color: colorService.primaryColor(),
       ),
-      EventState.notParticipated: Image.asset(
+      EventState.paymentNeeded: Image.asset(
         A.assetsScanShareDetailButtonState,
         color: colorService.logOutBottomColor(),
       ),
@@ -583,7 +585,7 @@ class DetailCardDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Map<EventState, Widget> detailCardStates = {
-     EventState.notParticipated: Image.asset(
+      EventState.notParticipated: Image.asset(
         A.assetsParticipateDetailButtonState,
         color: colorService.primaryColor(),
       ),
@@ -850,7 +852,8 @@ class DetailCardDesktop extends StatelessWidget {
                           behavior: SnackBarBehavior.floating,
                         ));
                       },
-                      height: 185),
+                      height: 185,
+                  ),
                   SizedBox(
                     height: 10,
                   ),

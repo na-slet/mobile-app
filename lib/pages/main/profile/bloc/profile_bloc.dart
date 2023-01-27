@@ -23,18 +23,34 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         emit(ProfileLoaded(user: event.user));
       } else if (event is ProfileUpdateUser) {
         emit(ProfileLoading());
-        await _updateUser(data: {
-          'first_name': event.firstName,
-          'last_name': event.lastName,
-          'middle_name': event.middleName,
-          'phone': event.phone,
-          'parent_phone': event.parentPhone,
-          'parent_fio': event.parentFIO,
-          'email': event.email,
-          'city': event.city,
-          'birth_date': event.birthDate,
-          'union_id': event.union,
-        });
+        Map<String, String> data = {};
+        if (event.firstName != '') {
+          data.addAll({'first_name': event.firstName});
+        }
+        if (event.lastName != '') {
+          data.addAll({'last_name': event.lastName});
+        }
+        if (event.middleName != '') {
+          data.addAll({'middle_name': event.middleName});
+        }
+        if (event.phone != '') {
+          data.addAll({'phone': event.phone});
+        }
+        if (event.parentPhone != '') {
+          data.addAll({'parent_phone': event.parentPhone});
+        }
+        if (event.parentFIO != '') {
+          data.addAll({'parent_fio': event.parentFIO});
+        }
+        if (event.email != '') {
+          data.addAll({'email': event.email});
+        }
+        if (event.city != '') {
+          data.addAll({'city': event.city});
+        }
+        data.addAll({'birth_date': event.birthDate});
+        data.addAll({'union_id': event.union});
+        await _updateUser(data: data);
         emit(ProfileLoaded(user: await _loadUser()));
       }
     });

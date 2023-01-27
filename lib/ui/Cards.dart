@@ -47,13 +47,11 @@ class PrimaryCard extends StatelessWidget {
         fontStyle: FontStyle.italic,
         fontWeight: FontWeight.w400,
         color: colorService.cardInfoTextColor());
-
     final TextStyle descriptionTextStyle = TextStyle(
         fontSize: 14,
         // fontStyle: FontStyle.italic,
         fontWeight: FontWeight.w400,
         color: colorService.cardTitleTextColor());
-
     final Map<EventState, Widget> eventCardStates = {
       EventState.paymentNeeded: Image.asset(
         A.assetsWaitPaymentEventCardStateIcon,
@@ -251,31 +249,26 @@ class DetailCard extends StatelessWidget {
         fontWeight: FontWeight.w400,
         color: colorService.cardTitleTextColor());
 
-    final List<Widget> detailCardStates = [
-      //участвовать
-      Image.asset(
+    final Map<EventState, Widget> detailCardStates = {
+      EventState.notParticipated: Image.asset(
         A.assetsParticipateDetailButtonState,
         color: colorService.primaryColor(),
       ),
-      //прикрепить скрин
-      Image.asset(
+      EventState.notParticipated: Image.asset(
         A.assetsScanShareDetailButtonState,
         color: colorService.logOutBottomColor(),
       ),
-      //в обработке
-      Image.asset(
+      EventState.awaiting: Image.asset(
         A.assetsInProgressDetailButtonState,
         color: colorService.inProgressEventCardStateColor(),
       ),
-      //збронировано
-      Image.asset(
+      EventState.approved: Image.asset(
         A.assetsBookedDetailButtonState,
         color: colorService.doneEventCardStateColor(),
       ),
-    ];
-    final List<Widget> detailButtonStates = [
-      //участвовать
-      PrimaryButton(
+    };
+    final Map<EventState, Widget> detailButtonStates = {
+      EventState.notParticipated: PrimaryButton(
         onTap: onTap,
         gradient: colorService.primaryGradient(),
         child: Row(
@@ -296,9 +289,7 @@ class DetailCard extends StatelessWidget {
           ],
         ),
       ),
-
-      //прикрепить скрин
-      PrimaryButton(
+      EventState.paymentNeeded: PrimaryButton(
         onTap: () {},
         gradient: colorService.logOutGradient(),
         child: Row(
@@ -319,9 +310,7 @@ class DetailCard extends StatelessWidget {
           ],
         ),
       ),
-
-      //в обработке
-      PrimaryButton(
+      EventState.awaiting: PrimaryButton(
         gradient: colorService.inProgressGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -341,9 +330,7 @@ class DetailCard extends StatelessWidget {
           ],
         ),
       ),
-
-      //збронировано
-      PrimaryButton(
+      EventState.approved: PrimaryButton(
         gradient: colorService.bookedGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -363,7 +350,7 @@ class DetailCard extends StatelessWidget {
           ],
         ),
       ),
-    ];
+    };
 
     return Container(
       decoration: BoxDecoration(
@@ -398,7 +385,7 @@ class DetailCard extends StatelessWidget {
                 child: SizedBox(
                   width: 16,
                   height: 19,
-                  child: detailCardStates[state.index],
+                  child: detailCardStates[state],
                 ),
               ),
             ],
@@ -543,7 +530,7 @@ class DetailCard extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          detailButtonStates[state.index],
+          detailButtonStates[state]!,
           SizedBox(
             height: 5,
           ),
@@ -595,31 +582,26 @@ class DetailCardDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> detailCardStates = [
-      //участвовать
-      Image.asset(
+    final Map<EventState, Widget> detailCardStates = {
+     EventState.notParticipated: Image.asset(
         A.assetsParticipateDetailButtonState,
         color: colorService.primaryColor(),
       ),
-      //прикрепить скрин
-      Image.asset(
+      EventState.paymentNeeded: Image.asset(
         A.assetsScanShareDetailButtonState,
         color: colorService.logOutBottomColor(),
       ),
-      //в обработке
-      Image.asset(
+      EventState.awaiting: Image.asset(
         A.assetsInProgressDetailButtonState,
         color: colorService.inProgressEventCardStateColor(),
       ),
-      //збронировано
-      Image.asset(
+      EventState.approved: Image.asset(
         A.assetsBookedDetailButtonState,
         color: colorService.doneEventCardStateColor(),
       ),
-    ];
-    final List<Widget> detailButtonStates = [
-      //участвовать
-      PrimaryButton(
+    };
+    final Map<EventState, Widget> detailButtonStates = {
+      EventState.notParticipated: PrimaryButton(
         onTap: onTap,
         gradient: colorService.primaryGradient(),
         child: Row(
@@ -640,9 +622,7 @@ class DetailCardDesktop extends StatelessWidget {
           ],
         ),
       ),
-
-      //прикрепить скрин
-      PrimaryButton(
+      EventState.paymentNeeded: PrimaryButton(
         onTap: () {},
         gradient: colorService.logOutGradient(),
         child: Row(
@@ -663,9 +643,7 @@ class DetailCardDesktop extends StatelessWidget {
           ],
         ),
       ),
-
-      //в обработке
-      PrimaryButton(
+      EventState.awaiting: PrimaryButton(
         gradient: colorService.inProgressGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -685,9 +663,7 @@ class DetailCardDesktop extends StatelessWidget {
           ],
         ),
       ),
-
-      //збронировано
-      PrimaryButton(
+      EventState.approved: PrimaryButton(
         gradient: colorService.bookedGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -707,7 +683,7 @@ class DetailCardDesktop extends StatelessWidget {
           ],
         ),
       ),
-    ];
+    };
 
     final TextStyle infoTextStyle = TextStyle(
         fontSize: 14,
@@ -760,7 +736,7 @@ class DetailCardDesktop extends StatelessWidget {
                       Container(
                         width: 20,
                         height: 20,
-                        child: detailCardStates[state.index],
+                        child: detailCardStates[state]!,
                       )
                     ],
                   ),
@@ -918,7 +894,7 @@ class DetailCardDesktop extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      detailButtonStates[state.index],
+                      detailButtonStates[state]!,
                       SizedBox(
                         height: 5,
                       ),

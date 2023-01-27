@@ -11,10 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d5b5c669-ba16-4f3b-ab74-da9ced88c087" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/main/details/DetailsPageDesktop.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main/details/DetailsPageDesktop.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/main/feed/FeedPageDesktop.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main/feed/FeedPageDesktop.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/Buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/Buttons.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/Cards.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/Cards.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/main/profile/ProfilePageDesktop.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main/profile/ProfilePageDesktop.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/main/profile/ProfilePageMobile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/main/profile/ProfilePageMobile.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

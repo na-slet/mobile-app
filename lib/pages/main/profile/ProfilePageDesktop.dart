@@ -126,7 +126,7 @@ class ProfilePageDesktop extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 20,
+                        width: 15,
                       ),
                       ImgCircleButton(
                         onTap: () {
@@ -134,8 +134,9 @@ class ProfilePageDesktop extends StatelessWidget {
                         },
                         width: 40,
                         height: 40,
-                        widthImg: 14,
-                        heightImg: 18,
+                        widthImg: 30,
+                        heightImg: 26,
+                        paddingImg: const EdgeInsets.only(top: 4),
                         imgPath: A.assetsProfilePageLeaveIcon,
                       ),
                     ],

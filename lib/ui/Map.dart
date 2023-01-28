@@ -38,9 +38,14 @@ class _MapBlockState extends State<MapBlock> {
 
   @override
   Widget build(BuildContext context) {
+    final Point point = Point(
+      latitude: widget.latitude,
+      longitude: widget.longitude,
+    );
+
     final MapObject mapObject = PlacemarkMapObject(
       mapId: MapObjectId('normal_icon_placemark'),
-      point: Point(latitude: widget.latitude, longitude: widget.latitude),
+      point: point,
       opacity: 1,
       direction: 90,
       isDraggable: false,
@@ -52,35 +57,30 @@ class _MapBlockState extends State<MapBlock> {
       ),
     );
 
-    final Point point =
-        Point(latitude: widget.latitude, longitude: widget.longitude);
-
     return SizedBox(
       height: widget.height,
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Positioned.fill(
+          SizedBox(
             child: (defaultTargetPlatform == TargetPlatform.iOS ||
                     defaultTargetPlatform == TargetPlatform.android)
                 ? YandexMap(
                     mapObjects: mapObjects,
                     onMapCreated:
                         (YandexMapController yandexMapController) async {
-                      print('${widget.longitude} ${widget.latitude}');
                       controller = yandexMapController;
-                      final cameraPosition =
-                          await controller.getCameraPosition();
                       await controller.moveCamera(
                           CameraUpdate.newCameraPosition(
-                              CameraPosition(target: point)),
-                          animation: animation);
-                      setState(() {
-                        mapObjects.add(mapObject);
-                      });
+                              CameraPosition(target: point)));
+                      setState(
+                        () {
+                          mapObjects.add(mapObject);
+                        },
+                      );
                     },
                   )
-                : Image.asset(A.assetsMapExampleImg, fit: BoxFit.fitWidth),
+                : Positioned.fill(child: Image.asset(A.assetsMapExampleImg, fit: BoxFit.fitWidth)),
           ),
           Positioned.fill(
             child: Material(
@@ -140,9 +140,13 @@ class _MapOpendBlockState extends State<MapOpendBlock> {
 
   @override
   Widget build(BuildContext context) {
+
+    final Point point =
+    Point(latitude: widget.latitude, longitude: widget.longitude);
+
     final MapObject mapObject = PlacemarkMapObject(
       mapId: MapObjectId('normal_icon_placemark'),
-      point: Point(latitude: widget.latitude, longitude: widget.latitude),
+      point: point,
       opacity: 1,
       direction: 90,
       isDraggable: false,
@@ -153,9 +157,6 @@ class _MapOpendBlockState extends State<MapOpendBlock> {
         ),
       ),
     );
-
-    final Point point =
-        Point(latitude: widget.latitude, longitude: widget.longitude);
 
     return Padding(
       padding: const EdgeInsets.only(top: 25, bottom: 25),
@@ -174,24 +175,22 @@ class _MapOpendBlockState extends State<MapOpendBlock> {
                     height: widget.height,
                     child: (defaultTargetPlatform == TargetPlatform.iOS ||
                             defaultTargetPlatform == TargetPlatform.android)
-                        ? Expanded(
-                            child: YandexMap(
-                              mapObjects: mapObjects,
-                              onMapCreated: (YandexMapController
-                                  yandexMapController) async {
-                                controller = yandexMapController;
-                                final cameraPosition =
-                                    await controller.getCameraPosition();
-                                await controller.moveCamera(
-                                    CameraUpdate.newCameraPosition(
-                                        CameraPosition(target: point)),
-                                    animation: animation);
-                                setState(() {
-                                  mapObjects.add(mapObject);
-                                });
-                              },
-                            ),
-                          )
+                        ? YandexMap(
+                          mapObjects: mapObjects,
+                          onMapCreated: (YandexMapController
+                              yandexMapController) async {
+                            controller = yandexMapController;
+                            final cameraPosition =
+                                await controller.getCameraPosition();
+                            await controller.moveCamera(
+                                CameraUpdate.newCameraPosition(
+                                    CameraPosition(target: point)),
+                                animation: animation);
+                            setState(() {
+                              mapObjects.add(mapObject);
+                            });
+                          },
+                        )
                         : Image.asset(
                             (MediaQuery.of(context).size.width <=
                                     WidthFormFactor.tablet)

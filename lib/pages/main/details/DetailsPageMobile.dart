@@ -90,6 +90,8 @@ class DetailsPageMobile extends StatelessWidget {
                       height: 15,
                     ),
                     DetailCard(
+                      latitude: event.latitude,
+                      longitude: event.longitude,
                       onTap: (state is DetailLoading)
                           ? () {}
                           : () {

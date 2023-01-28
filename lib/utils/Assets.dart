@@ -36,4 +36,6 @@ abstract class A {
   static const String assetsMapExampleImg = "assets/images/map/MapExample.png";
   static const String assetsMapCloseIcon = "assets/icons/map/MapCloseIcon.png";
   static const String assetsMapExampleHightRes= "assets/images/map/MapExampleHightRes.png";
+
+  static const String assetsPlaceMapIcon = "assets/icons/map/PlaceMapIcon.png";
 }

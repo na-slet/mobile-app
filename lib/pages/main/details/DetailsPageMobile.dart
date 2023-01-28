@@ -5,6 +5,7 @@ import 'package:flutter_simple_dependency_injection/injector.dart';
 import 'package:intl/intl.dart';
 import 'package:naslet/models/EventState.dart';
 import 'package:naslet/utils/Routes.dart';
+import 'dart:io' show Platform;
 
 import '../../../generated/l10n.dart';
 import '../../../models/Event.dart';
@@ -89,6 +90,8 @@ class DetailsPageMobile extends StatelessWidget {
                       height: 15,
                     ),
                     DetailCard(
+                      latitude: event.latitude,
+                      longitude: event.longitude,
                       onTap: (state is DetailLoading)
                           ? () {}
                           : () {
@@ -96,26 +99,32 @@ class DetailsPageMobile extends StatelessWidget {
                                   .read<DetailBloc>()
                                   .add(DetailParticipateEvent());
                             },
-                      onMapTap: () =>
+                      onMapTap: () {
+                        if (Platform.isAndroid || Platform.isIOS) {
+                          Navigator.push(
+                            context,
+                            CupertinoModalPopupRoute(
+                              builder: (context) => MapOpendBlock(
+                                latitude: event.latitude,
+                                longitude: event.longitude,
+                                onTapCloseButton: () {
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ),
+                          );
+                        } else {
                           ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            S.current.mapUnavailableError,
-                            textAlign: TextAlign.center,
-                          ),
-                          behavior: SnackBarBehavior.floating,
-                        ),
-                      ),
-                      // onMapTap: () => Navigator.push(
-                      //   context,
-                      //   CupertinoModalPopupRoute(
-                      //     builder: (context) => MapOpendBlock(
-                      //       onTapCloseButton: () {
-                      //         Navigator.pop(context);
-                      //       },
-                      //     ),
-                      //   ),
-                      // ),
+                            SnackBar(
+                              content: Text(
+                                S.current.mapUnavailableError,
+                                textAlign: TextAlign.center,
+                              ),
+                              behavior: SnackBarBehavior.floating,
+                            ),
+                          );
+                        }
+                      },
                       state: event.state ?? EventState.notParticipated,
                       title: '${event.categoryType.name} «${event.name}»',
                       date:

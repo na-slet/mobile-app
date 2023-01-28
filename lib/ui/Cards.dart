@@ -211,6 +211,8 @@ class DetailCard extends StatelessWidget {
   final VoidCallback onMapTap;
   final EventState state;
   final String price;
+  final double latitude;
+  final double longitude;
 
   DetailCard({
     Key? key,
@@ -226,6 +228,8 @@ class DetailCard extends StatelessWidget {
     required this.onTap,
     required this.onMapTap,
     required this.price,
+    required this.latitude,
+    required this.longitude,
   }) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
@@ -236,8 +240,10 @@ class DetailCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle detailButtonTextStyle = TextStyle(
-        color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600);
-
+      color: Colors.white,
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+    );
     final TextStyle infoTextStyle = TextStyle(
         fontSize: 14,
         fontStyle: FontStyle.italic,
@@ -254,7 +260,7 @@ class DetailCard extends StatelessWidget {
         A.assetsParticipateDetailButtonState,
         color: colorService.primaryColor(),
       ),
-      EventState.notParticipated: Image.asset(
+      EventState.paymentNeeded: Image.asset(
         A.assetsScanShareDetailButtonState,
         color: colorService.logOutBottomColor(),
       ),
@@ -516,6 +522,8 @@ class DetailCard extends StatelessWidget {
           InkWell(
             borderRadius: BorderRadius.circular(5),
             child: MapBlock(
+              latitude: latitude,
+              longitude: longitude,
               onTap: onMapTap,
               height: 180,
             ),
@@ -559,6 +567,8 @@ class DetailCardDesktop extends StatelessWidget {
   final String endRegistration;
   final EventState state;
   final String price;
+  final double latitude;
+  final double longitude;
 
   DetailCardDesktop({
     Key? key,
@@ -573,6 +583,8 @@ class DetailCardDesktop extends StatelessWidget {
     required this.endRegistration,
     this.state = EventState.notParticipated,
     required this.price,
+    required this.latitude,
+    required this.longitude,
   }) : super(key: key);
 
   final colorService = Injector().get<ColorService>();
@@ -583,7 +595,7 @@ class DetailCardDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Map<EventState, Widget> detailCardStates = {
-     EventState.notParticipated: Image.asset(
+      EventState.notParticipated: Image.asset(
         A.assetsParticipateDetailButtonState,
         color: colorService.primaryColor(),
       ),
@@ -841,16 +853,19 @@ class DetailCardDesktop extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   MapBlock(
-                      onTap: () {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text(
-                            S.current.mapUnavailableError,
-                            textAlign: TextAlign.center,
-                          ),
-                          behavior: SnackBarBehavior.floating,
-                        ));
-                      },
-                      height: 185),
+                    latitude: latitude,
+                    longitude: longitude,
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                          S.current.mapUnavailableError,
+                          textAlign: TextAlign.center,
+                        ),
+                        behavior: SnackBarBehavior.floating,
+                      ));
+                    },
+                    height: 185,
+                  ),
                   SizedBox(
                     height: 10,
                   ),

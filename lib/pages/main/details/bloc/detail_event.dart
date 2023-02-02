@@ -4,3 +4,5 @@ part of 'detail_bloc.dart';
 abstract class DetailEvent {}
 
 class DetailParticipateEvent extends DetailEvent {}
+
+class DetailPaymentEvent extends DetailEvent {}

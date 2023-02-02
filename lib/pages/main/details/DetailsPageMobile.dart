@@ -16,6 +16,7 @@ import '../../../ui/Cards.dart';
 import '../../../ui/Map.dart';
 import '../../../utils/Assets.dart';
 import 'bloc/detail_bloc.dart';
+import 'package:flutter/foundation.dart';
 
 class DetailsPageMobile extends StatelessWidget {
   final colorService = Injector().get<ColorService>();
@@ -91,7 +92,7 @@ class DetailsPageMobile extends StatelessWidget {
                               .add(DetailParticipateEvent());
                         },
                   onMapTap: () {
-                    if (Platform.isAndroid || Platform.isIOS) {
+                    if (defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android) {
                       Navigator.push(
                         context,
                         CupertinoModalPopupRoute(

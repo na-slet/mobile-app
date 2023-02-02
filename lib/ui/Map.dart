@@ -80,7 +80,7 @@ class _MapBlockState extends State<MapBlock> {
                       );
                     },
                   )
-                : Positioned.fill(child: Image.asset(A.assetsMapExampleImg, fit: BoxFit.fitWidth)),
+                : Image.asset(A.assetsMapExampleImg, fit: BoxFit.fitWidth),
           ),
           Positioned.fill(
             child: Material(

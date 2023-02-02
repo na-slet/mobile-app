@@ -317,7 +317,7 @@ class DetailCard extends StatelessWidget {
         ),
       ),
       EventState.awaiting: PrimaryButton(
-        gradient: colorService.inProgressGradient(),
+        gradient: colorService.inactiveGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -656,7 +656,7 @@ class DetailCardDesktop extends StatelessWidget {
         ),
       ),
       EventState.awaiting: PrimaryButton(
-        gradient: colorService.inProgressGradient(),
+        gradient: colorService.inactiveGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -850,7 +850,6 @@ class DetailCardDesktop extends StatelessWidget {
             SizedBox(
               width: columnWidth,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   MapBlock(
                     latitude: latitude,

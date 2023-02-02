@@ -77,7 +77,8 @@
     "detailButtonStateParticipate": "Участвовать",
     "detailButtonStateShareScreen": "Прикрепите скрин",
     "detailButtonStateInProgress": "В обработке",
-    "detailButtonStateBooked": "Забронировано", 
+    "detailButtonStatePaymentNeeded": "Забронировано, ожидает оплаты",
+    "detailButtonStateBooked": "Оплачено, ожидает подтверждения",
 
     "eventsPageTittleText": "Мои слёты",
     "checkOnMap": "Смотреть на карте",

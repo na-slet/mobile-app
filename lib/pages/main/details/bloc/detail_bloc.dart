@@ -9,6 +9,7 @@ import '../../../../generated/l10n.dart';
 import '../../../../services/APIService.dart';
 
 part 'detail_event.dart';
+
 part 'detail_state.dart';
 
 class DetailBloc extends Bloc<DetailEvent, DetailState> {
@@ -21,27 +22,29 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
     required this.eventId,
     required this.eventState,
   }) : super(DetailInitial()) {
-    on<DetailEvent>((event, emit) async {
-      if (event is DetailParticipateEvent) {
-        emit(DetailLoading());
-        String answer = await _participateEvent();
-        if (answer != '') {
-          eventState = EventState.paymentNeeded;
-          emit(DetailSuccess(message: answer));
-        } else {
-          emit(DetailError(message: S.current.maybeWithoutProfileError));
+    on<DetailEvent>(
+      (event, emit) async {
+        if (event is DetailParticipateEvent) {
+          emit(DetailLoading());
+          String answer = await _participateEvent();
+          if (answer != '') {
+            eventState = EventState.paymentNeeded;
+            emit(DetailSuccess(message: answer));
+          } else {
+            emit(DetailError(message: S.current.maybeWithoutProfileError));
+          }
+        } else if (event is DetailPaymentEvent) {
+          emit(DetailLoading());
+          String answer = await _paymentEvent();
+          if (answer != '') {
+            eventState = EventState.awaiting;
+            emit(DetailSuccess(message: answer));
+          } else {
+            emit(DetailError(message: S.current.maybeWithoutProfileError));
+          }
         }
-      } else if (event is DetailPaymentEvent) {
-        emit(DetailLoading());
-        String answer = await _paymentEvent();
-        if (answer != '') {
-          eventState = EventState.awaiting;
-          emit(DetailSuccess(message: answer));
-        } else {
-          emit(DetailError(message: S.current.maybeWithoutProfileError));
-        }
-      }
-    });
+      },
+    );
   }
 
   Future<String> _participateEvent() async {

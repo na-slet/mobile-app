@@ -14,13 +14,20 @@ import '../../../utils/Assets.dart';
 import '../../../utils/ScreenSize.dart';
 import 'bloc/detail_bloc.dart';
 
-class DetailsPageDesktop extends StatelessWidget {
+class DetailsPageDesktop extends StatefulWidget {
   final Event event;
   final DetailState state;
   final colorService = Injector().get<ColorService>();
 
   DetailsPageDesktop({Key? key, required this.event, required this.state})
       : super(key: key);
+
+  @override
+  State<DetailsPageDesktop> createState() => _DetailsPageDesktopState();
+}
+
+class _DetailsPageDesktopState extends State<DetailsPageDesktop> {
+  bool isTaped = false;
 
   @override
   Widget build(BuildContext context) {
@@ -64,11 +71,11 @@ class DetailsPageDesktop extends StatelessWidget {
                             height: 40,
                             child: GradinetLeftToRight(
                               blendMode: BlendMode.srcIn,
-                              color: colorService.primaryGradient(),
+                              color: widget.colorService.primaryGradient(),
                               child: Text(
                                 S.current.detailPageTittleText,
                                 style: TextStyle(
-                                  color: colorService.primaryColor(),
+                                  color: widget.colorService.primaryColor(),
                                   fontSize: 24,
                                   fontWeight: FontWeight.w900,
                                 ),
@@ -83,28 +90,37 @@ class DetailsPageDesktop extends StatelessWidget {
                     height: 15,
                   ),
                   DetailCardDesktop(
-                    latitude: event.latitude,
-                    longitude: event.longitude,
-                    onTap: (state is DetailLoading)
-                        ? () {}
+                    latitude: widget.event.latitude,
+                    longitude: widget.event.longitude,
+                    onTap: (isTaped)
+                        ? () {
+                            context
+                                .read<DetailBloc>()
+                                .add(DetailPaymentEvent());
+                          }
                         : () {
                             context
                                 .read<DetailBloc>()
                                 .add(DetailParticipateEvent());
+                            setState(() {
+                              isTaped = true;
+                            });
                           },
                     state: context.read<DetailBloc>().eventState,
-                    title: '${event.categoryType.name} «${event.name}»',
+                    title:
+                        '${widget.event.categoryType.name} «${widget.event.name}»',
                     date:
-                        '${DateFormat('dd MMMM').format(event.startDate)} — ${DateFormat('dd MMMM yyyy').format(event.endDate)}',
-                    ageLimit: 'от ${event.minAge} до ${event.maxAge} лет',
+                        '${DateFormat('dd MMMM').format(widget.event.startDate)} — ${DateFormat('dd MMMM yyyy').format(widget.event.endDate)}',
+                    ageLimit:
+                        'от ${widget.event.minAge} до ${widget.event.maxAge} лет',
                     eventType:
-                        '${event.eventType.name} ${event.categoryType.name.toLowerCase()}',
-                    locationType: event.union.name,
-                    location: '${event.address}, ${event.city}',
-                    price: '${event.price} ₽',
-                    description: event.description,
-                    endRegistration:
-                        DateFormat('dd MMMM yyyy').format(event.regEndDate),
+                        '${widget.event.eventType.name} ${widget.event.categoryType.name.toLowerCase()}',
+                    locationType: widget.event.union.name,
+                    location: '${widget.event.address}, ${widget.event.city}',
+                    price: '${widget.event.price} ₽',
+                    description: widget.event.description,
+                    endRegistration: DateFormat('dd MMMM yyyy')
+                        .format(widget.event.regEndDate),
                   ),
                 ],
               ),

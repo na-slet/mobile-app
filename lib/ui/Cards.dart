@@ -635,7 +635,7 @@ class DetailCardDesktop extends StatelessWidget {
         ),
       ),
       EventState.paymentNeeded: PrimaryButton(
-        onTap: () {},
+        onTap: onTap,
         gradient: colorService.logOutGradient(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

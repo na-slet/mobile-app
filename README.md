@@ -10,6 +10,10 @@
 🔸Additionally, the application  have features such as push notifications for upcoming events, the ability to create and share events.<br />
 🔸The goal of the application is to make it easy for people to find and attend events that interest them.<br />
 
+## Exploitation
+🔹 Web  - https://naslet.ru <br />
+🔹 Android  - [APK](https://drive.google.com/file/d/1hRmK9d6oSEIFHKYqpMOg9qAMl-6SoHBr/view?usp=drivesdk)
+
 ## Application Development
 
 - *Vladislav Osin* - Team leader [@thevladoss](https://t.me/thevladoss)

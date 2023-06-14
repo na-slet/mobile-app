@@ -17,7 +17,7 @@
 ## Application Development
 
 - *Vladislav Osin* - Team leader [@thevladoss](https://t.me/thevladoss)
-- *Egor Mizyulin* - Mobile dev [@tw0ch](https://t.me/tw0ch)
+- *Egor Mizyulin* - Mobile dev [@egormzln](https://t.me/egormzln)
 - *Egor Golubev* - Backend dev [@Huscker](https://t.me/Huscker)
 - *Veronika Molotkova* - Design [@onefad](https://t.me/onefad)
 
